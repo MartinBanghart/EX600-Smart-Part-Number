@@ -1,10 +1,10 @@
 # general dependencies
 import pandas as pd
-from IPython.display import display
+#from IPython.display import display
 pd.set_option("display.max_rows", None)
-pd.set_option("display.max_columns", None)
-pd.set_option("display.width", None)
-pd.set_option("display.max_colwidth", None)
+# pd.set_option("display.max_columns", None)
+pd.set_option("display.width", 100)
+# pd.set_option("display.max_colwidth", None)
 
 
 # pydantic dependencies
@@ -255,9 +255,9 @@ try:
 
     validator_df = pd.DataFrame(manifold.model_dump().items(), columns=["Field", "Value"])
     print("\nPart number is valid.\n")
-    display(validator_df)
+    print(validator_df)
     print("-------------")
-    display(pd.DataFrame(manifold.valves))
+    #print(manifold.valves)
 
     # --- SUPER TESTY ---
     # print(manifold.porting_type)
