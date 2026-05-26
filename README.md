@@ -1,0 +1,1 @@
+![Diagram](EX600 SMART PART NUMBER HTO.svg)
