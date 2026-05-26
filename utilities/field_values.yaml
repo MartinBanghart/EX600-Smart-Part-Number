@@ -1,0 +1,4864 @@
+# ------------------------------------- < SI UNIT > -------------------------------------
+
+si_unit_symbols:
+  "0":
+    field: si_unit
+    catalog_value: "0"
+  "Q":
+    field: si_unit
+    catalog_value: "Q"
+  "N":
+    field: si_unit
+    catalog_value: "N"
+  "V":
+    field: si_unit
+    catalog_value: "V"
+  "E":
+    field: si_unit
+    catalog_value: "EB"
+  "D":
+    field: si_unit
+    catalog_value: "DA"
+  "F":
+    field: si_unit
+    catalog_value: "FA"
+  "G":
+    field: si_unit
+    catalog_value: "FB"
+  "W":
+    field: si_unit
+    catalog_value: "WS"
+
+# ---------------------------------- < ENDPLATE TYPE > ----------------------------------
+# NPN -> Positive Common
+# PNP -> Negative Common
+endplate_type_symbols:
+  "": # nil option when no si unit selected
+    field: endplate_type
+    polarity: ~
+    endplate_part_number: ~
+  "2":
+    field: endplate_type
+    polarity: NPN
+    endplate_part_number: EX600-ED2
+  "3":
+    field: endplate_type
+    polarity: PNP
+    endplate_part_number: EX600-ED3
+  "4":
+    field: endplate_type
+    polarity: NPN
+    endplate_part_number: EX600-ED2
+  "5":
+    field: endplate_type
+    polarity: PNP
+    endplate_part_number: EX600-ED3
+  "6":
+    field: endplate_type
+    polarity: NPN
+    endplate_part_number: EX600-ED4
+  "7":
+    field: endplate_type
+    polarity: PNP
+    endplate_part_number: EX600-ED4
+  "8":
+    field: endplate_type
+    polarity: NPN
+    endplate_part_number: EX600-ED5
+  "9":
+    field: endplate_type
+    polarity: PNP
+    endplate_part_number: EX600-ED5
+
+# ------------------------------------- < IO UNITS > ------------------------------------
+
+io_unit_symbols:
+  "A":
+    field: io_unit
+    io_unit_part_number: EX600-DXPC
+    polarity: "PNP"
+  "B":
+    field: io_unit
+    io_unit_part_number: EX600-DXNC
+    polarity: "NPN"
+  "C":
+    field: io_unit
+    io_unit_part_number: EX600-DXPC1
+    polarity: "PNP"
+  "D":
+    field: io_unit
+    io_unit_part_number: EX600-DXNC1
+    polarity: "NPN"
+  "E":
+    field: io_unit
+    io_unit_part_number: EX600-DXPB
+    polarity: "PNP"
+  "F":
+    field: io_unit
+    io_unit_part_number: EX600-DXNB
+    polarity: "NPN"
+  "G":
+    field: io_unit
+    io_unit_part_number: EX600-DXPD
+    polarity: "PNP"
+  "H":
+    field: io_unit
+    io_unit_part_number: EX600-DXND
+    polarity: "NPN"
+  "I":
+    field: io_unit
+    io_unit_part_number: EX600-DXPE
+    polarity: "PNP"
+  "J":
+    field: io_unit
+    io_unit_part_number: EX600-DXNE
+    polarity: "NPN"
+  "K":
+    field: io_unit
+    io_unit_part_number: EX600-DXPF
+    polarity: "PNP"
+  "L":
+    field: io_unit
+    io_unit_part_number: EX600-DXNF
+    polarity: "NPN"
+
+  # DIGITAL OUTPUT
+  "M":
+    field: io_unit
+    io_unit_part_number: EX600-DYPB
+    polarity: "PNP"
+  "N":
+    field: io_unit
+    io_unit_part_number: EX600-DYNB
+    polarity: "NPN"
+  "O":
+    field: io_unit
+    io_unit_part_number: EX600-DYPE
+    polarity: "PNP"
+  "P":
+    field: io_unit
+    io_unit_part_number: EX600-DYNE
+    polarity: "NPN"
+  "Q":
+    field: io_unit
+    io_unit_part_number: EX600-DYPF
+    polarity: "PNP"
+  "R":
+    field: io_unit
+    io_unit_part_number: EX600-DYNF
+    polarity: "NPN"
+
+  # DIGITAL INPUT/OUTPUT
+  "S":
+    field: io_unit
+    io_unit_part_number: EX600-DMPE
+    polarity: "PNP"
+  "T":
+    field: io_unit
+    io_unit_part_number: EX600-DMNE
+    polarity: "NPN"
+  "U":
+    field: io_unit
+    io_unit_part_number: EX600-DMPF
+    polarity: "PNP"
+  "V":
+    field: io_unit
+    io_unit_part_number: EX600-DMNF
+    polarity: "NPN"
+
+  # ANALOG INPUT
+  "W":
+    field: io_unit
+    io_unit_part_number: EX600-AXA
+    polarity:
+
+  # ANALOG OUTPUT
+  "X":
+    field: io_unit
+    io_unit_part_number: EX600-AYA
+    polarity:
+
+  # ANALOG INPUT/OUTPUT
+  "Y":
+    field: io_unit
+    io_unit_part_number: EX600-AMB
+    polarity:
+
+  # IO-LINK MASTER
+  "Z":
+    field: io_unit
+    io_unit_part_number: EX600-LAB1
+    polarity:
+  "1":
+    field: io_unit
+    io_unit_part_number: EX600-LBB1
+    polarity:
+
+# ------------------- < LIGHT SURGE VOLTAGE SUPPRESSOR AND COIL TYPE > ------------------
+
+lt_surge_volt_sup_and_coil_type_symbols:
+  "R":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Non-polar, Surge Voltage Suppressor"
+    lt_surge_volt_sup: "R"
+    coil_type: ""
+  "U":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Non-polar, Surge Voltage Suppressor, With Light"
+    lt_surge_volt_sup: "U"
+    coil_type: ""
+  "S":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Positive Common, Surge Voltage Suppressor"
+    lt_surge_volt_sup: "S"
+    coil_type: ""
+  "Z":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Positive Common, Surge Voltage Suppressor, With Light"
+    lt_surge_volt_sup: "Z"
+    coil_type: ""
+  "T":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Positive Common, Surge Voltage Suppressor, With Light, Power Saving Circuit"
+    lt_surge_volt_sup: "Z"
+    coil_type: "T"
+  "V":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Negative Common, Surge Voltage Suppressor"
+    lt_surge_volt_sup: "NS"
+    coil_type: ""
+  "W":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "Negative Common, Surge Voltage Suppressor, With Light, Power Saving Circuit"
+    lt_surge_volt_sup: "NZ"
+    coil_type: "T"
+  "M":
+    field: lt_surge_volt_sup_and_coil_type
+    desc: "No valves"
+    lt_surge_volt_sup: ""
+    coil_type: ""
+
+# --------------------------------- < MANUAL OVERRIDE > ---------------------------------
+man_override_symbols:
+  "":
+    field: man_override
+    desc:
+  "D":
+    field: man_override
+    desc:
+  "E":
+    field: man_override
+    desc:
+  "F":
+    field: man_override
+    desc:
+
+# ---------------------------------- < VALVE SYMBOLS > ----------------------------------
+valve_symbols:
+  AA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  AB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS CC, RUBBER SEAL"
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  AJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AO:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL EXTERNAL PILOT
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  AR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  AV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL QUICK RESPONSE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  AW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL QUICK RESPONSE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL QUICK, RESPONSE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  BH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT QUICK RESPONSE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BO:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  BP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  BU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  BW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  CC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  CH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, HIGH PRESSURE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, HIGH PRESSURE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, HIGH PRESSURE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  CM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, QUICK RESPONSE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, QUICK RESPONSE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, QUICK RESPONSE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  CS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  CW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+  DA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  DB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  DC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  DD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+  DE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  DF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  DN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  DV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  DW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  ED:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  EE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  EM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  ER:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  ES:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  ET:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  EV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  EW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -1 FITTING SIZE"
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -1 FITTING SIZE"
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -1 FITTING SIZE"
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS SGL, METAL SEAL, -1 FITTING SIZE"
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  FD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS DBL, METAL SEAL, -1 FITTING SIZE"
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS CC, METAL SEAL, -1 FITTING SIZE"
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS EC, METAL SEAL, -1 FITTING SIZE"
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS PC, METAL SEAL, -1 FITTING SIZE"
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS SGL, METAL SEAL, EXTERNAL PILOT, -1 FITTING SIZE"
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  FI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS DBL, METAL SEAL, EXTERNAL PILOT, -1 FITTING SIZE"
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS CC, METAL SEAL, EXTERNAL PILOT, -1 FITTING SIZE"
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS EC, METAL SEAL, EXTERNAL PILOT, -1 FITTING SIZE"
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "3 POS PC, METAL SEAL, EXTERNAL PILOT, -1 FITTING SIZE"
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS SGL, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE"
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  FN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: "2 POS DBL, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE"
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  FT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  FW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  GB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: False
+  GG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -1 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: False
+  GK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  GL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  GU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  GW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  HF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  HK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  HT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  HW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  ID:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  IE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  II:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  IJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  IP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  IU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  IW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  JC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  JH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: False
+  JM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -2 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: False
+  JR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  JS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  JT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  JU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  JV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  JW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  KD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  KL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: "H"
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  KR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  KW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  LC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  LK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, RUBBER SEAL, EXTERNAL PILOT, BACK PRESSURE CHECK, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: "R"
+    back_pressure_check: "H"
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  LQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  LV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  LW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  MD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  ME:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  MI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  ML:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  MN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, HIGH PRESSURE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "K"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  MT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS CC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "3"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS EC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "4"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  MW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 3 POS PC, METAL SEAL, EXTERNAL PILOT, QUICK RESPONSE, -3 FITTING SIZE
+    actuation: "5"
+    seal_type: "1"
+    pilot_type: "R"
+    back_pressure_check: ~
+    pilot_valve: "B"
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: False
+  # ----- --------- -----
+  # ----- X OPTIONS -----
+  # ----- --------- -----
+  NA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X350
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  NB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X350
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  NC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X350
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  ND:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X350, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  NE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X350, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  NF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X350, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  NG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X350, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  NH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X350, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  NI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X350, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  NJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X350, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  NK:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X350, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  NL:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X350, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  NM:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, X350
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: True
+  NN:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, X350, -1 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 1
+    x_option: True
+  NP:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, X350, -2 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 1
+    x_option: True
+  NQ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS SGL, X350, -3 FITTING SIZE
+    actuation: "1"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 1
+    x_option: False
+  NR:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X323
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  NS:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X323
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  NT:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X323
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  NU:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X323, -1 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  NV:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X323, -1 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  NW:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X323, -1 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  PA:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X323, -2 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  PB:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X323, -2 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  PC:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X323, -2 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  PD:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NC, X323, -3 FITTING SIZE
+    actuation: "A"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  PE:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NO/NO, X323, -3 FITTING SIZE
+    actuation: "B"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  PF:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 4 POS NC/NO, X323, -3 FITTING SIZE
+    actuation: "C"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+  PG:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, X25
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: True
+  PH:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, X25, -1 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 1
+    solenoid_qty: 2
+    x_option: True
+  PI:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, X25, -2 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 2
+    solenoid_qty: 2
+    x_option: True
+  PJ:
+    field: "valve_callout"
+    type: "base_mounted_valve"
+    desc: 2 POS DBL, X25, -3 FITTING SIZE
+    actuation: "2"
+    seal_type: "0"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 3
+    solenoid_qty: 2
+    x_option: True
+
+  # ----- Blanking Plates -----
+  WW:
+    field: "valve_callout"
+    type: "blanking_plate"
+    desc: "Blanking Plate"
+    actuation: ~
+    seal_type: ~
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+  # ----- Blocks -----
+  X:
+    field: "valve_callout"
+    type: "block"
+    desc: P BLOCK
+    actuation: ~
+    seal_type: ~
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+  Y:
+    field: "valve_callout"
+    type: "block"
+    desc: P/E BLOCK
+    actuation: ~
+    seal_type: ~"
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+  Z:
+    field: "valve_callout"
+    type: "block"
+    desc: E BLOCK
+    actuation: ~
+    seal_type: ~
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+  # ----- No Valve Options -----
+  0D:
+    field: "valve_callout"
+    type: "NA"
+    desc: "NO VALVES, DOUBLE WIRE"
+    actuation: ~
+    seal_type: ~ # not a valve
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+  0S:
+    field: "valve_callout"
+    type: "NA"
+    desc: "NO VALVES, SINGLE WIRE"
+    actuation: ~
+    seal_type: ~ # not a valve
+    pilot_type: ~
+    back_pressure_check: ~
+    pilot_valve: ~
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+# ------------------- ---------------------------------------------- --------------------
+# ------------------- < SUP/EXH PORTING DIRECTION & COVER ASSEMBLY > --------------------
+# ------------------- ---------------------------------------------- --------------------
+
+sup_exh_porting_dir_and_cover_assy_symbols:
+  "A":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: U
+    silencer: False
+  "B":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: D
+    silencer: False
+  "C":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: B
+    silencer: False
+  "D":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: C
+    silencer: False
+  "E":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: E
+    silencer: False
+  "F":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: F
+    silencer: False
+  "G":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: U
+    silencer: False
+  "H":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: D
+    silencer: False
+  "I":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: B
+    silencer: False
+  "J":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: C
+    silencer: False
+  "K":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: E
+    silencer: False
+  "L":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: F
+    silencer: False
+  "M":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: U
+    silencer: False
+  "N":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: D
+    silencer: False
+  "O":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: B
+    silencer: False
+  "P":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: C
+    silencer: False
+  "Q":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: E
+    silencer: False
+  "R":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: U
+    silencer: True
+  "S":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: D
+    silencer: True
+  "T":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "10"
+    pe_port_entry: B
+    silencer: True
+  "U":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: U
+    silencer: True
+  "V":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: D
+    silencer: True
+  "W":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "11"
+    pe_port_entry: B
+    silencer: True
+  "X":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: U
+    silencer: True
+  "Y":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: D
+    silencer: True
+  "Z":
+    field: sup_exh_porting_dir_and_cover_assy
+    porting_type: "12"
+    pe_port_entry: B
+    silencer: True
+
+# ---------------------------------- < AB PORT SIZE > -----------------------------------
+
+ab_port_size_symbols:
+  "11":
+    field: ab_port_size
+    size: C2
+  "12":
+    field: ab_port_size
+    size: C3
+  "13":
+    field: ab_port_size
+    size: C4
+  "14":
+    field: ab_port_size
+    size: C6
+  "15":
+    field: ab_port_size
+    size: C8
+  "16":
+    field: ab_port_size
+    size: C10
+  "17":
+    field: ab_port_size
+    size: C12
+
+  "21":
+    field: ab_port_size
+    size: L4
+  "22":
+    field: ab_port_size
+    size: L6
+  "23":
+    field: ab_port_size
+    size: L8
+  "24":
+    field: ab_port_size
+    size: L10
+  "25":
+    field: ab_port_size
+    size: L12
+
+  "31":
+    field: ab_port_size
+    size: B4
+  "32":
+    field: ab_port_size
+    size: B6
+  "33":
+    field: ab_port_size
+    size: B8
+  "34":
+    field: ab_port_size
+    size: B10
+  "35":
+    field: ab_port_size
+    size: B12
+
+  "41":
+    field: ab_port_size
+    size: N1
+  "42":
+    field: ab_port_size
+    size: N3
+  "43":
+    field: ab_port_size
+    size: N7
+  "44":
+    field: ab_port_size
+    size: N9
+  "45":
+    field: ab_port_size
+    size: N11
+
+  "51":
+    field: ab_port_size
+    size: LN3
+  "52":
+    field: ab_port_size
+    size: LN7
+  "53":
+    field: ab_port_size
+    size: LN9
+  "54":
+    field: ab_port_size
+    size: LN11
+
+  "61":
+    field: ab_port_size
+    size: BN3
+  "62":
+    field: ab_port_size
+    size: BN7
+  "63":
+    field: ab_port_size
+    size: BN9
+  "64":
+    field: ab_port_size
+    size: BN11
+
+# ----------------------------- < MOUNTING AND NAMEPLATE > ------------------------------
+
+mounting_and_nameplate_symbols:
+  "NIL":
+    field: mounting_and_nameplate
+    symbol: ""
+    mounting: direct
+    sta_length: standard
+
+  "AA":
+    field: mounting_and_nameplate
+    symbol: AA
+    mounting: direct
+    sta_length: standard
+
+  "BA":
+    field: mounting_and_nameplate
+    symbol: BA
+    mounting: direct
+    sta_length: standard
+
+  "D":
+    field: mounting_and_nameplate
+    symbol: D
+    mounting: din_rail
+    sta_length: standard
+
+  "D0":
+    field: mounting_and_nameplate
+    symbol: D0
+    mounting: din_rail
+    sta_length: without_din_rail
+
+  "DB":
+    field: mounting_and_nameplate
+    symbol: D3
+    mounting: din_rail
+    sta_length: 3
+
+  "DC":
+    field: mounting_and_nameplate
+    symbol: D4
+    mounting: din_rail
+    sta_length: 4
+
+  "DD":
+    field: mounting_and_nameplate
+    symbol: D5
+    mounting: din_rail
+    sta_length: 5
+
+  "DE":
+    field: mounting_and_nameplate
+    symbol: D6
+    mounting: din_rail
+    sta_length: 6
+
+  "DF":
+    field: mounting_and_nameplate
+    symbol: D7
+    mounting: din_rail
+    sta_length: 7
+
+  "DG":
+    field: mounting_and_nameplate
+    symbol: D8
+    mounting: din_rail
+    sta_length: 8
+
+  "DH":
+    field: mounting_and_nameplate
+    symbol: D9
+    mounting: din_rail
+    sta_length: 9
+
+  "DI":
+    field: mounting_and_nameplate
+    symbol: D10
+    mounting: din_rail
+    sta_length: 10
+
+  "DJ":
+    field: mounting_and_nameplate
+    symbol: D11
+    mounting: din_rail
+    sta_length: 11
+
+  "DK":
+    field: mounting_and_nameplate
+    symbol: D12
+    mounting: din_rail
+    sta_length: 12
+
+  "DL":
+    field: mounting_and_nameplate
+    symbol: D13
+    mounting: din_rail
+    sta_length: 13
+
+  "DM":
+    field: mounting_and_nameplate
+    symbol: D14
+    mounting: din_rail
+    sta_length: 14
+
+  "DN":
+    field: mounting_and_nameplate
+    symbol: D15
+    mounting: din_rail
+    sta_length: 15
+
+  "DP":
+    field: mounting_and_nameplate
+    symbol: D16
+    mounting: din_rail
+    sta_length: 16
+
+  "DQ":
+    field: mounting_and_nameplate
+    symbol: D17
+    mounting: din_rail
+    sta_length: 17
+
+  "DR":
+    field: mounting_and_nameplate
+    symbol: D18
+    mounting: din_rail
+    sta_length: 18
+
+  "DS":
+    field: mounting_and_nameplate
+    symbol: D19
+    mounting: din_rail
+    sta_length: 19
+
+  "DT":
+    field: mounting_and_nameplate
+    symbol: D20
+    mounting: din_rail
+    sta_length: 20
+
+  "DU":
+    field: mounting_and_nameplate
+    symbol: D21
+    mounting: din_rail
+    sta_length: 21
+
+  "DV":
+    field: mounting_and_nameplate
+    symbol: D22
+    mounting: din_rail
+    sta_length: 22
+
+  "DW":
+    field: mounting_and_nameplate
+    symbol: D23
+    mounting: din_rail
+    sta_length: 23
+
+  "DX":
+    field: mounting_and_nameplate
+    symbol: D24
+    mounting: din_rail
+    sta_length: 24
+
+  "A":
+    field: mounting_and_nameplate
+    symbol: A
+    mounting: din_rail
+    sta_length: standard
+
+  "A0":
+    field: mounting_and_nameplate
+    symbol: A0
+    mounting: din_rail
+    sta_length: without_din_rail
+
+  "AB":
+    field: mounting_and_nameplate
+    symbol: A3
+    mounting: din_rail
+    sta_length: 3
+
+  "AC":
+    field: mounting_and_nameplate
+    symbol: A4
+    mounting: din_rail
+    sta_length: 4
+
+  "AD":
+    field: mounting_and_nameplate
+    symbol: A5
+    mounting: din_rail
+    sta_length: 5
+
+  "AE":
+    field: mounting_and_nameplate
+    symbol: A6
+    mounting: din_rail
+    sta_length: 6
+
+  "AF":
+    field: mounting_and_nameplate
+    symbol: A7
+    mounting: din_rail
+    sta_length: 7
+
+  "AG":
+    field: mounting_and_nameplate
+    symbol: A8
+    mounting: din_rail
+    sta_length: 8
+
+  "AH":
+    field: mounting_and_nameplate
+    symbol: A9
+    mounting: din_rail
+    sta_length: 9
+
+  "AI":
+    field: mounting_and_nameplate
+    symbol: A10
+    mounting: din_rail
+    sta_length: 10
+
+  "AJ":
+    field: mounting_and_nameplate
+    symbol: A11
+    mounting: din_rail
+    sta_length: 11
+
+  "AK":
+    field: mounting_and_nameplate
+    symbol: A12
+    mounting: din_rail
+    sta_length: 12
+
+  "AL":
+    field: mounting_and_nameplate
+    symbol: A13
+    mounting: din_rail
+    sta_length: 13
+
+  "AM":
+    field: mounting_and_nameplate
+    symbol: A14
+    mounting: din_rail
+    sta_length: 14
+
+  "AN":
+    field: mounting_and_nameplate
+    symbol: A15
+    mounting: din_rail
+    sta_length: 15
+
+  "AP":
+    field: mounting_and_nameplate
+    symbol: A16
+    mounting: din_rail
+    sta_length: 16
+
+  "AQ":
+    field: mounting_and_nameplate
+    symbol: A17
+    mounting: din_rail
+    sta_length: 17
+
+  "AR":
+    field: mounting_and_nameplate
+    symbol: A18
+    mounting: din_rail
+    sta_length: 18
+
+  "AS":
+    field: mounting_and_nameplate
+    symbol: A19
+    mounting: din_rail
+    sta_length: 19
+
+  "AT":
+    field: mounting_and_nameplate
+    symbol: A20
+    mounting: din_rail
+    sta_length: 20
+
+  "AU":
+    field: mounting_and_nameplate
+    symbol: A21
+    mounting: din_rail
+    sta_length: 21
+
+  "AV":
+    field: mounting_and_nameplate
+    symbol: A22
+    mounting: din_rail
+    sta_length: 22
+
+  "AW":
+    field: mounting_and_nameplate
+    symbol: A23
+    mounting: din_rail
+    sta_length: 23
+
+  "AX":
+    field: mounting_and_nameplate
+    symbol: A24
+    mounting: din_rail
+    sta_length: 24
+
+  "B":
+    field: mounting_and_nameplate
+    symbol: B
+    mounting: din_rail
+    sta_length: standard
+
+  "B0":
+    field: mounting_and_nameplate
+    symbol: B0
+    mounting: din_rail
+    sta_length: without_din_rail
+
+  "BB":
+    field: mounting_and_nameplate
+    symbol: B3
+    mounting: din_rail
+    sta_length: 3
+
+  "BC":
+    field: mounting_and_nameplate
+    symbol: B4
+    mounting: din_rail
+    sta_length: 4
+
+  "BD":
+    field: mounting_and_nameplate
+    symbol: B5
+    mounting: din_rail
+    sta_length: 5
+
+  "BE":
+    field: mounting_and_nameplate
+    symbol: B6
+    mounting: din_rail
+    sta_length: 6
+
+  "BF":
+    field: mounting_and_nameplate
+    symbol: B7
+    mounting: din_rail
+    sta_length: 7
+
+  "BG":
+    field: mounting_and_nameplate
+    symbol: B8
+    mounting: din_rail
+    sta_length: 8
+
+  "BH":
+    field: mounting_and_nameplate
+    symbol: B9
+    mounting: din_rail
+    sta_length: 9
+
+  "BI":
+    field: mounting_and_nameplate
+    symbol: B10
+    mounting: din_rail
+    sta_length: 10
+
+  "BJ":
+    field: mounting_and_nameplate
+    symbol: B11
+    mounting: din_rail
+    sta_length: 11
+
+  "BK":
+    field: mounting_and_nameplate
+    symbol: B12
+    mounting: din_rail
+    sta_length: 12
+
+  "BL":
+    field: mounting_and_nameplate
+    symbol: B13
+    mounting: din_rail
+    sta_length: 13
+
+  "BM":
+    field: mounting_and_nameplate
+    symbol: B14
+    mounting: din_rail
+    sta_length: 14
+
+  "BN":
+    field: mounting_and_nameplate
+    symbol: B15
+    mounting: din_rail
+    sta_length: 15
+
+  "BP":
+    field: mounting_and_nameplate
+    symbol: B16
+    mounting: din_rail
+    sta_length: 16
+
+  "BQ":
+    field: mounting_and_nameplate
+    symbol: B17
+    mounting: din_rail
+    sta_length: 17
+
+  "BR":
+    field: mounting_and_nameplate
+    symbol: B18
+    mounting: din_rail
+    sta_length: 18
+
+  "BS":
+    field: mounting_and_nameplate
+    symbol: B19
+    mounting: din_rail
+    sta_length: 19
+
+  "BT":
+    field: mounting_and_nameplate
+    symbol: B20
+    mounting: din_rail
+    sta_length: 20
+
+  "BU":
+    field: mounting_and_nameplate
+    symbol: B21
+    mounting: din_rail
+    sta_length: 21
+
+  "BV":
+    field: mounting_and_nameplate
+    symbol: B22
+    mounting: din_rail
+    sta_length: 22
+
+  "BW":
+    field: mounting_and_nameplate
+    symbol: B23
+    mounting: din_rail
+    sta_length: 23
+
+  "BX":
+    field: mounting_and_nameplate
+    symbol: B24
+    mounting: din_rail
+    sta_length: 24
