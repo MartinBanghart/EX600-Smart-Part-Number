@@ -1,5 +1,5 @@
 ## Overview 
-The purpose of this project was to define a _Smart Part Number_ for a SY-1 EX600 Manifold and Valve Assembly based off already existing manifold part number configuration scheme. Therefore, the smart part number would the definition of a complex manifold with various station components such as valves, blanking plates, blocking disc, e.t.c configured.
+The purpose of this project is to define a _Smart Part Number_ for a SY-1 EX600 Manifold and Valve Assembly based off the already existing manifold part number configuration scheme from SMC's Catalog. Therefore, the smart part number would the definition of a complex manifold with various station components such as valves, blanking plates, blocking disc, e.t.c configured.
 
 ## Input
 A user configured string following the Smart Part Number HTO configuration rules
