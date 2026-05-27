@@ -29,7 +29,9 @@ class Base_Mounted_Valves_Model(BaseModel):
 
     # In YAML file any empty string or not used values will be set to ~ which is None type
     # To make concatenation easier, these will be converted to empty strings in the model
-    @field_validator("seal_type", "pilot_type", "pilot_valve", "back_pressure_check", mode="before")
+    @field_validator(
+        "seal_type", "pilot_type", "pilot_valve", "back_pressure_check", mode="before"
+    )
     def convert_yaml_none_to_strings(cls, v):
         if v is None:
             return ""
@@ -38,12 +40,14 @@ class Base_Mounted_Valves_Model(BaseModel):
     # ------------------------------- MODEL VALIDATOR 'AFTER' -------------------------------------
     @model_validator(mode="after")
     def get_manifold_block_wiring_type(self):
-        if self.solenoid_qty == 1:      # valve is single solenoid
-            self.manifold_block_wiring_type = 'S'
-        elif self.solenoid_qty == 2:    # valve is double solenoid
-            self.manifold_block_wiring_type = 'D' 
-        elif self.solenoid_qty == 0:    # blanking plate --> assume double wired since customer could swap for double solenoid valve
-            self.manifold_block_wiring_type = 'D'
+        if self.solenoid_qty == 1:  # valve is single solenoid
+            self.manifold_block_wiring_type = "S"
+        elif self.solenoid_qty == 2:  # valve is double solenoid
+            self.manifold_block_wiring_type = "D"
+        elif (
+            self.solenoid_qty == 0
+        ):  # blanking plate --> assume double wired since customer could swap for double solenoid valve
+            self.manifold_block_wiring_type = "D"
         return self
 
     # Creating valve part number
@@ -81,7 +85,7 @@ test_data = {
     "coil_type": "",
     "manual_override": "D",
     "ab_port_size": "C9",
-    "porting_type": "10"
+    "porting_type": "10",
 }
 
 valve_obj = Base_Mounted_Valves_Model(**test_data)
@@ -90,4 +94,4 @@ print("\n")
 print(valve_obj)
 print(valve_obj.valve_part_number())
 
-# print("\n")
+print("\n")
