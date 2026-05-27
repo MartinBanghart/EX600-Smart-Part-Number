@@ -4182,134 +4182,238 @@ valve_symbols:
 sup_exh_porting_dir_and_cover_assy_symbols:
   "A":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: "U side, Type 10, Internal Pilot"
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: U
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "B":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 10, Internal Pilot
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: D
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "C":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 10, Internal Pilot
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: B
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: True
   "D":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 10, Internal Pilot, Built-In Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: S
     pe_port_entry: C
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "E":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 10, Internal Pilot, Built-In Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: S
     pe_port_entry: E
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "F":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 10, Internal Pilot, Built-In Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: S
     pe_port_entry: F
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: True
   "G":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 11, Internal Pilot
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: U
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "H":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 11, Internal Pilot
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: D
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "I":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 11, Internal Pilot
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: B
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: True
   "J":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 11, Internal Pilot, Built-In Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: BS
     pe_port_entry: C
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "K":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 11, Internal Pilot, Built-In Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: BS
     pe_port_entry: E
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "L":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 11, Internal Pilot, Built-In Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: BS
     pe_port_entry: F
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: True
   "M":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 12, Internal Pilot
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: U
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "N":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 12, Internal Pilot
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: D
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "O":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 12, Internal Pilot
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: B
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: True
   "P":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 12, Internal Pilot, Built-In Silencer
     porting_type: "12"
+    pilot_silencer_piping_type: VP
     pe_port_entry: C
     silencer: False
+    u_side_fittings: True
+    d_side_fittings: False
   "Q":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 12, Internal Pilot, Built-In Silencer
     porting_type: "12"
+    pilot_silencer_piping_type: VP
     pe_port_entry: E
     silencer: False
+    u_side_fittings: False
+    d_side_fittings: True
   "R":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 10, Internal Pilot, E Port Plug in Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: U
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: False
   "S":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 10, Internal Pilot, E Port Plug in Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: D
     silencer: True
+    u_side_fittings: False
+    d_side_fittings: True
   "T":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 10, Internal Pilot, E Port Plug in Silencer
     porting_type: "10"
+    pilot_silencer_piping_type: ""
     pe_port_entry: B
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: True
   "U":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 11, Internal Pilot, E Port Plug in Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: U
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: False
   "V":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 11, Internal Pilot, E Port Plug in Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: D
     silencer: True
+    u_side_fittings: False
+    d_side_fittings: True
   "W":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 11, Internal Pilot, E Port Plug in Silencer
     porting_type: "11"
+    pilot_silencer_piping_type: B
     pe_port_entry: B
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: True
   "X":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: U side, Type 12, Internal Pilot, E Port Plug in Silencer
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: U
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: False
   "Y":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: D side, Type 12, Internal Pilot, E Port Plug in Silencer
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: D
     silencer: True
+    u_side_fittings: False
+    d_side_fittings: True
   "Z":
     field: sup_exh_porting_dir_and_cover_assy
+    desc: B side, Type 12, Internal Pilot, E Port Plug in Silencer
     porting_type: "12"
+    pilot_silencer_piping_type: V
     pe_port_entry: B
     silencer: True
+    u_side_fittings: True
+    d_side_fittings: True
 
 # ---------------------------------- < AB PORT SIZE > -----------------------------------
 
@@ -4317,98 +4421,182 @@ ab_port_size_symbols:
   "11":
     field: ab_port_size
     size: C2
+    fitting_direction: straight
+    measurement_system: metric
+
   "12":
     field: ab_port_size
     size: C3
+    fitting_direction: straight
+    measurement_system: metric
+
   "13":
     field: ab_port_size
     size: C4
+    fitting_direction: straight
+    measurement_system: metric
+
   "14":
     field: ab_port_size
     size: C6
+    fitting_direction: straight
+    measurement_system: metric
+
   "15":
     field: ab_port_size
     size: C8
+    fitting_direction: straight
+    measurement_system: metric
+
   "16":
     field: ab_port_size
     size: C10
+    fitting_direction: straight
+    measurement_system: metric
+
   "17":
     field: ab_port_size
     size: C12
+    fitting_direction: straight
+    measurement_system: metric
 
   "21":
     field: ab_port_size
     size: L4
+    fitting_direction: upward elbow
+    measurement_system: metric
+
   "22":
     field: ab_port_size
     size: L6
+    fitting_direction: upward elbow
+    measurement_system: metric
+
   "23":
     field: ab_port_size
     size: L8
+    fitting_direction: upward elbow
+    measurement_system: metric
+
   "24":
     field: ab_port_size
     size: L10
+    fitting_direction: upward elbow
+    measurement_system: metric
+
   "25":
     field: ab_port_size
     size: L12
+    fitting_direction: upward elbow
+    measurement_system: metric
 
   "31":
     field: ab_port_size
     size: B4
+    fitting_direction: downward elbow
+    measurement_system: metric
+
   "32":
     field: ab_port_size
     size: B6
+    fitting_direction: downward elbow
+    measurement_system: metric
+
   "33":
     field: ab_port_size
     size: B8
+    fitting_direction: downward elbow
+    measurement_system: metric
+
   "34":
     field: ab_port_size
     size: B10
+    fitting_direction: downward elbow
+    measurement_system: metric
+
   "35":
     field: ab_port_size
     size: B12
+    fitting_direction: downward elbow
+    measurement_system: metric
 
   "41":
     field: ab_port_size
     size: N1
+    fitting_direction: straight
+    measurement_system: imperial
+
   "42":
     field: ab_port_size
     size: N3
+    fitting_direction: straight
+    measurement_system: imperial
+
   "43":
     field: ab_port_size
     size: N7
+    fitting_direction: straight
+    measurement_system: imperial
+
   "44":
     field: ab_port_size
     size: N9
+    fitting_direction: straight
+    measurement_system: imperial
+
   "45":
     field: ab_port_size
     size: N11
+    fitting_direction: straight
+    measurement_system: imperial
 
   "51":
     field: ab_port_size
     size: LN3
+    fitting_direction: upward elbow
+    measurement_system: imperial
+
   "52":
     field: ab_port_size
     size: LN7
+    fitting_direction: upward elbow
+    measurement_system: imperial
+
   "53":
     field: ab_port_size
     size: LN9
+    fitting_direction: upward elbow
+    measurement_system: imperial
+
   "54":
     field: ab_port_size
     size: LN11
+    fitting_direction: upward elbow
+    measurement_system: imperial
 
   "61":
     field: ab_port_size
     size: BN3
+    fitting_direction: downward elbow
+    measurement_system: imperial
+
   "62":
     field: ab_port_size
     size: BN7
+    fitting_direction: downward elbow
+    measurement_system: imperial
+
   "63":
     field: ab_port_size
     size: BN9
+    fitting_direction: downward elbow
+    measurement_system: imperial
+
   "64":
     field: ab_port_size
     size: BN11
+    fitting_direction: downward elbow
+    measurement_system: imperial
 
 # ----------------------------- < MOUNTING AND NAMEPLATE > ------------------------------
 

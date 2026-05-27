@@ -2,15 +2,7 @@
 import pandas as pd
 
 # pydantic dependencies
-from pydantic import (
-    BaseModel,
-    field_validator,
-    PrivateAttr,
-    model_validator,
-    Field,
-    StringConstraints,
-    ValidationError,
-)
+from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError,)
 from typing import Literal, Optional
 from typing import Annotated
 
@@ -37,31 +29,17 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "io_unit_3", "pattern": r"[A-Z1]?", "length": None},
     {"name": "io_unit_4", "pattern": r"[A-Z1]?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {
-        "name": "lt_surge_volt_sup_and_coil_type",
-        "pattern": r"(R|U|S|Z|T|V|M)",
-        "length": 1,
-    },
+    {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|M)","length": 1,},
     {"name": "manual_override", "pattern": r"(D|E|F)?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {
-        "name": "valve_callout",
-        "pattern": r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+",
-        "length": None,
-    },
+    {"name": "valve_callout","pattern": r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+","length": None,},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "sup_exh_porting_dir_and_cover_assy", "pattern": r"[A-Z]", "length": 1},
-    {
-        "name": "ab_port_size",
-        "pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",
-        "length": 2,
-    },
+    {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])","length": 2,},
     {"name": "mounting_and_nameplate", "pattern": r"[ABD](?:0|[A-X])?", "length": None},
 ]
 
 # --------------------------------------------------
-
-
 class SY1_EX600_MODEL(BaseModel):
     # ----- How to Order Information -----
     # -----------------------------------------------------
@@ -71,48 +49,19 @@ class SY1_EX600_MODEL(BaseModel):
     # -
     si_unit: Literal["0", "Q", "N", "V", "E", "D", "F", "G", "W"]
     endplate_type: Literal["", "2", "3", "4", "5", "6", "7", "8", "9"]
-    io_unit_1: Annotated[
-        str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")
-    ]
-    io_unit_2: Annotated[
-        str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")
-    ]
-    io_unit_3: Annotated[
-        str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")
-    ]
-    io_unit_4: Annotated[
-        str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")
-    ]
+    io_unit_1: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
+    io_unit_2: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
+    io_unit_3: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
+    io_unit_4: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
     # -
-    lt_surge_volt_sup_and_coil_type: Literal[
-        "R", "U", "S", "Z", "T", "V", "W", "M"
-    ]  # M is for no valves
+    lt_surge_volt_sup_and_coil_type: Literal["R", "U", "S", "Z", "T", "V", "W", "M"]  # M is for no valves
     manual_override: Literal["", "D", "E", "F"]
     # -
-    valve_callout: Annotated[
-        str,
-        StringConstraints(
-            min_length=2,
-            max_length=19,
-            pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+",
-        ),
-    ]
+    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+",),]
     # -
-    sup_exh_porting_dir_and_cover_assy: Annotated[
-        str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")
-    ]
-    ab_port_size: Annotated[
-        str,
-        StringConstraints(
-            min_length=2,
-            max_length=2,
-            pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",
-        ),
-    ]
-    mounting_and_nameplate: Annotated[
-        str,
-        StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),
-    ]
+    sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
+    ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",),]
+    mounting_and_nameplate: Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
 
     # --- Fields determined from standard fields above  ---
     porting_type: Optional[Literal["10", "11", "12"]] = None
@@ -120,9 +69,10 @@ class SY1_EX600_MODEL(BaseModel):
 
     lt_surge_volt_sup: Optional[Literal["R", "U", "S", "Z", "NS", "NZ"]] = None
     coil_type: Optional[Literal["", "T"]] = None
-
-    parsed_valves: list = Field(default_factory=list)
     number_of_stations: int | None = None
+    
+    # --- Fields determined from standard fields and related to valves
+    parsed_valves: list = Field(default_factory=list)
     valves: list = Field(default_factory=list)
 
     # --- Submodels- not a part of How-To-Order fields ---
@@ -163,25 +113,19 @@ class SY1_EX600_MODEL(BaseModel):
 
     # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
     def _set_porting_type_and_pe_port_entry(self):
-        data_dict = YAML_DATA["sup_exh_porting_dir_and_cover_assy_symbols"][
-            self.sup_exh_porting_dir_and_cover_assy
-        ]
+        data_dict = YAML_DATA["sup_exh_porting_dir_and_cover_assy_symbols"][self.sup_exh_porting_dir_and_cover_assy]
         self.porting_type = data_dict["porting_type"]
         self.pe_port_entry = data_dict["pe_port_entry"]
 
     # breaking down lt_surge_volt_sup_and_coil_type from HTO to get two fields: lt_surge_volt_sup + coil_type
     def _set_lt_surge_volt_sup_and_coil_type(self):
-        data_dict = YAML_DATA["lt_surge_volt_sup_and_coil_type_symbols"][
-            self.lt_surge_volt_sup_and_coil_type
-        ]
+        data_dict = YAML_DATA["lt_surge_volt_sup_and_coil_type_symbols"][self.lt_surge_volt_sup_and_coil_type]
         self.lt_surge_volt_sup = data_dict["lt_surge_volt_sup"]
         self.coil_type = data_dict["coil_type"]
 
     # --- computed values ---
     def _compute_parsed_valves_and_number_of_stations(self):
-        self.parsed_valves = parse_valve_callout(
-            self.valve_callout, valid_symbols=set(YAML_DATA["valve_symbols"].keys())
-        )
+        self.parsed_valves = parse_valve_callout(self.valve_callout, valid_symbols=set(YAML_DATA["valve_symbols"].keys()))
         self.number_of_stations = sum(int(ele["qty"]) for ele in self.parsed_valves)
         return self
 
@@ -228,9 +172,7 @@ class SY1_EX600_MODEL(BaseModel):
             if self.coil_type is None:
                 raise ValueError("coil_type was not set before creating valve_model")
             if self.lt_surge_volt_sup is None:
-                raise ValueError(
-                    "lt_surge_volt_sup was not set before creating valve_model"
-                )
+                raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
 
             # 3 --> instantiate the valve model
             valve_model = model_cls(
@@ -262,9 +204,15 @@ class SY1_EX600_MODEL(BaseModel):
 
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
+        # if no si unit is selected and endplate type is not Nil, raise error
         if self.si_unit == "0" and self.endplate_type != "":
             raise ValueError("No SI Unit was selected, endplate type must be nil")
-
+        
+        # if the valve callout section is too long (greater than 19 chars), raise error
+        if len(self.valve_callout) > 19:
+            raise ValueError("valve callout exceeds allowable maximum of 19 characters")
+        
+        
         return self
 
 

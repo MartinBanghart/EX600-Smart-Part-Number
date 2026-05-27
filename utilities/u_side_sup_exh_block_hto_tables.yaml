@@ -1,0 +1,113 @@
+pe_port_table:
+  C8:
+    porting_type: ["10", "11", "12"]
+    series: ["3"]
+    type: "straight"
+    measurement: "metric"
+
+  C10:
+    porting_type: ["10", "11", "12"]
+    series: ["5"]
+    type: "straight"
+    measurement: "metric"
+
+  C12:
+    porting_type: ["10", "11", "12"]
+    series: ["7"]
+    type: "straight"
+    measurement: "metric"
+
+  N9:
+    porting_type: ["10", "11", "12"]
+    series: ["3"]
+    type: "straight"
+    measurement: "imperial"
+
+  N11:
+    porting_type: ["10", "11", "12"]
+    series: ["5"]
+    type: "straight"
+    measurement: "imperial"
+
+  N13:
+    porting_type: ["10", "11", "12"]
+    series: ["7"]
+    type: "straight"
+    measurement: "imperial"
+
+  L8:
+    porting_type: ["10", "11", "12"]
+    series: ["3"]
+    type: "upward elbow"
+    measurement: "metric"
+
+  L10:
+    porting_type: ["10", "11", "12"]
+    series: ["5"]
+    type: "upward elbow"
+    measurement: "metric"
+
+  L12:
+    porting_type: ["10", "11", "12"]
+    series: ["7"]
+    type: "upward elbow"
+    measurement: "metric"
+
+  LN9:
+    porting_type: ["10"]
+    series: ["3"]
+    type: "upward elbow"
+    measurement: "imperial"
+
+  LN11:
+    porting_type: ["10"]
+    series: ["5"]
+    type: "upward elbow"
+    measurement: "imperial"
+
+  LN13:
+    porting_type: ["10"]
+    series: ["7"]
+    type: "upward elbow"
+    measurement: "imperial"
+
+  B8:
+    porting_type: ["10"]
+    series: ["3"]
+    type: "downward elbow"
+    measurement: "metric"
+
+  B10:
+    porting_type: ["10"]
+    series: ["5"]
+    type: "downward elbow"
+    measurement: "metric"
+
+  B12:
+    porting_type: ["10"]
+    series: ["7"]
+    type: "downward elbow"
+    measurement: "metric"
+
+  BN9:
+    porting_type: ["10"]
+    series: ["3"]
+    type: "downward elbow"
+    measurement: "imperial"
+
+  BN11:
+    porting_type: ["10"]
+    series: ["5"]
+    type: "downward elbow"
+    measurement: "imperial"
+
+  BN13:
+    porting_type: ["10"]
+    series: ["7"]
+    type: "downward elbow"
+    measurement: "imperial"
+
+  "00":
+    porting_type: ["12"]
+    series: ["3", "5", "7"]
+    measurement: ""

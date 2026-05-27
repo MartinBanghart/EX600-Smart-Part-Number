@@ -29,9 +29,7 @@ class Base_Mounted_Valves_Model(BaseModel):
 
     # In YAML file any empty string or not used values will be set to ~ which is None type
     # To make concatenation easier, these will be converted to empty strings in the model
-    @field_validator(
-        "seal_type", "pilot_type", "pilot_valve", "back_pressure_check", mode="before"
-    )
+    @field_validator("seal_type", "pilot_type", "pilot_valve", "back_pressure_check", mode="before")
     def convert_yaml_none_to_strings(cls, v):
         if v is None:
             return ""
