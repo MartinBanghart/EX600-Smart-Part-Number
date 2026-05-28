@@ -1,6 +1,12 @@
+# to run model for testing in terminal
+# --- run from root folder directory
+# --- use command "python -m submodels.station_components.base_mounted_valves"
+# --- don't add '.py' to end of model file or else won't work
+
 from pydantic import BaseModel, field_validator, model_validator
 from typing import Optional, Literal
 
+from utilities.config import YAML_DATA
 
 class Base_Mounted_Valves_Model(BaseModel):
     # dropping any fields passed that are not declared in model
@@ -27,16 +33,19 @@ class Base_Mounted_Valves_Model(BaseModel):
     # --- Fields Determined from inherited fields above ---
     manifold_block_wiring_type: str = ""
 
-    # In YAML file any empty string or not used values will be set to ~ which is None type
-    # To make concatenation easier, these will be converted to empty strings in the model
-    @field_validator("seal_type", "pilot_type", "pilot_valve", "back_pressure_check", mode="before")
-    def convert_yaml_none_to_strings(cls, v):
-        if v is None:
-            return ""
-        return str(v)
+    # --- Retrieved from YAML_DATA fields
+    ab_port_size_hto: Optional[str] = None
 
     # ------------------------------- MODEL VALIDATOR 'AFTER' -------------------------------------
     @model_validator(mode="after")
+    def run_all_postprocessing_and_logic(self):
+        # --- computed fields
+        self.get_manifold_block_wiring_type()
+        self.get_ab_port_size_hto()
+        # --- logic check
+        # self.model_logic()
+        return self
+
     def get_manifold_block_wiring_type(self):
         if self.solenoid_qty == 1:  # valve is single solenoid
             self.manifold_block_wiring_type = "S"
@@ -47,6 +56,24 @@ class Base_Mounted_Valves_Model(BaseModel):
         ):  # blanking plate --> assume double wired since customer could swap for double solenoid valve
             self.manifold_block_wiring_type = "D"
         return self
+    
+    # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data
+    def get_ab_port_size_hto(self):
+        data_dict = YAML_DATA["ab_port_size_symbols"][self.ab_port_size]
+        self.ab_port_size_hto = data_dict["size"]
+        return self
+    
+    # #  --- Overall Logic for Main Model ---
+    # def model_logic(self):
+    #     # 
+    #     if :
+    #         raise ValueError("")
+    #     # 
+    #     if :
+    #         raise ValueError("")
+        
+        
+        return self
 
     # Creating valve part number
     def valve_part_number(self) -> str:
@@ -56,14 +83,24 @@ class Base_Mounted_Valves_Model(BaseModel):
         )
 
     # Creating manifold block part number
-    # def type_10_11_manifold_block_part_number(self) -> str:
-    #     # standard manifold block (SY#0M-2-##A-#)
-    #     return(
-    #         f"SY{self.series}0M"
-    #         f"-2"
-    #         f"-{self.}"
-    #         f"-2"
-    #     )
+    def manifold_block_part_number(self) -> str:
+        if self.porting_type in ("10", "11"):
+            piping_direction = "1"
+        elif self.porting_type in ("12"):
+            piping_direction = "2"
+
+        # standard manifold block (SY#0M-2-##A-#)
+        return(f"SY{self.series}0M-2-{piping_direction}{self.manifold_block_wiring_type}A-{self.ab_port_size_hto}"
+        )
+
+    def mix_mount_manifold_block_3000_5000_part_number(self) -> str:
+        # mixed mounting 3000/5000 manifold block (SY50M-2-##A-#) - used for bottom ported (type 11) 3000 series
+        if self.porting_type in ("10", "11"):
+            piping_direction = "3"
+        elif self.porting_type in ("12"):
+            piping_direction = "4"
+        # standard manifold block (SY50M-2-##A-#)
+        return(f"SY50M-2-{piping_direction}{self.manifold_block_wiring_type}A-{self.ab_port_size_hto}")
 
 
 # ----------------- TESTING -----------------
@@ -73,16 +110,16 @@ test_data = {
     "desc": "2 POS SGL, RUBBER SEAL",
     "actuation": "1",
     "seal_type": "0",
-    "pilot_type": None,
-    "back_pressure_check": None,
-    "pilot_valve": None,
+    "pilot_type": "",
+    "back_pressure_check": "",
+    "pilot_valve": "",
     "fitting_size": 0,
     "solenoid_qty": 1,
     "x_option": False,
     "lt_surge_volt_sup": "R",
     "coil_type": "",
     "manual_override": "D",
-    "ab_port_size": "C9",
+    "ab_port_size": "11",
     "porting_type": "10",
 }
 
@@ -91,5 +128,10 @@ print("\n")
 
 print(valve_obj)
 print(valve_obj.valve_part_number())
+print("\n")
+print(valve_obj.manifold_block_part_number())
+print("\n")
+print(valve_obj.mix_mount_manifold_block_3000_5000_part_number())
+
 
 print("\n")

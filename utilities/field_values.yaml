@@ -261,9 +261,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: False
@@ -273,9 +273,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -285,9 +285,9 @@ valve_symbols:
     desc: "3 POS CC, RUBBER SEAL"
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -297,9 +297,9 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -309,9 +309,9 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -321,9 +321,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -333,9 +333,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -345,9 +345,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -358,8 +358,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: False
@@ -370,8 +370,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -382,8 +382,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -394,8 +394,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -406,8 +406,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -418,8 +418,8 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -430,8 +430,8 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -442,8 +442,8 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -453,9 +453,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: False
@@ -465,9 +465,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -477,9 +477,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -489,9 +489,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -501,9 +501,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -513,8 +513,8 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL QUICK RESPONSE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 1
@@ -525,8 +525,8 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL QUICK RESPONSE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -537,8 +537,8 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -549,8 +549,8 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -561,8 +561,8 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -573,8 +573,8 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -585,8 +585,8 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -597,9 +597,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL QUICK, RESPONSE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -610,7 +610,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 1
@@ -622,7 +622,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -634,7 +634,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -646,7 +646,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -658,7 +658,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -670,7 +670,7 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -682,7 +682,7 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -694,7 +694,7 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -765,8 +765,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 1
@@ -777,9 +777,9 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -789,9 +789,9 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -801,9 +801,9 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -813,9 +813,9 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -826,8 +826,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: False
@@ -838,8 +838,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -850,8 +850,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -862,8 +862,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -874,8 +874,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: False
@@ -885,8 +885,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 1
@@ -897,8 +897,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -909,8 +909,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, HIGH PRESSURE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -921,8 +921,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, HIGH PRESSURE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -933,8 +933,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, HIGH PRESSURE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -945,8 +945,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 1
@@ -957,8 +957,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -969,8 +969,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, QUICK RESPONSE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -981,8 +981,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, QUICK RESPONSE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -993,8 +993,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, QUICK RESPONSE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -1006,7 +1006,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 1
@@ -1018,7 +1018,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -1030,7 +1030,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -1042,7 +1042,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -1054,7 +1054,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 0
     solenoid_qty: 2
@@ -1066,8 +1066,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: False
@@ -1078,7 +1078,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -1090,7 +1090,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -1102,7 +1102,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -1114,7 +1114,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 0
     solenoid_qty: 2
@@ -1125,9 +1125,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, -1 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: False
@@ -1137,9 +1137,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, -1 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1149,9 +1149,9 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, -1 FITTING SIZE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1161,9 +1161,9 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, -1 FITTING SIZE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1173,9 +1173,9 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, -1 FITTING SIZE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1185,9 +1185,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, -1 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1197,9 +1197,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, -1 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1209,9 +1209,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, -1 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1222,8 +1222,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: False
@@ -1234,8 +1234,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1246,8 +1246,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1258,8 +1258,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1270,8 +1270,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1282,8 +1282,8 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1294,8 +1294,8 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1306,8 +1306,8 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1317,9 +1317,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: False
@@ -1329,9 +1329,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1341,9 +1341,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1353,9 +1353,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1365,9 +1365,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -1 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1377,8 +1377,8 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 1
@@ -1389,8 +1389,8 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1401,8 +1401,8 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1413,8 +1413,8 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1425,8 +1425,8 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1437,8 +1437,8 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1449,8 +1449,8 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1461,8 +1461,8 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1474,7 +1474,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 1
@@ -1486,7 +1486,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1498,7 +1498,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1510,7 +1510,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1522,7 +1522,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1534,7 +1534,7 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1546,7 +1546,7 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1558,7 +1558,7 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1629,9 +1629,9 @@ valve_symbols:
     desc: "2 POS SGL, METAL SEAL, -1 FITTING SIZE"
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: False
@@ -1641,9 +1641,9 @@ valve_symbols:
     desc: "2 POS DBL, METAL SEAL, -1 FITTING SIZE"
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1653,9 +1653,9 @@ valve_symbols:
     desc: "3 POS CC, METAL SEAL, -1 FITTING SIZE"
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1665,9 +1665,9 @@ valve_symbols:
     desc: "3 POS EC, METAL SEAL, -1 FITTING SIZE"
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1677,9 +1677,9 @@ valve_symbols:
     desc: "3 POS PC, METAL SEAL, -1 FITTING SIZE"
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1690,8 +1690,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: False
@@ -1702,8 +1702,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1714,8 +1714,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1726,8 +1726,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1738,8 +1738,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: False
@@ -1749,8 +1749,8 @@ valve_symbols:
     desc: "2 POS SGL, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE"
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 1
@@ -1761,8 +1761,8 @@ valve_symbols:
     desc: "2 POS DBL, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE"
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1773,8 +1773,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1785,8 +1785,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1797,8 +1797,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -1 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1809,8 +1809,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 1
@@ -1821,8 +1821,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1833,8 +1833,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1845,8 +1845,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1857,8 +1857,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -1 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1870,7 +1870,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 1
@@ -1882,7 +1882,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1894,7 +1894,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1906,7 +1906,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1918,7 +1918,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 1
     solenoid_qty: 2
@@ -1930,7 +1930,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 1
@@ -1942,7 +1942,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1954,7 +1954,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1966,7 +1966,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1978,7 +1978,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 1
     solenoid_qty: 2
@@ -1990,8 +1990,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: False
@@ -2002,8 +2002,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2014,8 +2014,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2026,8 +2026,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2038,8 +2038,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2050,8 +2050,8 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2062,8 +2062,8 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2074,8 +2074,8 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2086,8 +2086,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: False
@@ -2098,8 +2098,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2110,8 +2110,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2122,8 +2122,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2134,8 +2134,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2146,8 +2146,8 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2158,8 +2158,8 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2170,8 +2170,8 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2181,9 +2181,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: False
@@ -2193,9 +2193,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2205,9 +2205,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2217,9 +2217,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2229,9 +2229,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -2 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2241,8 +2241,8 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 1
@@ -2253,8 +2253,8 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2265,8 +2265,8 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2277,8 +2277,8 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2289,8 +2289,8 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2301,8 +2301,8 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2313,8 +2313,8 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2325,8 +2325,8 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2338,7 +2338,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 1
@@ -2350,7 +2350,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2362,7 +2362,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2374,7 +2374,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2386,7 +2386,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2398,7 +2398,7 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2410,7 +2410,7 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2422,7 +2422,7 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2493,9 +2493,9 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, -2 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: False
@@ -2505,9 +2505,9 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, -2 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2517,9 +2517,9 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, -2 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2529,9 +2529,9 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, -2 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2541,9 +2541,9 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, -2 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2554,8 +2554,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: False
@@ -2566,8 +2566,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2578,8 +2578,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2590,8 +2590,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2602,8 +2602,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: False
@@ -2613,8 +2613,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 1
@@ -2625,8 +2625,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2637,8 +2637,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2649,8 +2649,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2661,8 +2661,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -2 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2673,8 +2673,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 1
@@ -2685,8 +2685,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2697,8 +2697,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2709,8 +2709,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2721,8 +2721,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -2 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2734,7 +2734,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 1
@@ -2746,7 +2746,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2758,7 +2758,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2770,7 +2770,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2782,7 +2782,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 2
     solenoid_qty: 2
@@ -2794,7 +2794,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 1
@@ -2806,7 +2806,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2818,7 +2818,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2830,7 +2830,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2842,7 +2842,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 2
     solenoid_qty: 2
@@ -2853,9 +2853,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, -3 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -2865,9 +2865,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, -3 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2877,9 +2877,9 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, -3 FITTING SIZE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2889,9 +2889,9 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, -3 FITTING SIZE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2901,9 +2901,9 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, -3 FITTING SIZE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2913,9 +2913,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, -3 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2925,9 +2925,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, -3 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2937,9 +2937,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, -3 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2950,8 +2950,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -2962,8 +2962,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2974,8 +2974,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2986,8 +2986,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -2998,8 +2998,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3010,8 +3010,8 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3022,8 +3022,8 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3034,8 +3034,8 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3045,9 +3045,9 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -3057,9 +3057,9 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3069,9 +3069,9 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3081,9 +3081,9 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3093,9 +3093,9 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, BACK PRESSURE CHECK, -3 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
+    pilot_type: ""
     back_pressure_check: "H"
-    pilot_valve: ~
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3105,8 +3105,8 @@ valve_symbols:
     desc: 2 POS SGL, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 1
@@ -3117,8 +3117,8 @@ valve_symbols:
     desc: 2 POS DBL, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3129,8 +3129,8 @@ valve_symbols:
     desc: 3 POS CC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "3"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3141,8 +3141,8 @@ valve_symbols:
     desc: 3 POS EC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "4"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3153,8 +3153,8 @@ valve_symbols:
     desc: 3 POS PC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "5"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3165,8 +3165,8 @@ valve_symbols:
     desc: 4 POS NC/NC, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3177,8 +3177,8 @@ valve_symbols:
     desc: 4 POS NO/NO, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3189,8 +3189,8 @@ valve_symbols:
     desc: 4 POS NC/NO, RUBBER SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3202,7 +3202,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 1
@@ -3214,7 +3214,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3226,7 +3226,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3238,7 +3238,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3250,7 +3250,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3262,7 +3262,7 @@ valve_symbols:
     actuation: "A"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3274,7 +3274,7 @@ valve_symbols:
     actuation: "B"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3286,7 +3286,7 @@ valve_symbols:
     actuation: "C"
     seal_type: "0"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3357,9 +3357,9 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, -3 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -3369,9 +3369,9 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, -3 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3381,9 +3381,9 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, -3 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3393,9 +3393,9 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, -3 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3405,9 +3405,9 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, -3 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3418,8 +3418,8 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -3430,8 +3430,8 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3442,8 +3442,8 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3454,8 +3454,8 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3466,8 +3466,8 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
-    pilot_valve: ~
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: False
@@ -3477,8 +3477,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 1
@@ -3489,8 +3489,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3501,8 +3501,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3513,8 +3513,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3525,8 +3525,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, HIGH PRESSURE, -3 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3537,8 +3537,8 @@ valve_symbols:
     desc: 2 POS SGL, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "1"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 1
@@ -3549,8 +3549,8 @@ valve_symbols:
     desc: 2 POS DBL, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "2"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3561,8 +3561,8 @@ valve_symbols:
     desc: 3 POS CC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "3"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3573,8 +3573,8 @@ valve_symbols:
     desc: 3 POS EC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "4"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3585,8 +3585,8 @@ valve_symbols:
     desc: 3 POS PC, METAL SEAL, QUICK RESPONSE, -3 FITTING SIZE
     actuation: "5"
     seal_type: "1"
-    pilot_type: ~
-    back_pressure_check: ~
+    pilot_type: ""
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3598,7 +3598,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 1
@@ -3610,7 +3610,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3622,7 +3622,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3634,7 +3634,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3646,7 +3646,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "K"
     fitting_size: 3
     solenoid_qty: 2
@@ -3658,7 +3658,7 @@ valve_symbols:
     actuation: "1"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 1
@@ -3670,7 +3670,7 @@ valve_symbols:
     actuation: "2"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3682,7 +3682,7 @@ valve_symbols:
     actuation: "3"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3694,7 +3694,7 @@ valve_symbols:
     actuation: "4"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3706,7 +3706,7 @@ valve_symbols:
     actuation: "5"
     seal_type: "1"
     pilot_type: "R"
-    back_pressure_check: ~
+    back_pressure_check: ""
     pilot_valve: "B"
     fitting_size: 3
     solenoid_qty: 2
@@ -3720,9 +3720,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X350
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3732,9 +3732,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X350
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3744,9 +3744,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X350
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3756,9 +3756,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X350, -1 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3768,9 +3768,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X350, -1 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3780,9 +3780,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X350, -1 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3792,9 +3792,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X350, -2 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -3804,9 +3804,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X350, -2 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -3816,9 +3816,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X350, -2 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -3828,9 +3828,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X350, -3 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -3840,9 +3840,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X350, -3 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -3852,9 +3852,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X350, -3 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -3864,9 +3864,9 @@ valve_symbols:
     desc: 2 POS SGL, X350
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 1
     x_option: True
@@ -3876,9 +3876,9 @@ valve_symbols:
     desc: 2 POS SGL, X350, -1 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 1
     x_option: True
@@ -3888,9 +3888,9 @@ valve_symbols:
     desc: 2 POS SGL, X350, -2 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 1
     x_option: True
@@ -3900,9 +3900,9 @@ valve_symbols:
     desc: 2 POS SGL, X350, -3 FITTING SIZE
     actuation: "1"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 1
     x_option: False
@@ -3912,9 +3912,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X323
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3924,9 +3924,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X323
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3936,9 +3936,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X323
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -3948,9 +3948,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X323, -1 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3960,9 +3960,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X323, -1 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3972,9 +3972,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X323, -1 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -3984,9 +3984,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X323, -2 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -3996,9 +3996,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X323, -2 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -4008,9 +4008,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X323, -2 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -4020,9 +4020,9 @@ valve_symbols:
     desc: 4 POS NC/NC, X323, -3 FITTING SIZE
     actuation: "A"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -4032,9 +4032,9 @@ valve_symbols:
     desc: 4 POS NO/NO, X323, -3 FITTING SIZE
     actuation: "B"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -4044,9 +4044,9 @@ valve_symbols:
     desc: 4 POS NC/NO, X323, -3 FITTING SIZE
     actuation: "C"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -4056,9 +4056,9 @@ valve_symbols:
     desc: 2 POS DBL, X25
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 2
     x_option: True
@@ -4068,9 +4068,9 @@ valve_symbols:
     desc: 2 POS DBL, X25, -1 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 1
     solenoid_qty: 2
     x_option: True
@@ -4080,9 +4080,9 @@ valve_symbols:
     desc: 2 POS DBL, X25, -2 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 2
     solenoid_qty: 2
     x_option: True
@@ -4092,9 +4092,9 @@ valve_symbols:
     desc: 2 POS DBL, X25, -3 FITTING SIZE
     actuation: "2"
     seal_type: "0"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 3
     solenoid_qty: 2
     x_option: True
@@ -4105,10 +4105,10 @@ valve_symbols:
     type: "blanking_plate"
     desc: "Blanking Plate"
     actuation: ~
-    seal_type: ~
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
@@ -4118,10 +4118,10 @@ valve_symbols:
     type: "block"
     desc: P BLOCK
     actuation: ~
-    seal_type: ~
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
@@ -4130,10 +4130,10 @@ valve_symbols:
     type: "block"
     desc: P/E BLOCK
     actuation: ~
-    seal_type: ~"
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
@@ -4142,10 +4142,10 @@ valve_symbols:
     type: "block"
     desc: E BLOCK
     actuation: ~
-    seal_type: ~
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
@@ -4155,10 +4155,10 @@ valve_symbols:
     type: "NA"
     desc: "NO VALVES, DOUBLE WIRE"
     actuation: ~
-    seal_type: ~ # not a valve
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
@@ -4167,10 +4167,10 @@ valve_symbols:
     type: "NA"
     desc: "NO VALVES, SINGLE WIRE"
     actuation: ~
-    seal_type: ~ # not a valve
-    pilot_type: ~
-    back_pressure_check: ~
-    pilot_valve: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
     fitting_size: 0
     solenoid_qty: 0
     x_option: False

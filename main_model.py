@@ -2,7 +2,7 @@
 import pandas as pd
 
 # pydantic dependencies
-from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError,)
+from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError)
 from typing import Literal, Optional
 from typing import Annotated
 
@@ -69,6 +69,10 @@ class SY1_EX600_MODEL(BaseModel):
 
     lt_surge_volt_sup: Optional[Literal["R", "U", "S", "Z", "NS", "NZ"]] = None
     coil_type: Optional[Literal["", "T"]] = None
+
+    fitting_direction: Optional[Literal["straight", "upward elbow", "downward elbow"]] = None
+    port_measurement_type: Optional[Literal['metric', 'imperial']] = None
+
     number_of_stations: int | None = None
     
     # --- Fields determined from standard fields and related to valves
@@ -88,21 +92,13 @@ class SY1_EX600_MODEL(BaseModel):
 
         return v
 
-    def build_part_number(self) -> str:
-        return (
-            f"{self.prefix}{self.series}{self.EX600}"
-            f"-{self.si_unit}{self.endplate_type}{self.io_unit_1}{self.io_unit_2}{self.io_unit_3}{self.io_unit_4}"
-            f"-{self.lt_surge_volt_sup_and_coil_type}{self.manual_override}"
-            f"-{self.valve_callout}"
-            f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
-        )
-
     # ----- SUB MODELS -----
     @model_validator(mode="after")
     def run_all_postprocessing_and_logic(self):
         # --- computed fields
         self._set_porting_type_and_pe_port_entry()
         self._set_lt_surge_volt_sup_and_coil_type()
+        self._set_fitting_direction_and_port_measurement_type()
         self._compute_parsed_valves_and_number_of_stations()
         # --- logic check
         self.main_model_logic()
@@ -110,6 +106,8 @@ class SY1_EX600_MODEL(BaseModel):
         self.valves = self.attach_valve_models()
         # self._build_submodels()
         return self
+
+    # -- Retrieving values from yaml_data for specific symbol values for model fields intialized as none --
 
     # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
     def _set_porting_type_and_pe_port_entry(self):
@@ -122,6 +120,12 @@ class SY1_EX600_MODEL(BaseModel):
         data_dict = YAML_DATA["lt_surge_volt_sup_and_coil_type_symbols"][self.lt_surge_volt_sup_and_coil_type]
         self.lt_surge_volt_sup = data_dict["lt_surge_volt_sup"]
         self.coil_type = data_dict["coil_type"]
+
+    # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data
+    def _set_fitting_direction_and_port_measurement_type(self):
+        data_dict = YAML_DATA["ab_port_size_symbols"][self.ab_port_size]
+        self.fitting_direction = data_dict["fitting_direction"]
+        self.port_measurement_type = data_dict["measurement_system"]
 
     # --- computed values ---
     def _compute_parsed_valves_and_number_of_stations(self):
@@ -193,12 +197,7 @@ class SY1_EX600_MODEL(BaseModel):
             )
 
             # 4 --> append enriched element
-            enriched.append(
-                {
-                    **item,
-                    "model": valve_model.model_dump(),
-                }
-            )
+            enriched.append({**item, "model": valve_model.model_dump()})
 
         return enriched
 
@@ -214,6 +213,16 @@ class SY1_EX600_MODEL(BaseModel):
         
         
         return self
+    
+    # --- building the part number
+    def part_number(self) -> str:
+        return (
+            f"{self.prefix}{self.series}{self.EX600}"
+            f"-{self.si_unit}{self.endplate_type}{self.io_unit_1}{self.io_unit_2}{self.io_unit_3}{self.io_unit_4}"
+            f"-{self.lt_surge_volt_sup_and_coil_type}{self.manual_override}"
+            f"-{self.valve_callout}"
+            f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
+        )
 
 
 # ----------------------- TESTING - TESTING - TESTING - TESTING - TESTING - TESTING -----------------------
@@ -234,14 +243,15 @@ try:
     parser = TokenMapParser(token_map)
     tokens = parser.parse(part_number)
     # valve = model(**tokens) #type: ignore
-    manifold = SY1_EX600_MODEL(**tokens)
+    manifold_object = SY1_EX600_MODEL(**tokens)
 
     validator_df = pd.DataFrame(
-        manifold.model_dump().items(), columns=["Field", "Value"]
+        manifold_object.model_dump().items(), columns=["Field", "Value"]
     )
     print("\nPart number is valid.\n")
     print(validator_df)
     print("-------------")
+    print(manifold_object.valves)
 
 # PyDantic Model is Throwing Error
 except ValidationError as e:

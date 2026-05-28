@@ -1,11 +1,11 @@
 # to run model for testing in terminal
 # --- run from root folder directory
-# --- use command "python -m submodels.u_sup_exh_block_assy"
+# --- use command "python -m submodels.sup_exh_block_assy"
 # --- don't add '.py' to end of model file or else won't work
 
 from pydantic import BaseModel, field_validator, model_validator, ValidationError
 from typing import Optional, Literal
-from utilities.config import YAML_DATA, u_side_sup_exh_tables
+from utilities.config import YAML_DATA, sup_exh_tables
 
 
 class Sup_Exh_Block_Assy_Model(BaseModel):
@@ -24,7 +24,7 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
     # --- determining pe_port_size field
     @model_validator(mode="after")
     def get_pe_port_size(self):
-        pe_port_table = u_side_sup_exh_tables["pe_port_table"]
+        pe_port_table = sup_exh_tables["pe_port_table"]
 
         # find matching entry
         for key, entry in pe_port_table.items():
@@ -96,10 +96,11 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
 
 # Example: Overall Smart Part Number Sup/Exh Porting Direction and Cover Assembly calls out
 # --- "A"
-data = YAML_DATA['sup_exh_porting_dir_and_cover_assy_symbols']['M']
+symbol = "M"
+data = YAML_DATA['sup_exh_porting_dir_and_cover_assy_symbols'][symbol]
 
 test_data = {
-    "sup_exh_porting_dir_and_cover_assy":YAML_DATA['sup_exh_porting_dir_and_cover_assy_symbols']['M'],
+    "sup_exh_porting_dir_and_cover_assy": symbol,
     "series": "5",
     "pilot_silencer_piping_type": data["pilot_silencer_piping_type"],
     "mounting_and_nameplate": "AA",
