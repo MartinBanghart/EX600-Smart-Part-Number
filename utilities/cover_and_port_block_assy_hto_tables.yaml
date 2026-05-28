@@ -1,0 +1,50 @@
+part_number_schemes:
+  cover_assy:
+    porting_type: ["10", "11"]
+    series: ["3", "5", "7"]
+    pe_port_entry: ["U", "D", "B"]
+    fitting_direction: [""]
+
+  silencer_cover_assy:
+    porting_type: ["10", "11", "12"]
+    series: ["3", "5", "7"]
+    pe_port_entry: ["C", "E", "F"]
+    fitting_direction: [""]
+
+  ext_port_block_assy:
+    porting_type: ["10", "11"]
+    series: ["3", "5", "7"]
+    pe_port_entry: ["G", "H", "J"]
+    fitting_direction: ["straight", "downward elbow", "upward elbow"] # in hto straight/downward elbow is one option set to "NIL" but straight is meant for bottom ported
+
+  int_silencer_port_block_assy:
+    porting_type: ["12"]
+    series: ["3", "5", "7"]
+    pe_port_entry: ["C", "E", "F"]
+    fitting_direction: [""]
+
+  port_block_assy:
+    porting_type: ["12"]
+    series: ["3", "5", "7"]
+    pe_port_entry: ["U", "D", "B", "G", "H", "J"]
+    fitting_direction: [""]
+
+pe_port_size:
+  C8:
+    series: "3"
+    measurement_system: "metric"
+  C10:
+    series: "5"
+    measurement_system: "metric"
+  C12:
+    series: "7"
+    measurement_system: "metric"
+  N9:
+    series: "3"
+    measurement_system: "imperial"
+  N11:
+    series: "5"
+    measurement_system: "imperial"
+  N13:
+    series: "7"
+    measurement_system: "imperial"

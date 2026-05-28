@@ -65,7 +65,7 @@ class SY1_EX600_MODEL(BaseModel):
 
     # --- Fields determined from standard fields above  ---
     porting_type: Optional[Literal["10", "11", "12"]] = None
-    pe_port_entry: Optional[Literal["U", "D", "B", "C", "E", "F"]] = None
+    pe_port_entry: Optional[Literal["U", "D", "B", "C", "E", "F", "G", "H", "J"]] = None
 
     lt_surge_volt_sup: Optional[Literal["R", "U", "S", "Z", "NS", "NZ"]] = None
     coil_type: Optional[Literal["", "T"]] = None

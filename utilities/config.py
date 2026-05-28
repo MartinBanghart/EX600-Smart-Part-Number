@@ -13,3 +13,8 @@ with open(YAML_PATH, "r") as f:
 sup_exh_tables_PATH = os.path.join(BASE_DIR, "sup_exh_block_hto_tables.yaml")
 with open(sup_exh_tables_PATH, "r") as f:
     sup_exh_tables = yaml.safe_load(f)
+    
+# Cover and Port Block Assembly
+port_block_PATH = os.path.join(BASE_DIR, "cover_and_port_block_assy_hto_tables.yaml")
+with open(port_block_PATH, "r") as f:
+    port_block_tables = yaml.safe_load(f)
