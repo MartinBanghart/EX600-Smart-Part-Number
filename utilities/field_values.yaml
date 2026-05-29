@@ -4099,6 +4099,191 @@ valve_symbols:
     solenoid_qty: 2
     x_option: True
 
+  # ----- Blanking Plates with Output -----
+  WH:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, No Connector, 300mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WI:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, No Connector, 100mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WJ:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, M12, 300mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WK:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, M12, 1000mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WL:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, ZK2, 3000mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WM:
+    field: "valve_callout"
+    type: "blanking_plate_with_output"
+    desc: "Blanking Plate with output, ZK2, 1000mm"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  # ----- Individual Supply Block -----
+  WN:
+    field: "valve_callout"
+    type: "individual_supply_block"
+    desc: "Individual Supply Block"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WP:
+    field: "valve_callout"
+    type: "individual_supply_block"
+    desc: "Individual Supply Block, Fitting Size -1"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 1
+    solenoid_qty: 0
+    x_option: False
+
+  WQ:
+    field: "valve_callout"
+    type: "individual_supply_block"
+    desc: "Individual Supply Block, Fitting Size -2"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 2
+    solenoid_qty: 0
+    x_option: False
+
+  WR:
+    field: "valve_callout"
+    type: "individual_supply_block"
+    desc: "Individual Supply Block, Fitting Size -3"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 3
+    solenoid_qty: 0
+    x_option: False
+
+  # ----- Individual Exhaust Block -----
+  WS:
+    field: "valve_callout"
+    type: "individual_exhaust_block"
+    desc: "Individual Exhaust Block"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 0
+    x_option: False
+
+  WT:
+    field: "valve_callout"
+    type: "individual_exhaust_block"
+    desc: "Individual Exhaust Block, Fitting Size -1"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 1
+    solenoid_qty: 0
+    x_option: False
+
+  WU:
+    field: "valve_callout"
+    type: "individual_exhaust_block"
+    desc: "Individual Exhaust Block, Fitting Size -2"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 2
+    solenoid_qty: 0
+    x_option: False
+
+  WV:
+    field: "valve_callout"
+    type: "individual_exhaust_block"
+    desc: "Individual Exhaust Block, Fitting Size -3"
+    actuation: ~
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 3
+    solenoid_qty: 0
+    x_option: False
+
   # ----- Blanking Plates -----
   WW:
     field: "valve_callout"
