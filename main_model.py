@@ -1,5 +1,6 @@
 # general dependencies
 import pandas as pd
+import re
 
 # pydantic dependencies
 from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError)
@@ -23,16 +24,16 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "EX600", "pattern": r"[6]", "length": 1},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "si_unit", "pattern": r"(0|Q|N|V|E|D|F|G|W)", "length": 1},
-    {"name": "endplate_type", "pattern": r"(2|3|4|5|6|7|8|9)?", "length": 1},
+    {"name": "endplate_type", "pattern": r"(2|3|4|5|6|7|8|9)?", "length": None},
     {"name": "io_unit_1", "pattern": r"[A-Z1]?", "length": None},
     {"name": "io_unit_2", "pattern": r"[A-Z1]?", "length": None},
     {"name": "io_unit_3", "pattern": r"[A-Z1]?", "length": None},
     {"name": "io_unit_4", "pattern": r"[A-Z1]?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|M)","length": 1,},
+    {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|W|M)","length": 1,},
     {"name": "manual_override", "pattern": r"(D|E|F)?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {"name": "valve_callout","pattern": r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+","length": None,},
+    {"name": "valve_callout","pattern": r"(?:(?:[2-9]|1[0-6])?D|(?:[2-9]|[12][0-9]|3[0-2])?S|[A-W][A-W]|X|Y|Z)+","length": None,},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "sup_exh_porting_dir_and_cover_assy", "pattern": r"[A-Z]", "length": 1},
     {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])","length": 2,},
@@ -49,15 +50,16 @@ class SY1_EX600_MODEL(BaseModel):
     # -
     si_unit: Literal["0", "Q", "N", "V", "E", "D", "F", "G", "W"]
     endplate_type: Literal["", "2", "3", "4", "5", "6", "7", "8", "9"]
-    io_unit_1: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
-    io_unit_2: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
-    io_unit_3: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
-    io_unit_4: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z1]")]
+    io_unit_1: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_2: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_3: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_4: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
     # -
     lt_surge_volt_sup_and_coil_type: Literal["R", "U", "S", "Z", "T", "V", "W", "M"]  # M is for no valves
     manual_override: Literal["", "D", "E", "F"]
     # -
-    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+",),]
+    #valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+")]
+    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-6])?D|(?:[2-9]|[12][0-9]|3[0-2])?S|[A-W][A-W]|X|Y|Z)+")]
     # -
     sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
     ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",),]
@@ -77,7 +79,7 @@ class SY1_EX600_MODEL(BaseModel):
     
     # --- Fields determined from standard fields and related to valves
     parsed_valves: list = Field(default_factory=list)
-    valves: list = Field(default_factory=list)
+    valves: list | None = Field(default_factory=list)
 
     # --- Submodels- not a part of How-To-Order fields ---
     mounting: Mounting_And_Nameplate_Model | None = None
@@ -149,7 +151,8 @@ class SY1_EX600_MODEL(BaseModel):
 
         VALVE_TYPE_REGISTRY = {
             "base_mounted_valve": Base_Mounted_Valves_Model,
-            # "blanking_plate": Blanking_Plate_Model,
+            # "blanking_plate": ,
+            # "manifold_base":,
             # "X323_option": X323_Valve_Model,
         }
 
@@ -165,48 +168,64 @@ class SY1_EX600_MODEL(BaseModel):
 
             valve_type = yaml_entry["type"]
 
-            # 2 --> lookup model class based on YAML type
-            model_cls = VALVE_TYPE_REGISTRY.get(valve_type)
-            if model_cls is None:
-                raise ValueError(f"No model registered for valve type '{valve_type}'")
+            # ONLY FOR TESTING SO THAT SYMBOLS WITHOUT MODELS YET CAN STILL BE RUN TO CHECK OVERALL VALIDATION --> REMOVE LATER
+            if VALVE_TYPE_REGISTRY.get(valve_type) == 'base_mounted_valve':
 
-            # guarding against the possibility calculated fields were not populated and remain none
-            if self.porting_type is None:
-                raise ValueError("porting_type was not set before creating valve_model")
-            if self.coil_type is None:
-                raise ValueError("coil_type was not set before creating valve_model")
-            if self.lt_surge_volt_sup is None:
-                raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
+                # 2 --> lookup model class based on YAML type
+                model_cls = VALVE_TYPE_REGISTRY.get(valve_type)
+                if model_cls is None:
+                    raise ValueError(f"No model registered for valve type '{valve_type}'")
 
-            # 3 --> instantiate the valve model
-            valve_model = model_cls(
-                type=valve_type,
-                series=self.series,
-                actuation=yaml_entry["actuation"],
-                seal_type=yaml_entry["seal_type"],
-                pilot_type=yaml_entry["pilot_type"],
-                back_pressure_check=yaml_entry["back_pressure_check"],
-                pilot_valve=yaml_entry["pilot_valve"],
-                coil_type=self.coil_type,
-                lt_surge_volt_sup=self.lt_surge_volt_sup,
-                manual_override=self.manual_override,
-                ab_port_size=self.ab_port_size,
-                porting_type=self.porting_type,
-                fitting_size=yaml_entry["fitting_size"],
-                solenoid_qty=yaml_entry["solenoid_qty"],
-            )
+                # guarding against the possibility calculated fields were not populated and remain none
+                if self.porting_type is None:
+                    raise ValueError("porting_type was not set before creating valve_model")
+                if self.coil_type is None:
+                    raise ValueError("coil_type was not set before creating valve_model")
+                if self.lt_surge_volt_sup is None:
+                    raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
 
-            # 4 --> append enriched element
-            enriched.append({**item, "model": valve_model.model_dump()})
+                # 3 --> instantiate the valve model
+                valve_model = model_cls(
+                    type=valve_type,
+                    series=self.series,
+                    actuation=yaml_entry["actuation"],
+                    seal_type=yaml_entry["seal_type"],
+                    pilot_type=yaml_entry["pilot_type"],
+                    back_pressure_check=yaml_entry["back_pressure_check"],
+                    pilot_valve=yaml_entry["pilot_valve"],
+                    coil_type=self.coil_type,
+                    lt_surge_volt_sup=self.lt_surge_volt_sup,
+                    manual_override=self.manual_override,
+                    ab_port_size=self.ab_port_size,
+                    porting_type=self.porting_type,
+                    fitting_size=yaml_entry["fitting_size"],
+                    solenoid_qty=yaml_entry["solenoid_qty"],
+                )
 
-        return enriched
+                # 4 --> append enriched element
+                enriched.append({**item, "model": valve_model.model_dump()})
+                return enriched
+            
+            else:
+                return enriched
 
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
+        # ----- [Endplate Type/SI Unit Polarity] -----
         # if no si unit is selected and endplate type is not Nil, raise error
-        if self.si_unit == "0" and self.endplate_type != "":
+        if self.si_unit == "0" and (self.endplate_type != "" or (self.io_unit_1 != "" or self.io_unit_2 != "" or self.io_unit_3 != "" or self.io_unit_4 != "" )):
             raise ValueError("No SI Unit was selected, endplate type must be nil")
         
+        # ----- [Light Surge Voltage Suppressor & Coil Type] -----
+        # Test 1
+        valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)$" # matches values for (2-16)0D or (2-32)0S
+        if self.lt_surge_volt_sup_and_coil_type == 'M' and not re.fullmatch(valid_D_S, self.valve_callout):
+            raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
+        
+        # # Test 2
+        # if self.lt_surge_volt_sup_and_coil_type in ("S", "Z", "T")
+
+        # ----- [Valve Callout] -----
         # if the valve callout section is too long (greater than 19 chars), raise error
         if len(self.valve_callout) > 19:
             raise ValueError("valve callout exceeds allowable maximum of 19 characters")
@@ -226,50 +245,45 @@ class SY1_EX600_MODEL(BaseModel):
 
 
 # ----------------------- TESTING - TESTING - TESTING - TESTING - TESTING - TESTING -----------------------
+def run_main_model(part_number: str):
 
-# 2AB2AT3AAX2AE5BB2AA
-## -- ## PART NUMBERS FOR TESTING ## -- ##
-part_number = "SY36-Q2AAAA-ZD-AA3AB2ACAD-A11D"
-# part_number = "SY36-02AAAA-ZD-AA3AB2ACAD-A11D"  # mismatch: no si unit selected but endplate type does not match
+    model = SY1_EX600_TOKEN_MAP
+    token_map = SY1_EX600_TOKEN_MAP
 
-model = SY1_EX600_TOKEN_MAP
-token_map = SY1_EX600_TOKEN_MAP
+    print("\n --------------------------------------")
 
-print("\n --------------------------------------")
+    # tokens = {}
+    try:
+        print(f"\nParsing:{part_number}\n")
+        parser = TokenMapParser(token_map)
+        tokens = parser.parse(part_number)
+        manifold_object = SY1_EX600_MODEL(**tokens)
+        validator_df = pd.DataFrame(manifold_object.model_dump().items(), columns=["Field", "Value"])
+        print(validator_df)
 
-# tokens = {}
-try:
-    print(f"\nParsing:{part_number}\n")
-    parser = TokenMapParser(token_map)
-    tokens = parser.parse(part_number)
-    # valve = model(**tokens) #type: ignore
-    manifold_object = SY1_EX600_MODEL(**tokens)
+        return manifold_object, True
 
-    validator_df = pd.DataFrame(
-        manifold_object.model_dump().items(), columns=["Field", "Value"]
-    )
-    print("\nPart number is valid.\n")
-    print(validator_df)
-    print("-------------")
-    print(manifold_object.valves)
+    # PyDantic Model is Throwing Error
+    except ValidationError as e:
+        print("\nValidation error:")
+        print("---------------------")
+        for err in e.errors():
+            message = err["msg"].removeprefix("Value error, ")
+            print(f"{message}")
 
-# PyDantic Model is Throwing Error
-except ValidationError as e:
-    print("\nValidation error:")
-    print("---------------------")
-    for err in e.errors():
-        message = err["msg"].removeprefix("Value error, ")
-        print(f"{message}")
+        if "tokens" in locals():
+            print("\nParsed Tokens")
+            print(pd.DataFrame([tokens]))
+        
+        return 'is not valid', False
 
-    if "tokens" in locals():
-        print("\nParsed Tokens")
-        print(pd.DataFrame([tokens]))
-
-# Parser is Throwing Error
-except ValueError as e:
-    print(f"\nParse error: {e}")
-    if "tokens" in locals():
-        print("Partial Tokens Extracted")
-        print(pd.DataFrame([tokens]).T)
-    else:
-        print("Parsing failed before any tokens could be generated.")
+    # Parser is Throwing Error
+    except ValueError as e:
+        print(f"\nParse error: {e}")
+        if "tokens" in locals():
+            print("Partial Tokens Extracted")
+            print(pd.DataFrame([tokens]).T)
+        else:
+            print("Parsing failed before any tokens could be generated.")
+        
+        return 'is not valid', False

@@ -31,16 +31,16 @@ class Manifold_Block_Model(BaseModel):
         return self
 
 # -- Testing -- Testing -- Testing -- Testing -- Testing -- Testing --
-test_data = {
-    "series": "3",
-    "piping_direction": "1",
-    "wiring_type": "S",
-    "ab_port_size": "C3",
-}
+# test_data = {
+#     "series": "3",
+#     "piping_direction": "1",
+#     "wiring_type": "S",
+#     "ab_port_size": "C3",
+# }
 
-try:
-    manifold_block_obj = Manifold_Block_Model(**test_data) #type: ignore
-    print(manifold_block_obj.part_number())
-except ValidationError as e:
-    for err in e.errors():
-        print(err["msg"])
+# try:
+#     manifold_block_obj = Manifold_Block_Model(**test_data) #type: ignore
+#     print(manifold_block_obj.part_number())
+# except ValidationError as e:
+#     for err in e.errors():
+#         print(err["msg"])

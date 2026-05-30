@@ -104,34 +104,34 @@ class Base_Mounted_Valves_Model(BaseModel):
 
 
 # ----------------- TESTING -----------------
-test_data = {
-    "series": "3",
-    "type": "base_mounted_valve",
-    "desc": "2 POS SGL, RUBBER SEAL",
-    "actuation": "1",
-    "seal_type": "0",
-    "pilot_type": "",
-    "back_pressure_check": "",
-    "pilot_valve": "",
-    "fitting_size": 0,
-    "solenoid_qty": 1,
-    "x_option": False,
-    "lt_surge_volt_sup": "R",
-    "coil_type": "",
-    "manual_override": "D",
-    "ab_port_size": "11",
-    "porting_type": "10",
-}
+# test_data = {
+#     "series": "3",
+#     "type": "base_mounted_valve",
+#     "desc": "2 POS SGL, RUBBER SEAL",
+#     "actuation": "1",
+#     "seal_type": "0",
+#     "pilot_type": "",
+#     "back_pressure_check": "",
+#     "pilot_valve": "",
+#     "fitting_size": 0,
+#     "solenoid_qty": 1,
+#     "x_option": False,
+#     "lt_surge_volt_sup": "R",
+#     "coil_type": "",
+#     "manual_override": "D",
+#     "ab_port_size": "11",
+#     "porting_type": "10",
+# }
 
-valve_obj = Base_Mounted_Valves_Model(**test_data)
-print("\n")
+# valve_obj = Base_Mounted_Valves_Model(**test_data)
+# print("\n")
 
-print(valve_obj)
-print(valve_obj.valve_part_number())
-print("\n")
-print(valve_obj.manifold_block_part_number())
-print("\n")
-print(valve_obj.mix_mount_manifold_block_3000_5000_part_number())
+# print(valve_obj)
+# print(valve_obj.valve_part_number())
+# print("\n")
+# print(valve_obj.manifold_block_part_number())
+# print("\n")
+# print(valve_obj.mix_mount_manifold_block_3000_5000_part_number())
 
 
-print("\n")
+# print("\n")

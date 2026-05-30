@@ -4335,9 +4335,9 @@ valve_symbols:
     solenoid_qty: 0
     x_option: False
   # ----- No Valve Options -----
-  0D:
+  D:
     field: "valve_callout"
-    type: "NA"
+    type: "manifold_base"
     desc: "NO VALVES, DOUBLE WIRE"
     actuation: ~
     seal_type: ""
@@ -4347,9 +4347,9 @@ valve_symbols:
     fitting_size: 0
     solenoid_qty: 0
     x_option: False
-  0S:
+  S:
     field: "valve_callout"
-    type: "NA"
+    type: "manifold_base"
     desc: "NO VALVES, SINGLE WIRE"
     actuation: ~
     seal_type: ""

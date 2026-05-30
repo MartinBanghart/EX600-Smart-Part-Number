@@ -4,53 +4,47 @@ from pydantic import BaseModel
 
 
 # ---------------------------------------------------------------------------------
-# --- Parser for Main Model --> Tokenizes user input ---
+# # --- Parser for Main Model --> Tokenizes user input ---
 class TokenMapParser:
     def __init__(self, token_map):
         self.token_map = token_map
+        # tokens allowed to match empty string
+        self.allow_empty = {"mounting_and_nameplate", "endplate_type", 
+                            "io_unit_1", "io_unit_2", "io_unit_3", "io_unit_4", "manual_override"}
 
     def parse(self, raw_string):
         s = raw_string.strip().upper()
         result = {}
-        i = 0  # position cursor
+        i = 0
 
         for token in self.token_map:
             name = token["name"]
             pattern = token["pattern"]
             length = token.get("length")
-            optional = token.get("optional", False)
 
             # -------------------------------
             # FIXED LENGTH TOKENS
             # -------------------------------
             if length is not None:
-                segment = s[i : i + length]
+                segment = s[i:i+length]
                 if not re.fullmatch(pattern, segment):
-                    if optional:
-                        result[name] = ""
-                        continue
-                    else:
-                        print("Tokens parsed before failure:")
-                        print(result)
-                        raise ValueError(
-                            f"Token '{name}' at position {i} is invalid: '{segment}'"
-                        )
+                    raise ValueError(
+                        f"Token '{name}' at position {i} is invalid: '{segment}'"
+                    )
                 result[name] = segment
                 i += length
                 continue
 
             # -------------------------------
-            # VARIABLE LENGTH TOKENS (PATCHED)
+            # VARIABLE LENGTH TOKENS
             # -------------------------------
             match = re.match(pattern, s[i:])
-
             if match:
                 segment = match.group()
 
-                # PATCH: prevent empty match unless allowed
+                # allow empty match for specific tokens
                 if segment == "":
-                    if name == "mounting_and_nameplate":
-                        # NIL case — allowed
+                    if name in self.allow_empty:
                         result[name] = ""
                         continue
                     else:
@@ -58,22 +52,18 @@ class TokenMapParser:
                             f"Token '{name}' cannot match empty string at position {i}"
                         )
 
-                # Non-empty match is valid
+                # normal non-empty match
                 result[name] = segment
                 i += len(segment)
                 continue
 
-            # PATCH: fallback for NIL mounting
-            if name == "mounting_and_nameplate":
+            # fallback for mounting (legacy behavior)
+            if name in self.allow_empty:
                 result[name] = ""
                 continue
 
-            # No match and no fallback → error
             raise ValueError(f"Token '{name}' could not be matched")
 
-        # -------------------------------
-        # TRAILING CHARACTERS CHECK
-        # -------------------------------
         if i != len(s):
             raise ValueError(f"Unexpected trailing characters after parsing: '{s[i:]}'")
 
