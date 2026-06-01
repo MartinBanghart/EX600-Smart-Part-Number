@@ -35,19 +35,19 @@ si_unit_symbols:
 endplate_type_symbols:
   "": # nil option when no si unit selected
     field: endplate_type
-    polarity: ~
-    endplate_part_number: ~
+    polarity: ""
+    endplate_part_number: ""
   "2":
     field: endplate_type
     polarity: NPN
     endplate_part_number: EX600-ED2
   "3":
     field: endplate_type
-    polarity: PNP
+    polarity: NPN
     endplate_part_number: EX600-ED3
   "4":
     field: endplate_type
-    polarity: NPN
+    polarity: PNP
     endplate_part_number: EX600-ED2
   "5":
     field: endplate_type
@@ -202,41 +202,49 @@ lt_surge_volt_sup_and_coil_type_symbols:
     desc: "Non-polar, Surge Voltage Suppressor"
     lt_surge_volt_sup: "R"
     coil_type: ""
+    polarity: Non-Polar
   "U":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Non-polar, Surge Voltage Suppressor, With Light"
     lt_surge_volt_sup: "U"
     coil_type: ""
+    polarity: Non-Polar
   "S":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Positive Common, Surge Voltage Suppressor"
     lt_surge_volt_sup: "S"
     coil_type: ""
+    polarity: NPN
   "Z":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Positive Common, Surge Voltage Suppressor, With Light"
     lt_surge_volt_sup: "Z"
     coil_type: ""
+    polarity: NPN
   "T":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Positive Common, Surge Voltage Suppressor, With Light, Power Saving Circuit"
     lt_surge_volt_sup: "Z"
     coil_type: "T"
+    polarity: NPN
   "V":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Negative Common, Surge Voltage Suppressor"
     lt_surge_volt_sup: "NS"
     coil_type: ""
+    polarity: PNP
   "W":
     field: lt_surge_volt_sup_and_coil_type
     desc: "Negative Common, Surge Voltage Suppressor, With Light, Power Saving Circuit"
     lt_surge_volt_sup: "NZ"
     coil_type: "T"
+    polarity: PNP
   "M":
     field: lt_surge_volt_sup_and_coil_type
     desc: "No valves"
     lt_surge_volt_sup: ""
     coil_type: ""
+    polarity: ""
 
 # --------------------------------- < MANUAL OVERRIDE > ---------------------------------
 man_override_symbols:
@@ -4104,7 +4112,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, No Connector, 300mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4117,7 +4125,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, No Connector, 100mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4130,7 +4138,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, M12, 300mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4143,7 +4151,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, M12, 1000mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4156,7 +4164,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, ZK2, 3000mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4169,7 +4177,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate_with_output"
     desc: "Blanking Plate with output, ZK2, 1000mm"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4183,7 +4191,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_supply_block"
     desc: "Individual Supply Block"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4196,7 +4204,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_supply_block"
     desc: "Individual Supply Block, Fitting Size -1"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4209,7 +4217,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_supply_block"
     desc: "Individual Supply Block, Fitting Size -2"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4222,7 +4230,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_supply_block"
     desc: "Individual Supply Block, Fitting Size -3"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4236,7 +4244,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_exhaust_block"
     desc: "Individual Exhaust Block"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4249,7 +4257,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_exhaust_block"
     desc: "Individual Exhaust Block, Fitting Size -1"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4262,7 +4270,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_exhaust_block"
     desc: "Individual Exhaust Block, Fitting Size -2"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4275,7 +4283,7 @@ valve_symbols:
     field: "valve_callout"
     type: "individual_exhaust_block"
     desc: "Individual Exhaust Block, Fitting Size -3"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4289,7 +4297,7 @@ valve_symbols:
     field: "valve_callout"
     type: "blanking_plate"
     desc: "Blanking Plate"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4302,7 +4310,7 @@ valve_symbols:
     field: "valve_callout"
     type: "block"
     desc: P BLOCK
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4314,7 +4322,7 @@ valve_symbols:
     field: "valve_callout"
     type: "block"
     desc: P/E BLOCK
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4326,7 +4334,7 @@ valve_symbols:
     field: "valve_callout"
     type: "block"
     desc: E BLOCK
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4339,7 +4347,7 @@ valve_symbols:
     field: "valve_callout"
     type: "manifold_base"
     desc: "NO VALVES, DOUBLE WIRE"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""
@@ -4351,7 +4359,7 @@ valve_symbols:
     field: "valve_callout"
     type: "manifold_base"
     desc: "NO VALVES, SINGLE WIRE"
-    actuation: ~
+    actuation: ""
     seal_type: ""
     pilot_type: ""
     back_pressure_check: ""

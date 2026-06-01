@@ -33,7 +33,7 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|W|M)","length": 1,},
     {"name": "manual_override", "pattern": r"(D|E|F)?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {"name": "valve_callout","pattern": r"(?:(?:[2-9]|1[0-6])?D|(?:[2-9]|[12][0-9]|3[0-2])?S|[A-W][A-W]|X|Y|Z)+","length": None,},
+    {"name": "valve_callout","pattern": r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:D|S|[A-W][A-W]|X|Y|Z))+","length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "sup_exh_porting_dir_and_cover_assy", "pattern": r"[A-Z]", "length": 1},
     {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])","length": 2,},
@@ -59,13 +59,16 @@ class SY1_EX600_MODEL(BaseModel):
     manual_override: Literal["", "D", "E", "F"]
     # -
     #valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+")]
-    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-6])?D|(?:[2-9]|[12][0-9]|3[0-2])?S|[A-W][A-W]|X|Y|Z)+")]
+    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:D|S|[A-W][A-W]|X|Y|Z))+")]
     # -
     sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
     ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",),]
     mounting_and_nameplate: Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
 
     # --- Fields determined from standard fields above  ---
+    si_unit_polarity: Optional[Literal["", "NPN", "PNP", "Non-Polar"]] = None
+    valve_polarity: Optional[Literal["", "NPN", "PNP", "Non-Polar"]] = None
+    
     porting_type: Optional[Literal["10", "11", "12"]] = None
     pe_port_entry: Optional[Literal["U", "D", "B", "C", "E", "F", "G", "H", "J"]] = None
 
@@ -98,6 +101,7 @@ class SY1_EX600_MODEL(BaseModel):
     @model_validator(mode="after")
     def run_all_postprocessing_and_logic(self):
         # --- computed fields
+        self._set_si_unit_and_valve_polarities()
         self._set_porting_type_and_pe_port_entry()
         self._set_lt_surge_volt_sup_and_coil_type()
         self._set_fitting_direction_and_port_measurement_type()
@@ -110,6 +114,13 @@ class SY1_EX600_MODEL(BaseModel):
         return self
 
     # -- Retrieving values from yaml_data for specific symbol values for model fields intialized as none --
+    
+    # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
+    def _set_si_unit_and_valve_polarities(self):
+        si_data_dict = YAML_DATA["endplate_type_symbols"][self.endplate_type]
+        valve_data_dict = YAML_DATA["lt_surge_volt_sup_and_coil_type_symbols"][self.lt_surge_volt_sup_and_coil_type]
+        self.si_unit_polarity = si_data_dict["polarity"]
+        self.valve_polarity = valve_data_dict["polarity"]
 
     # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
     def _set_porting_type_and_pe_port_entry(self):
@@ -223,8 +234,10 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
         
         # # Test 2
-        # if self.lt_surge_volt_sup_and_coil_type in ("S", "Z", "T")
-
+        # Valve polarity logic
+        if self.valve_polarity != "Non-Polar" and self.si_unit_polarity != self.valve_polarity:
+            raise ValueError("SI Unit and valve polarity must match unless a Non-Polar valve is selected")
+        
         # ----- [Valve Callout] -----
         # if the valve callout section is too long (greater than 19 chars), raise error
         if len(self.valve_callout) > 19:
