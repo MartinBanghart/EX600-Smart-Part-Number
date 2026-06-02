@@ -18,3 +18,8 @@ with open(sup_exh_tables_PATH, "r") as f:
 port_block_PATH = os.path.join(BASE_DIR, "cover_and_port_block_assy_hto_tables.yaml")
 with open(port_block_PATH, "r") as f:
     port_block_tables = yaml.safe_load(f)
+
+# A/B Port Mixed Fitting Size Guide
+ab_mixed_fitting_PATH = os.path.join(BASE_DIR, "ab_port_mixed_fitting_size_guide.yaml")
+with open(ab_mixed_fitting_PATH, "r") as f:
+    ab_mixed_fitting_tables = yaml.safe_load(f)

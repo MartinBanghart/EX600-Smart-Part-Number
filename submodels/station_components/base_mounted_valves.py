@@ -6,7 +6,7 @@
 from pydantic import BaseModel, field_validator, model_validator
 from typing import Optional, Literal
 
-from utilities.config import YAML_DATA
+from utilities.config import YAML_DATA, ab_mixed_fitting_tables
 
 class Base_Mounted_Valves_Model(BaseModel):
     # dropping any fields passed that are not declared in model
@@ -32,6 +32,9 @@ class Base_Mounted_Valves_Model(BaseModel):
 
     # --- Fields Determined from inherited fields above ---
     manifold_block_wiring_type: str = ""
+    
+    # --- Calculated Part Numbers
+    manifold_block_part_number: Optional[str] = None
 
     # --- Retrieved from YAML_DATA fields
     ab_port_size_hto: Optional[str] = None
@@ -42,8 +45,9 @@ class Base_Mounted_Valves_Model(BaseModel):
         # --- computed fields
         self.get_manifold_block_wiring_type()
         self.get_ab_port_size_hto()
+        self.get_manifold_part_number()
         # --- logic check
-        # self.model_logic()
+        self.model_logic()
         return self
 
     def get_manifold_block_wiring_type(self):
@@ -51,29 +55,22 @@ class Base_Mounted_Valves_Model(BaseModel):
             self.manifold_block_wiring_type = "S"
         elif self.solenoid_qty == 2:  # valve is double solenoid
             self.manifold_block_wiring_type = "D"
-        elif (
-            self.solenoid_qty == 0
-        ):  # blanking plate --> assume double wired since customer could swap for double solenoid valve
+        elif (self.solenoid_qty == 0):  # blanking plate --> assume double wired since customer could swap for double solenoid valve
             self.manifold_block_wiring_type = "D"
         return self
     
     # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data
     def get_ab_port_size_hto(self):
         data_dict = YAML_DATA["ab_port_size_symbols"][self.ab_port_size]
-        self.ab_port_size_hto = data_dict["size"]
+        size = data_dict["size"]
+        
+        if size in ("CM", "LM", "BM", "NM", "NLM", "NBM"):
+            self.ab_port_size_hto = ab_mixed_fitting_tables["series"][self.series]["porting"][self.porting_type][size][self.fitting_size]
+        else:
+            self.ab_port_size_hto = size
+            
         return self
     
-    # #  --- Overall Logic for Main Model ---
-    # def model_logic(self):
-    #     # 
-    #     if :
-    #         raise ValueError("")
-    #     # 
-    #     if :
-    #         raise ValueError("")
-        
-        
-        return self
 
     # Creating valve part number
     def valve_part_number(self) -> str:
@@ -83,15 +80,14 @@ class Base_Mounted_Valves_Model(BaseModel):
         )
 
     # Creating manifold block part number
-    def manifold_block_part_number(self) -> str:
+    def standard_manifold_block_part_number(self) -> str:
         if self.porting_type in ("10", "11"):
             piping_direction = "1"
         elif self.porting_type in ("12"):
             piping_direction = "2"
 
         # standard manifold block (SY#0M-2-##A-#)
-        return(f"SY{self.series}0M-2-{piping_direction}{self.manifold_block_wiring_type}A-{self.ab_port_size_hto}"
-        )
+        return(f"SY{self.series}0M-2-{piping_direction}{self.manifold_block_wiring_type}A-{self.ab_port_size_hto}")
 
     def mix_mount_manifold_block_3000_5000_part_number(self) -> str:
         # mixed mounting 3000/5000 manifold block (SY50M-2-##A-#) - used for bottom ported (type 11) 3000 series
@@ -101,7 +97,27 @@ class Base_Mounted_Valves_Model(BaseModel):
             piping_direction = "4"
         # standard manifold block (SY50M-2-##A-#)
         return(f"SY50M-2-{piping_direction}{self.manifold_block_wiring_type}A-{self.ab_port_size_hto}")
+    
+    # setting manifold_block_part_number field
+    # --- if bottom ported 3000 series, it must use SY5000 mixed mounting block, otherwise its standard manifold block
+    def get_manifold_part_number(self):
+        if self.series == "3" and self.porting_type == "11":
+            self.manifold_block_part_number = self.mix_mount_manifold_block_3000_5000_part_number()
+        else:
+            self.manifold_block_part_number = self.standard_manifold_block_part_number()
+        
+        return self
 
+    def model_logic(self):
+        if self.actuation in ("A", "B", "C") and self.seal_type != "0":
+            raise ValueError("Rubber seal type must be selected for 4 position dual 3 port actuation type")
+        if self.back_pressure_check == "H" and self.seal_type != "0":
+            raise ValueError("Rubber seal type must be selected for built-in back pressure check valve")
+        if self.pilot_valve == "K" and self.seal_type != "1":
+            raise ValueError("Metal seal type must be selected for high pressure pilot valve type")
+        if self.lt_surge_volt_sup not in ('Z', 'NZ') and self.coil_type == "T":
+            raise ValueError("Power saving circuit is only available with type 'Z' and 'NZ' light surge voltage suppressors")
+        return self
 
 # ----------------- TESTING -----------------
 # test_data = {

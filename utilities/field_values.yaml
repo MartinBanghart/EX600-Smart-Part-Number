@@ -4791,6 +4791,42 @@ ab_port_size_symbols:
     fitting_direction: downward elbow
     measurement_system: imperial
 
+  "71":
+    field: ab_port_size
+    size: CM
+    fitting_direction: straight
+    measurement_system: metric
+
+  "72":
+    field: ab_port_size
+    size: LM
+    fitting_direction: upward elbow
+    measurement_system: metric
+
+  "73":
+    field: ab_port_size
+    size: BM
+    fitting_direction: downward elbow
+    measurement_system: metric
+
+  "74":
+    field: ab_port_size
+    size: NM
+    fitting_direction: straight
+    measurement_system: imperial
+
+  "75":
+    field: ab_port_size
+    size: NLM
+    fitting_direction: upward elbow
+    measurement_system: imperial
+
+  "76":
+    field: ab_port_size
+    size: NBM
+    fitting_direction: downward elbow
+    measurement_system: imperial
+
 # ----------------------------- < MOUNTING AND NAMEPLATE > ------------------------------
 
 mounting_and_nameplate_symbols:

@@ -2,6 +2,8 @@
 import re
 from pydantic import BaseModel
 
+# Loading data
+from utilities.config import YAML_DATA
 
 # ---------------------------------------------------------------------------------
 # # --- Parser for Main Model --> Tokenizes user input ---
@@ -89,7 +91,7 @@ def parse_valve_callout(callout: str, valid_symbols: set[str]):
     result = []
 
     while i < n:
-        # Try to read quantity
+        # try to read quantity
         qty_match = valve_qty_pattern.match(callout, i)
         if qty_match:
             qty = int(qty_match.group())
@@ -117,11 +119,15 @@ def parse_valve_callout(callout: str, valid_symbols: set[str]):
         if symbol is None:
             raise ValueError(f"Invalid valve symbol at position {i}: '{callout[i:]}'")
 
+        # loading yaml data for fitting size
+        valve_data = YAML_DATA["valve_symbols"][symbol]
+
         result.append(
             {
                 "pos": len(result) + 1,
                 "qty": qty,
                 "symbol": symbol,
+                "fitting_size": valve_data["fitting_size"]
             }
         )
 

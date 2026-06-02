@@ -33,10 +33,10 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|W|M)","length": 1,},
     {"name": "manual_override", "pattern": r"(D|E|F)?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {"name": "valve_callout","pattern": r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:D|S|[A-W][A-W]|X|Y|Z))+","length": None},
+    {"name": "valve_callout","pattern": r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D|S|X|Y|Z))+","length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "sup_exh_porting_dir_and_cover_assy", "pattern": r"[A-Z]", "length": 1},
-    {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])","length": 2,},
+    {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])","length": 2},
     {"name": "mounting_and_nameplate", "pattern": r"[ABD](?:0|[A-X])?", "length": None},
 ]
 
@@ -59,10 +59,10 @@ class SY1_EX600_MODEL(BaseModel):
     manual_override: Literal["", "D", "E", "F"]
     # -
     #valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+")]
-    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:D|S|[A-W][A-W]|X|Y|Z))+")]
+    valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D|S|X|Y|Z))+")]
     # -
     sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
-    ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4])",),]
+    ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])")]
     mounting_and_nameplate: Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
 
     # --- Fields determined from standard fields above  ---
@@ -179,70 +179,105 @@ class SY1_EX600_MODEL(BaseModel):
 
             valve_type = yaml_entry["type"]
 
-            # ONLY FOR TESTING SO THAT SYMBOLS WITHOUT MODELS YET CAN STILL BE RUN TO CHECK OVERALL VALIDATION --> REMOVE LATER
-            if VALVE_TYPE_REGISTRY.get(valve_type) == 'base_mounted_valve':
+            # 2 --> lookup model class based on YAML type
+            model_cls = VALVE_TYPE_REGISTRY.get(valve_type)
+            if model_cls is None:
+                raise ValueError(f"No model registered for valve type '{valve_type}'")
 
-                # 2 --> lookup model class based on YAML type
-                model_cls = VALVE_TYPE_REGISTRY.get(valve_type)
-                if model_cls is None:
-                    raise ValueError(f"No model registered for valve type '{valve_type}'")
+            # guarding against the possibility calculated fields were not populated and remain none
+            if self.porting_type is None:
+                raise ValueError("porting_type was not set before creating valve_model")
+            if self.coil_type is None:
+                raise ValueError("coil_type was not set before creating valve_model")
+            if self.lt_surge_volt_sup is None:
+                raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
 
-                # guarding against the possibility calculated fields were not populated and remain none
-                if self.porting_type is None:
-                    raise ValueError("porting_type was not set before creating valve_model")
-                if self.coil_type is None:
-                    raise ValueError("coil_type was not set before creating valve_model")
-                if self.lt_surge_volt_sup is None:
-                    raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
+            # 3 --> instantiate the valve model
+            valve_model = model_cls(
+                type=valve_type,
+                series=self.series,
+                actuation=yaml_entry["actuation"],
+                seal_type=yaml_entry["seal_type"],
+                pilot_type=yaml_entry["pilot_type"],
+                back_pressure_check=yaml_entry["back_pressure_check"],
+                pilot_valve=yaml_entry["pilot_valve"],
+                coil_type=self.coil_type,
+                lt_surge_volt_sup=self.lt_surge_volt_sup,
+                manual_override=self.manual_override,
+                ab_port_size=self.ab_port_size,
+                porting_type=self.porting_type,
+                fitting_size=yaml_entry["fitting_size"],
+                solenoid_qty=yaml_entry["solenoid_qty"],
+            )
 
-                # 3 --> instantiate the valve model
-                valve_model = model_cls(
-                    type=valve_type,
-                    series=self.series,
-                    actuation=yaml_entry["actuation"],
-                    seal_type=yaml_entry["seal_type"],
-                    pilot_type=yaml_entry["pilot_type"],
-                    back_pressure_check=yaml_entry["back_pressure_check"],
-                    pilot_valve=yaml_entry["pilot_valve"],
-                    coil_type=self.coil_type,
-                    lt_surge_volt_sup=self.lt_surge_volt_sup,
-                    manual_override=self.manual_override,
-                    ab_port_size=self.ab_port_size,
-                    porting_type=self.porting_type,
-                    fitting_size=yaml_entry["fitting_size"],
-                    solenoid_qty=yaml_entry["solenoid_qty"],
-                )
-
-                # 4 --> append enriched element
-                enriched.append({**item, "model": valve_model.model_dump()})
-                return enriched
+            # 4 --> append enriched element
+            # enriched.append({**item, "model": valve_model.model_dump()})
+            enriched.append({**item, 
+                                "valve_pn": valve_model.valve_part_number(), 
+                                "ab_port_size": valve_model.ab_port_size_hto,
+                                "manifold_block_pn": valve_model.manifold_block_part_number
+                                })
             
-            else:
-                return enriched
+        return enriched
 
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
+        
         # ----- [Endplate Type/SI Unit Polarity] -----
+        # --------------------------------------------
+        
         # if no si unit is selected and endplate type is not Nil, raise error
         if self.si_unit == "0" and (self.endplate_type != "" or (self.io_unit_1 != "" or self.io_unit_2 != "" or self.io_unit_3 != "" or self.io_unit_4 != "" )):
             raise ValueError("No SI Unit was selected, endplate type must be nil")
         
         # ----- [Light Surge Voltage Suppressor & Coil Type] -----
-        # Test 1
+        # --------------------------------------------------------
+        
+        # checking if no valves are to be selected via option "M", valve callout must not have valve/station options
         valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)$" # matches values for (2-16)0D or (2-32)0S
         if self.lt_surge_volt_sup_and_coil_type == 'M' and not re.fullmatch(valid_D_S, self.valve_callout):
             raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
         
-        # # Test 2
-        # Valve polarity logic
+        # checking if the valve and si unit have the same polarity, or valve is non-polar to work with either si unit polarity
         if self.valve_polarity != "Non-Polar" and self.si_unit_polarity != self.valve_polarity:
             raise ValueError("SI Unit and valve polarity must match unless a Non-Polar valve is selected")
         
         # ----- [Valve Callout] -----
+        # ---------------------------
+        
+        # if repeating identical components are submitted (ex. "5AB2AB") this will be invalid (correct config is "7AB")
+        if any(self.parsed_valves[i]["symbol"] == self.parsed_valves[i - 1]["symbol"] for i in range(1, len(self.parsed_valves))):
+            raise ValueError('There are repeating components in valve callout section; please consolidate if not blocking disks')
+        
+        # No multiples of blocking disks allowed (ex. "3X", "2Y", "2Z")
+        if any((self.parsed_valves[i]["symbol"] in ("X", "Y", "Z")) and (self.parsed_valves[i]["qty"] != "") for i in range(1, (len(self.parsed_valves)))):
+            raise ValueError("There are blocking disks in multiples listed in the valve callout section")
+        
+        # Blocking disks cannot be placed at the beginning or end of valve callout
+        if (self.parsed_valves[0]["symbol"] in ("X", "Y", "Z")) or self.parsed_valves[-1]["symbol"] in ("X", "Y", "Z"):
+            raise ValueError("A blocking disk cannot be selected as the first or last component in the valve callout")
+        
         # if the valve callout section is too long (greater than 19 chars), raise error
         if len(self.valve_callout) > 19:
             raise ValueError("valve callout exceeds allowable maximum of 19 characters")
         
+        # ----- [Sup/Exh Porting Direction and Cover Assembly] Tests -----
+        # ----------------------------------------------------------------
+        
+        if (any(self.parsed_valves[i]["symbol"] in ("X", "Y", "Z") for i in range(1, (len(self.parsed_valves))))) and self.pe_port_entry not in ("B", "F", "J"):
+            raise ValueError("If a blocking disk is selected in valve callout, P/E port entry must be an option that features both sides")
+        
+        # ----- [A/B Port Size] Tests -----
+        # ---------------------------------
+        
+        if (any(self.parsed_valves[i]["fitting_size"] != '0' for i in range(1, (len(self.parsed_valves))))) and self.ab_port_size not in ('71', '72', '73', '74', '75', '76'):
+            raise ValueError('Valves with varied fitting sizes have been called out but AB port size does not specify mixed fittings')
+        
+        # ----- [Mounting and Nameplate] Tests -----
+        # ------------------------------------------
+        
+        if self.mounting_and_nameplate not in ('', 'AA', 'BA') and self.porting_type == '11':
+            raise ValueError('Only direct mounting options are available for the type 11 bottom ported manifolds')
         
         return self
     
@@ -257,18 +292,15 @@ class SY1_EX600_MODEL(BaseModel):
         )
 
 
-# ----------------------- TESTING - TESTING - TESTING - TESTING - TESTING - TESTING -----------------------
+# ----------------------- Function to Run Model -----------------------
+# outputs : manifold object and validation boolean for testing
+
 def run_main_model(part_number: str):
-
-    model = SY1_EX600_TOKEN_MAP
-    token_map = SY1_EX600_TOKEN_MAP
-
     print("\n --------------------------------------")
 
-    # tokens = {}
     try:
         print(f"\nParsing:{part_number}\n")
-        parser = TokenMapParser(token_map)
+        parser = TokenMapParser(SY1_EX600_TOKEN_MAP)
         tokens = parser.parse(part_number)
         manifold_object = SY1_EX600_MODEL(**tokens)
         validator_df = pd.DataFrame(manifold_object.model_dump().items(), columns=["Field", "Value"])
@@ -300,3 +332,12 @@ def run_main_model(part_number: str):
             print("Parsing failed before any tokens could be generated.")
         
         return 'is not valid', False
+
+# --- To run from terminal
+# python -c "import main_model; main_model.run_main_model('SY36-Q2-S-3AB2X-A11')"
+
+# --- To run from interactive terminal
+# python -i main_model.py
+# >>> obj, truth = run_main_model('SY36-Q2-S-5AB-A11')
+
+# >>> obj, truth = run_main_model('SY36-Q2-S-5DE-A71')
