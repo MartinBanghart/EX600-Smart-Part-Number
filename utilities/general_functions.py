@@ -85,10 +85,60 @@ class TokenMapParser:
 valve_qty_pattern = re.compile(r"(2[0-4]|1[0-9]|[2-9])")  # 2–24
 
 
+# def parse_valve_callout(callout: str, valid_symbols: set[str]):
+#     i = 0
+#     n = len(callout)
+#     result = []
+
+#     while i < n:
+#         # try to read quantity
+#         qty_match = valve_qty_pattern.match(callout, i)
+#         if qty_match:
+#             qty = int(qty_match.group())
+#             i = qty_match.end()
+#         else:
+#             qty = 1
+
+#         # interpreting symbol (prefer 2-char)
+#         symbol = None
+
+#         # --- try 2 characters
+#         if i + 2 <= n:
+#             two = callout[i : i + 2]
+#             if two in valid_symbols:
+#                 symbol = two
+#                 i += 2
+
+#         # --- try 1 character
+#         if symbol is None and i + 1 <= n:
+#             one = callout[i : i + 1]
+#             if one in valid_symbols:
+#                 symbol = one
+#                 i += 1
+
+#         if symbol is None:
+#             raise ValueError(f"Invalid valve symbol at position {i}: '{callout[i:]}'")
+
+#         # loading yaml data for fitting size
+#         valve_data = YAML_DATA["valve_symbols"][symbol]
+
+#         result.append(
+#             {
+#                 "pos": len(result) + 1,
+#                 "qty": qty,
+#                 "symbol": symbol,
+#                 "fitting_size": valve_data["fitting_size"]
+#             }
+#         )
+
+#     return result
+
 def parse_valve_callout(callout: str, valid_symbols: set[str]):
     i = 0
     n = len(callout)
     result = []
+
+    base_pos = 0
 
     while i < n:
         # try to read quantity
@@ -102,32 +152,38 @@ def parse_valve_callout(callout: str, valid_symbols: set[str]):
         # interpreting symbol (prefer 2-char)
         symbol = None
 
-        # --- try 2 characters
         if i + 2 <= n:
-            two = callout[i : i + 2]
+            two = callout[i:i + 2]
             if two in valid_symbols:
                 symbol = two
                 i += 2
 
-        # --- try 1 character
         if symbol is None and i + 1 <= n:
-            one = callout[i : i + 1]
+            one = callout[i:i + 1]
             if one in valid_symbols:
                 symbol = one
                 i += 1
 
         if symbol is None:
-            raise ValueError(f"Invalid valve symbol at position {i}: '{callout[i:]}'")
+            raise ValueError(
+                f"Invalid valve symbol at position {i}: '{callout[i:]}'"
+            )
 
-        # loading yaml data for fitting size
+        # Position logic
+        if symbol in {"X", "Y", "Z"}:
+            pos = f"{base_pos}_{symbol}"
+        else:
+            base_pos += 1
+            pos = base_pos
+
         valve_data = YAML_DATA["valve_symbols"][symbol]
 
         result.append(
             {
-                "pos": len(result) + 1,
+                "pos": pos,
                 "qty": qty,
                 "symbol": symbol,
-                "fitting_size": valve_data["fitting_size"]
+                "fitting_size": valve_data["fitting_size"],
             }
         )
 

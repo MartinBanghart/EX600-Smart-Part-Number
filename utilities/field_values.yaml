@@ -4830,7 +4830,7 @@ ab_port_size_symbols:
 # ----------------------------- < MOUNTING AND NAMEPLATE > ------------------------------
 
 mounting_and_nameplate_symbols:
-  "NIL":
+  "":
     field: mounting_and_nameplate
     symbol: ""
     mounting: direct

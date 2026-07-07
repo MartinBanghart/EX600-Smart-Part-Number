@@ -15,7 +15,7 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
     porting_type: Literal["10", "11", "12"]
     port_measurement_type: Literal["metric", "imperial"]
     mounting_and_nameplate: str
-    fitting_direction: str
+    fitting_direction: Literal["straight", "upward elbow", "downward elbow"]
     # --- Calculated fields
     u_pe_port_size: Optional[str] = None
     d_pe_port_size: Optional[str] = None
@@ -94,26 +94,27 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
 
 # -- Testing -- Testing -- Testing -- Testing -- Testing -- Testing --
 
-# Example: Overall Smart Part Number Sup/Exh Porting Direction and Cover Assembly calls out
-# --- "A"
-symbol = "M"
-data = YAML_DATA['sup_exh_porting_dir_and_cover_assy_symbols'][symbol]
 
-test_data = {
-    "sup_exh_porting_dir_and_cover_assy": symbol,
-    "series": "5",
-    "pilot_silencer_piping_type": data["pilot_silencer_piping_type"],
-    "mounting_and_nameplate": "AA",
-    "porting_type": "12",
-    "port_measurement_type": "metric",
-    "fitting_direction": "straight"
-}
+# # Example: Overall Smart Part Number Sup/Exh Porting Direction and Cover Assembly calls out
+# # --- "A"
+# symbol = "M"
+# data = YAML_DATA['sup_exh_porting_dir_and_cover_assy_symbols'][symbol]
 
-try:
-    sup_exh_block_obj = Sup_Exh_Block_Assy_Model(**test_data) #type: ignore
-    print(sup_exh_block_obj.u_side_part_number())
-    print(sup_exh_block_obj.d_side_part_number())
-    # print(sup_exh_block_obj.pe_port_size)
-except ValidationError as e:
-    for err in e.errors():
-        print(err["msg"])
+# test_data = {
+#     "sup_exh_porting_dir_and_cover_assy": symbol,
+#     "series": "5",
+#     "pilot_silencer_piping_type": data["pilot_silencer_piping_type"],
+#     "mounting_and_nameplate": "AA",
+#     "porting_type": "12",
+#     "port_measurement_type": "metric",
+#     "fitting_direction": "straight"
+# }
+
+# try:
+#     sup_exh_block_obj = Sup_Exh_Block_Assy_Model(**test_data) #type: ignore
+#     print(sup_exh_block_obj.u_side_part_number())
+#     print(sup_exh_block_obj.d_side_part_number())
+#     # print(sup_exh_block_obj.pe_port_size)
+# except ValidationError as e:
+#     for err in e.errors():
+#         print(err["msg"])

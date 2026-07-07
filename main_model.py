@@ -13,6 +13,7 @@ from utilities.general_functions import TokenMapParser, parse_valve_callout
 # submodels
 from submodels.station_components.base_mounted_valves import Base_Mounted_Valves_Model
 from submodels.mounting_and_nameplate import Mounting_And_Nameplate_Model
+from submodels.sup_exh_block_assy import Sup_Exh_Block_Assy_Model
 
 # Loading data
 from utilities.config import YAML_DATA
@@ -71,6 +72,7 @@ class SY1_EX600_MODEL(BaseModel):
     
     porting_type: Optional[Literal["10", "11", "12"]] = None
     pe_port_entry: Optional[Literal["U", "D", "B", "C", "E", "F", "G", "H", "J"]] = None
+    pilot_silencer_piping_type: Optional[Literal["", "S", "R", "V", "RV", "VP", "B", "BS", "BR"]] = None
 
     lt_surge_volt_sup: Optional[Literal["R", "U", "S", "Z", "NS", "NZ"]] = None
     coil_type: Optional[Literal["", "T"]] = None
@@ -83,6 +85,9 @@ class SY1_EX600_MODEL(BaseModel):
     # --- Fields determined from standard fields and related to valves
     parsed_valves: list = Field(default_factory=list)
     valves: list | None = Field(default_factory=list)
+    
+    sup_exh_blocks: list | None = Field(default_factory=list)
+    valve_plate: Optional[Literal["", "EX600-ZMV4"]] = None
 
     # --- Submodels- not a part of How-To-Order fields ---
     mounting: Mounting_And_Nameplate_Model | None = None
@@ -102,7 +107,7 @@ class SY1_EX600_MODEL(BaseModel):
     def run_all_postprocessing_and_logic(self):
         # --- computed fields
         self._set_si_unit_and_valve_polarities()
-        self._set_porting_type_and_pe_port_entry()
+        self._set_porting_type_and_pe_port_entry_and_pilot_silencer_piping_type()
         self._set_lt_surge_volt_sup_and_coil_type()
         self._set_fitting_direction_and_port_measurement_type()
         self._compute_parsed_valves_and_number_of_stations()
@@ -110,6 +115,8 @@ class SY1_EX600_MODEL(BaseModel):
         self.main_model_logic()
         # --- subcomponents
         self.valves = self.attach_valve_models()
+        self.sup_exh_blocks = self.attach_sup_exh_blocks()
+        self.valve_plate = self.attach_valve_plate()
         # self._build_submodels()
         return self
 
@@ -123,10 +130,11 @@ class SY1_EX600_MODEL(BaseModel):
         self.valve_polarity = valve_data_dict["polarity"]
 
     # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
-    def _set_porting_type_and_pe_port_entry(self):
+    def _set_porting_type_and_pe_port_entry_and_pilot_silencer_piping_type(self):
         data_dict = YAML_DATA["sup_exh_porting_dir_and_cover_assy_symbols"][self.sup_exh_porting_dir_and_cover_assy]
         self.porting_type = data_dict["porting_type"]
         self.pe_port_entry = data_dict["pe_port_entry"]
+        self.pilot_silencer_piping_type = data_dict["pilot_silencer_piping_type"]
 
     # breaking down lt_surge_volt_sup_and_coil_type from HTO to get two fields: lt_surge_volt_sup + coil_type
     def _set_lt_surge_volt_sup_and_coil_type(self):
@@ -219,6 +227,42 @@ class SY1_EX600_MODEL(BaseModel):
                                 })
             
         return enriched
+    
+    def attach_sup_exh_blocks(self):
+        
+        # guarding against the possibility calculated fields were not populated and remain none
+        if self.porting_type is None:
+            raise ValueError("porting_type was not set before creating sup_exh_model")
+        if self.pilot_silencer_piping_type is None:
+            raise ValueError("pilot_silencer_piping_type was not set before creating sup_exh_model")
+        if self.port_measurement_type is None:
+            raise ValueError("port_measurement_type was not set before creating sup_exh_model")
+        if self.fitting_direction is None:
+            raise ValueError("fitting_direction was not set before creating sup_exh_model")
+        
+        sup_exh_model = Sup_Exh_Block_Assy_Model(
+            sup_exh_porting_dir_and_cover_assy = self.sup_exh_porting_dir_and_cover_assy,
+            series = self.series,
+            pilot_silencer_piping_type = self.pilot_silencer_piping_type,
+            porting_type = self.porting_type,
+            port_measurement_type = self.port_measurement_type,
+            mounting_and_nameplate = self.mounting_and_nameplate,
+            fitting_direction = self.fitting_direction, 
+        )
+        
+        sup_exh_blocks = [
+            {'D-Side Sup/Exh' : sup_exh_model.d_side_part_number()},
+            {'U-Side Sup/Exh' : sup_exh_model.u_side_part_number()}
+            ]
+        
+        return sup_exh_blocks
+    
+    def attach_valve_plate(self):
+        if self.si_unit == "0":
+            return("")
+        else:
+            return("EX600-ZMV4")
+        
 
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
@@ -239,7 +283,7 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
         
         # checking if the valve and si unit have the same polarity, or valve is non-polar to work with either si unit polarity
-        if self.valve_polarity != "Non-Polar" and self.si_unit_polarity != self.valve_polarity:
+        if (self.valve_polarity != "Non-Polar") and (self.si_unit_polarity != self.valve_polarity) and (self.si_unit != '0'):
             raise ValueError("SI Unit and valve polarity must match unless a Non-Polar valve is selected")
         
         # ----- [Valve Callout] -----
@@ -250,7 +294,7 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError('There are repeating components in valve callout section; please consolidate if not blocking disks')
         
         # No multiples of blocking disks allowed (ex. "3X", "2Y", "2Z")
-        if any((self.parsed_valves[i]["symbol"] in ("X", "Y", "Z")) and (self.parsed_valves[i]["qty"] != "") for i in range(1, (len(self.parsed_valves)))):
+        if any((self.parsed_valves[i]["symbol"] in ("X", "Y", "Z")) and (self.parsed_valves[i]["qty"] != 1) for i in range(1, (len(self.parsed_valves)))):
             raise ValueError("There are blocking disks in multiples listed in the valve callout section")
         
         # Blocking disks cannot be placed at the beginning or end of valve callout
@@ -270,7 +314,7 @@ class SY1_EX600_MODEL(BaseModel):
         # ----- [A/B Port Size] Tests -----
         # ---------------------------------
         
-        if (any(self.parsed_valves[i]["fitting_size"] != '0' for i in range(1, (len(self.parsed_valves))))) and self.ab_port_size not in ('71', '72', '73', '74', '75', '76'):
+        if (any(self.parsed_valves[i]["fitting_size"] != 0 for i in range(1, (len(self.parsed_valves))))) and self.ab_port_size not in ('71', '72', '73', '74', '75', '76'):
             raise ValueError('Valves with varied fitting sizes have been called out but AB port size does not specify mixed fittings')
         
         # ----- [Mounting and Nameplate] Tests -----
