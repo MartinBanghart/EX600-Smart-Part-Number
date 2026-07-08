@@ -12,6 +12,7 @@ from utilities.general_functions import TokenMapParser, parse_valve_callout
 
 # submodels
 from submodels.station_components.base_mounted_valves import Base_Mounted_Valves_Model
+from submodels.station_components.blanking_plate import Blanking_Plate_Assy_Model
 from submodels.mounting_and_nameplate import Mounting_And_Nameplate_Model
 from submodels.sup_exh_block_assy import Sup_Exh_Block_Assy_Model
 
@@ -118,6 +119,8 @@ class SY1_EX600_MODEL(BaseModel):
         self.sup_exh_blocks = self.attach_sup_exh_blocks()
         self.valve_plate = self.attach_valve_plate()
         # self._build_submodels()
+        # --- bill of materials
+        self.bom()
         return self
 
     # -- Retrieving values from yaml_data for specific symbol values for model fields intialized as none --
@@ -168,9 +171,9 @@ class SY1_EX600_MODEL(BaseModel):
 
     def attach_valve_models(self):
 
-        VALVE_TYPE_REGISTRY = {
+        COMPONENT_TYPE_REGISTRY = {
             "base_mounted_valve": Base_Mounted_Valves_Model,
-            # "blanking_plate": ,
+            "blanking_plate": Blanking_Plate_Assy_Model,
             # "manifold_base":,
             # "X323_option": X323_Valve_Model,
         }
@@ -185,12 +188,12 @@ class SY1_EX600_MODEL(BaseModel):
             if yaml_entry is None:
                 raise ValueError(f"No YAML entry found for valve symbol '{symbol}'")
 
-            valve_type = yaml_entry["type"]
+            component_type = yaml_entry["type"]
 
             # 2 --> lookup model class based on YAML type
-            model_cls = VALVE_TYPE_REGISTRY.get(valve_type)
+            model_cls = COMPONENT_TYPE_REGISTRY.get(component_type)
             if model_cls is None:
-                raise ValueError(f"No model registered for valve type '{valve_type}'")
+                raise ValueError(f"No model registered for valve type '{component_type}'")
 
             # guarding against the possibility calculated fields were not populated and remain none
             if self.porting_type is None:
@@ -201,8 +204,9 @@ class SY1_EX600_MODEL(BaseModel):
                 raise ValueError("lt_surge_volt_sup was not set before creating valve_model")
 
             # 3 --> instantiate the valve model
-            valve_model = model_cls(
-                type=valve_type,
+            component_model = model_cls(
+                symbol = symbol,
+                type=component_type,
                 series=self.series,
                 actuation=yaml_entry["actuation"],
                 seal_type=yaml_entry["seal_type"],
@@ -216,14 +220,15 @@ class SY1_EX600_MODEL(BaseModel):
                 porting_type=self.porting_type,
                 fitting_size=yaml_entry["fitting_size"],
                 solenoid_qty=yaml_entry["solenoid_qty"],
+                number_of_stations = self.number_of_stations
             )
 
             # 4 --> append enriched element
             # enriched.append({**item, "model": valve_model.model_dump()})
             enriched.append({**item, 
-                                "valve_pn": valve_model.valve_part_number(), 
-                                "ab_port_size": valve_model.ab_port_size_hto,
-                                "manifold_block_pn": valve_model.manifold_block_part_number
+                                "valve_pn": component_model.part_number(), 
+                                "ab_port_size": component_model.ab_port_size_hto,
+                                "manifold_block_pn": component_model.manifold_block_part_number
                                 })
             
         return enriched
@@ -239,6 +244,8 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError("port_measurement_type was not set before creating sup_exh_model")
         if self.fitting_direction is None:
             raise ValueError("fitting_direction was not set before creating sup_exh_model")
+        if self.pe_port_entry is None:
+            raise ValueError("pe_port_entry was not set before creating sup_exh_model")
         
         sup_exh_model = Sup_Exh_Block_Assy_Model(
             sup_exh_porting_dir_and_cover_assy = self.sup_exh_porting_dir_and_cover_assy,
@@ -248,6 +255,7 @@ class SY1_EX600_MODEL(BaseModel):
             port_measurement_type = self.port_measurement_type,
             mounting_and_nameplate = self.mounting_and_nameplate,
             fitting_direction = self.fitting_direction, 
+            pe_port_entry=self.pe_port_entry
         )
         
         sup_exh_blocks = [
@@ -263,7 +271,6 @@ class SY1_EX600_MODEL(BaseModel):
         else:
             return("EX600-ZMV4")
         
-
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
         
@@ -334,6 +341,87 @@ class SY1_EX600_MODEL(BaseModel):
             f"-{self.valve_callout}"
             f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
         )
+    # --- building the bill of materials
+    def bom(self) -> pd.DataFrame:
+        
+        if self.sup_exh_blocks is None:
+            raise ValueError("sup_exh_blocks was not set before creating sup_exh_model")
+        if self.valves is None:
+            raise ValueError("valves was not set before creating main_model")
+        if self.valve_plate is None:
+            raise ValueError("valve_plate was not set properly")
+        
+        rows = []
+
+        def add_row(
+            position,
+            part_number="-",
+            symbol="-",
+            manifold_block="-",
+            ab_port_size="-",
+        ):
+            rows.append({
+                "Position": position,
+                "Symbol": symbol,
+                "Part Number": part_number,
+                "Manifold Block": manifold_block,
+                "AB Port Size": ab_port_size,
+            })
+
+        # ------------------------------
+        # Fixed Components
+        # ------------------------------
+
+        add_row("EX600 Endplate", "placeholder")
+
+        add_row("IO Unit 1", self.io_unit_1)
+        add_row("IO Unit 2", self.io_unit_2)
+        add_row("IO Unit 3", self.io_unit_3)
+        add_row("IO Unit 4", self.io_unit_4)
+
+        add_row("SI Unit", self.si_unit)
+
+        add_row("Valve Plate", self.valve_plate)
+        
+        # ------------------------------
+        # D-Side Supply Exhaust Component
+        # ------------------------------
+
+        add_row(
+            "D-Side Sup/Exh",
+            self.sup_exh_blocks[0]["D-Side Sup/Exh"]
+        )
+
+        # ------------------------------
+        # Station Components
+        # ------------------------------
+
+        station = 1
+
+        for valve in self.valves:
+
+            for _ in range(int(valve["qty"])):
+
+                add_row(
+                    position=f"STA-{station}",
+                    symbol=valve["symbol"],
+                    part_number=valve["valve_pn"],
+                    manifold_block=valve["manifold_block_pn"],
+                    ab_port_size=valve["ab_port_size"],
+                )
+
+                station += 1
+
+        # ------------------------------
+        # U-Side Supply Exhaust Component
+        # ------------------------------
+
+        add_row(
+            "U-Side Sup/Exh",
+            self.sup_exh_blocks[1]["U-Side Sup/Exh"]
+        )
+
+        return pd.DataFrame(rows)
 
 
 # ----------------------- Function to Run Model -----------------------
@@ -364,7 +452,7 @@ def run_main_model(part_number: str):
             print("\nParsed Tokens")
             print(pd.DataFrame([tokens]))
         
-        return 'is not valid', False
+        return None, False
 
     # Parser is Throwing Error
     except ValueError as e:
@@ -375,10 +463,12 @@ def run_main_model(part_number: str):
         else:
             print("Parsing failed before any tokens could be generated.")
         
-        return 'is not valid', False
+        return None, False
 
 # --- To run from terminal
 # python -c "import main_model; main_model.run_main_model('SY36-Q2-S-3AB2X-A11')"
+
+# python -c "import main_model ; model, bool =  main_model.run_main_model('SY36-Q2-R-3AB2WH-A11') ; print(model.bom()) "
 
 # --- To run from interactive terminal
 # python -i main_model.py

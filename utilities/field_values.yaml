@@ -4110,7 +4110,7 @@ valve_symbols:
   # ----- Blanking Plates with Output -----
   WH:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
+    type: "blanking_plate"
     desc: "Blanking Plate with output, No Connector, 300mm"
     actuation: ""
     seal_type: ""
@@ -4123,8 +4123,8 @@ valve_symbols:
 
   WI:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
-    desc: "Blanking Plate with output, No Connector, 100mm"
+    type: "blanking_plate"
+    desc: "Blanking Plate with output, No Connector, 1000mm"
     actuation: ""
     seal_type: ""
     pilot_type: ""
@@ -4136,7 +4136,7 @@ valve_symbols:
 
   WJ:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
+    type: "blanking_plate"
     desc: "Blanking Plate with output, M12, 300mm"
     actuation: ""
     seal_type: ""
@@ -4149,7 +4149,7 @@ valve_symbols:
 
   WK:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
+    type: "blanking_plate"
     desc: "Blanking Plate with output, M12, 1000mm"
     actuation: ""
     seal_type: ""
@@ -4162,8 +4162,8 @@ valve_symbols:
 
   WL:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
-    desc: "Blanking Plate with output, ZK2, 3000mm"
+    type: "blanking_plate"
+    desc: "Blanking Plate with output, ZK2, 300mm"
     actuation: ""
     seal_type: ""
     pilot_type: ""
@@ -4175,7 +4175,7 @@ valve_symbols:
 
   WM:
     field: "valve_callout"
-    type: "blanking_plate_with_output"
+    type: "blanking_plate"
     desc: "Blanking Plate with output, ZK2, 1000mm"
     actuation: ""
     seal_type: ""

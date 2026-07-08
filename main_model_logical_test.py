@@ -2,6 +2,14 @@
 # pytest -k "function name"
 
 from main_model import run_main_model
+from utilities.general_functions import load_test_part_numbers_from_excel
+
+from pprint import pformat
+
+# loading part number data
+from pathlib import Path
+FILE = Path(__file__).parent / "test_part_numbers.xlsx"
+df_sup_exh = load_test_part_numbers_from_excel(FILE)
 
 # ----- [Endplate Type/SI Unit Polarity] Tests -----
 
@@ -100,3 +108,46 @@ def test_mounting_and_nameplate_validation():
     # Case 1: "B" sup/exh picked which is type 11 (bottom ported) and 'D0" mounting is selected which is din rail mounting, not direct mounting
     _, is_false_1 = run_main_model('SY36-0-R-2AA-B11-D0')
     assert is_false_1 is False
+    
+    
+# --------------------------------------------
+# ------------ PART NUMBER CHECKS ------------
+# --------------------------------------------
+
+def test_sup_exh_part_numbers():
+    invalids = []
+    
+    for ind, item in enumerate(df_sup_exh['Overall PN']):
+        item = str(item).strip()
+        model, is_valid = run_main_model(item)
+        
+        # verifying that the overall part number successfully ran in the main model
+        if not is_valid or model is None:
+            continue
+        
+        # grabbing generated supply exhaust pns from current intialized model
+        if model.sup_exh_blocks:
+            d_side_sup_exh_calc_pn = model.sup_exh_blocks[0]['D-Side Sup/Exh']
+            u_side_sup_exh_calc_pn = model.sup_exh_blocks[1]['U-Side Sup/Exh']
+
+        
+        # grabbing verified supply exhaust part numbers from excel sheet
+        u_side_sup_exh_pn = str(df_sup_exh['U Side Supply Exhaust PN'][ind]).strip()
+        d_side_sup_exh_pn = str(df_sup_exh['D Side Supply Exhaust PN'][ind]).strip()
+        
+        # comparing part numbers and adding invalids into a list
+        if (u_side_sup_exh_calc_pn != u_side_sup_exh_pn) or (d_side_sup_exh_calc_pn != d_side_sup_exh_pn):
+            invalids.append({
+                            "Overall": item,
+                            "Calculated U Side": u_side_sup_exh_calc_pn,
+                            "Expected U Side": u_side_sup_exh_pn,
+                            "Calculated D Side": d_side_sup_exh_calc_pn,
+                            "Expected D Side": d_side_sup_exh_pn,
+                        })
+
+    # checks if invalids is 0 (pass condition), if greater than 0 (fail condition) then outputs invalid part numbers
+    assert not invalids, (
+        f"\nFound {len(invalids)} invalid part numbers:\n"
+        f"{pformat(invalids, sort_dicts=False)}"
+    )
+

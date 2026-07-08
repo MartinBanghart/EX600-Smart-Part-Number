@@ -16,6 +16,7 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
     port_measurement_type: Literal["metric", "imperial"]
     mounting_and_nameplate: str
     fitting_direction: Literal["straight", "upward elbow", "downward elbow"]
+    pe_port_entry: Literal["U", "D", "B", "C", "E", "F", "G", "H", "J"]
     # --- Calculated fields
     u_pe_port_size: Optional[str] = None
     d_pe_port_size: Optional[str] = None
@@ -84,13 +85,25 @@ class Sup_Exh_Block_Assy_Model(BaseModel):
     def u_side_part_number(self) -> str:
         # standard u side supply exhaust block (SY#0M-3-1A#-#-#)
         mounting_section = f"-{self.mounting}" if self.mounting else ""
-        return f"SY{self.series}0M-3-1A{self.pilot_silencer_piping_type}-{self.u_pe_port_size}{mounting_section}"
+        
+        if self.pe_port_entry in ('D', 'E', 'H'):
+            true_pilot_silencer_piping_type = ""
+        else:
+            true_pilot_silencer_piping_type = self.pilot_silencer_piping_type
+        
+        return f"SY{self.series}0M-3-1A{true_pilot_silencer_piping_type}-{self.u_pe_port_size}{mounting_section}"
 
     # d side sup/exh block assembly part number
     def d_side_part_number(self) -> str:
         # standard u side supply exhaust block (SY#0M-1-1A#-#-#)
         mounting_section = f"-{self.mounting}" if self.mounting else ""
-        return f"SY{self.series}0M-1-1A{self.pilot_silencer_piping_type}-{self.d_pe_port_size}{mounting_section}"
+        
+        if self.pe_port_entry in ('U', 'C', 'G'):
+            true_pilot_silencer_piping_type = ""
+        else:
+            true_pilot_silencer_piping_type = self.pilot_silencer_piping_type
+        
+        return f"SY{self.series}0M-1-1A{true_pilot_silencer_piping_type}-{self.d_pe_port_size}{mounting_section}"
 
 # -- Testing -- Testing -- Testing -- Testing -- Testing -- Testing --
 

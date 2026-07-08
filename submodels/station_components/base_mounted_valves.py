@@ -13,6 +13,7 @@ class Base_Mounted_Valves_Model(BaseModel):
     model_config = {"extra": "ignore"}
 
     # --- Fields extracted from YAML entry ---
+    symbol: str
     type: Literal["base_mounted_valve"]
     actuation: Literal["1", "2", "3", "4", "5", "A", "B", "C"]
     seal_type: Literal["", "0", "1"]
@@ -29,6 +30,7 @@ class Base_Mounted_Valves_Model(BaseModel):
     ab_port_size: str
     lt_surge_volt_sup: Literal["R", "U", "S", "Z", "NS", "NZ"]
     coil_type: Literal["", "T"]
+    number_of_stations: int
 
     # --- Fields Determined from inherited fields above ---
     manifold_block_wiring_type: str = ""
@@ -51,6 +53,7 @@ class Base_Mounted_Valves_Model(BaseModel):
         return self
 
     def get_manifold_block_wiring_type(self):
+    
         if self.solenoid_qty == 1:  # valve is single solenoid
             self.manifold_block_wiring_type = "S"
         elif self.solenoid_qty == 2:  # valve is double solenoid
@@ -73,7 +76,7 @@ class Base_Mounted_Valves_Model(BaseModel):
     
 
     # Creating valve part number
-    def valve_part_number(self) -> str:
+    def part_number(self) -> str:
         return (
             f"SY{self.series}{self.actuation}0{self.seal_type}{self.pilot_type}{self.back_pressure_check}{self.pilot_valve}{self.coil_type}"
             f"-5{self.lt_surge_volt_sup}{self.manual_override}1"
@@ -107,7 +110,8 @@ class Base_Mounted_Valves_Model(BaseModel):
             self.manifold_block_part_number = self.standard_manifold_block_part_number()
         
         return self
-
+    
+    # -------------- MODEL LOGIC --------------
     def model_logic(self):
         if self.actuation in ("A", "B", "C") and self.seal_type != "0":
             raise ValueError("Rubber seal type must be selected for 4 position dual 3 port actuation type")

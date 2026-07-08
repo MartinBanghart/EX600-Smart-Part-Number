@@ -1,5 +1,6 @@
 # Dependencies
 import re
+import pandas as pd
 from pydantic import BaseModel
 
 # Loading data
@@ -188,3 +189,14 @@ def parse_valve_callout(callout: str, valid_symbols: set[str]):
         )
 
     return result
+
+# ---------------------------------------------------------------------------------
+def load_test_part_numbers_from_excel(filename):
+    # read all sheets into a dictionary
+    sheets_dict = pd.read_excel(filename, sheet_name=None)
+
+    # extract specific dataframes using the exact sheet names
+    df_sup_exh = sheets_dict['sup_exh']
+    
+    
+    return df_sup_exh

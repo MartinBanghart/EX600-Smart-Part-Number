@@ -7,8 +7,8 @@ class Manifold_Block_Model(BaseModel):
     piping_direction: Literal["1", "2"]
     wiring_type: Literal["S", "D"]
     ab_port_size: Literal["00", "C2","C3","C4","C6","C8","C10", "C12",
-                          "N1", "N3","N7","N9","N11","L4","L6","L8","L10","L12","LN3","LN7","LN9","LN11",
-                          "B4","B6","B8","B10","B12","BN3","BN7","BN9","BN11"
+                        "N1", "N3","N7","N9","N11","L4","L6","L8","L10","L12","LN3","LN7","LN9","LN11",
+                        "B4","B6","B8","B10","B12","BN3","BN7","BN9","BN11"
     ]
 
     # Creating manifold block part number
