@@ -13,4 +13,4 @@ A user configured string following the Smart Part Number HTO configuration rules
 
 Below is the How-To-Order Information detailing how to configure this assembly. (Please open in a new window the PDF or SVG file directly in root for closer observation).
 
-![My SVG](notes_and_references\EX600%SMART%PART%NUMBER%HTO.svg)
+<img width="7162" height="3633" alt="image" src="https://github.com/user-attachments/assets/dc929ab1-c02a-4b4f-887e-157411430e06" />
