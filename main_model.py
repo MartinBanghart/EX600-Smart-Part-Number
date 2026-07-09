@@ -15,6 +15,7 @@ from submodels.station_components.base_mounted_valves import Base_Mounted_Valves
 from submodels.station_components.blanking_plate import Blanking_Plate_Assy_Model
 from submodels.mounting_and_nameplate import Mounting_And_Nameplate_Model
 from submodels.sup_exh_block_assy import Sup_Exh_Block_Assy_Model
+from submodels.si_unit import SI_Unit_Model
 
 # Loading data
 from utilities.config import YAML_DATA
@@ -68,7 +69,7 @@ class SY1_EX600_MODEL(BaseModel):
     mounting_and_nameplate: Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
 
     # --- Fields determined from standard fields above  ---
-    si_unit_polarity: Optional[Literal["", "NPN", "PNP", "Non-Polar"]] = None
+    si_unit_polarity: Optional[Literal["", "NPN", "PNP"]] = None # recently took out NPN because technically can only be either PNP or NPN based on ednplate or none (if no si unit)
     valve_polarity: Optional[Literal["", "NPN", "PNP", "Non-Polar"]] = None
     
     porting_type: Optional[Literal["10", "11", "12"]] = None
@@ -89,6 +90,7 @@ class SY1_EX600_MODEL(BaseModel):
     
     sup_exh_blocks: list | None = Field(default_factory=list)
     valve_plate: Optional[Literal["", "EX600-ZMV4"]] = None
+    si_unit_pn: Optional[str] | None = None
 
     # --- Submodels- not a part of How-To-Order fields ---
     mounting: Mounting_And_Nameplate_Model | None = None
@@ -118,6 +120,7 @@ class SY1_EX600_MODEL(BaseModel):
         self.valves = self.attach_valve_models()
         self.sup_exh_blocks = self.attach_sup_exh_blocks()
         self.valve_plate = self.attach_valve_plate()
+        self.si_unit_pn = self.attach_si_unit()
         # self._build_submodels()
         # --- bill of materials
         self.bom()
@@ -271,6 +274,21 @@ class SY1_EX600_MODEL(BaseModel):
         else:
             return("EX600-ZMV4")
         
+    def attach_si_unit(self):
+        
+        if self.si_unit_polarity is None:
+            raise ValueError("si_unit_polarity was not set before creating si_unit_model")
+        
+        si_unit_model = SI_Unit_Model(
+            symbol = self.si_unit,
+            si_unit_polarity = self.si_unit_polarity
+        )
+        
+        si_unit_pn = si_unit_model.part_number()
+        
+        return si_unit_pn
+    
+    
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
         
@@ -285,7 +303,7 @@ class SY1_EX600_MODEL(BaseModel):
         # --------------------------------------------------------
         
         # checking if no valves are to be selected via option "M", valve callout must not have valve/station options
-        valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)$" # matches values for (2-16)0D or (2-32)0S
+        valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)$" # matches values for (2-16)D or (2-32)S
         if self.lt_surge_volt_sup_and_coil_type == 'M' and not re.fullmatch(valid_D_S, self.valve_callout):
             raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
         
@@ -372,14 +390,61 @@ class SY1_EX600_MODEL(BaseModel):
         # Fixed Components
         # ------------------------------
 
-        add_row("EX600 Endplate", "placeholder")
+        add_row(
+            "EX600 Endplate",
+            part_number=(
+                YAML_DATA["endplate_type_symbols"]
+                .get(self.endplate_type, {})
+                .get("endplate_part_number", "-")
+            ),
+            symbol=self.endplate_type or "-",
+        )
+        
 
-        add_row("IO Unit 1", self.io_unit_1)
-        add_row("IO Unit 2", self.io_unit_2)
-        add_row("IO Unit 3", self.io_unit_3)
-        add_row("IO Unit 4", self.io_unit_4)
+        add_row(
+            "IO Unit 1",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_1, {}) # adds condition with .get() to return none if io_unit_1 is not set
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_1 or "-",
+        )
+        add_row(
+            "IO Unit 2",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_2, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_2 or "-",
+        )
+        add_row(
+            "IO Unit 3",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_3, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_3 or "-",
+        )
+        add_row(
+            "IO Unit 4",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_4, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_4 or "-",
+        )
 
-        add_row("SI Unit", self.si_unit)
+
+        add_row(
+            "SI Unit",
+            part_number=self.si_unit_pn or "-",
+            symbol=self.si_unit or "-",
+        )
+
 
         add_row("Valve Plate", self.valve_plate)
         

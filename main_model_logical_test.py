@@ -1,4 +1,5 @@
 # python -m pytest main_model_logical_test.py
+# python -m pytest -s -k test_sup_exh_part_numbers 
 # pytest -k "function name"
 
 from main_model import run_main_model
@@ -8,7 +9,7 @@ from pprint import pformat
 
 # loading part number data
 from pathlib import Path
-FILE = Path(__file__).parent / "test_part_numbers.xlsx"
+FILE = Path(__file__).parent / "utilities/test_part_numbers.xlsx"
 df_sup_exh = load_test_part_numbers_from_excel(FILE)
 
 # ----- [Endplate Type/SI Unit Polarity] Tests -----

@@ -4,30 +4,39 @@ si_unit_symbols:
   "0":
     field: si_unit
     catalog_value: "0"
+    protocol: "no si"
   "Q":
     field: si_unit
     catalog_value: "Q"
+    protocol: "DeviceNet"
   "N":
     field: si_unit
     catalog_value: "N"
+    protocol: "PROFIBUS DP"
   "V":
     field: si_unit
     catalog_value: "V"
+    protocol: "CC-Link"
   "E":
     field: si_unit
     catalog_value: "EB"
+    protocol: "EtherNet IP"
   "D":
     field: si_unit
     catalog_value: "DA"
+    protocol: "EtherCAT"
   "F":
     field: si_unit
     catalog_value: "FA"
+    protocol: "PROFINET (IO-Link)"
   "G":
     field: si_unit
     catalog_value: "FB"
+    protocol: "PROFINET (OPC UA, IO-Link)"
   "W":
     field: si_unit
     catalog_value: "WS"
+    protocol: "Wireless Remote"
 
 # ---------------------------------- < ENDPLATE TYPE > ----------------------------------
 # NPN -> Positive Common
