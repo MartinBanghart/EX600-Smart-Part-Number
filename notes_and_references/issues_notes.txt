@@ -14,3 +14,12 @@ single solenoid valves and 1 blanking plate (considered 2 solenoid) = 33.
 - need to add submodels for IO units to get part numbers
 
 - need to add supply blocking disk submodel
+
+- add logical condition to main_model to disallow any combinations of valves and empty manifold stations ("D" and "S" options), however make sure 
+combinations of "D" and "S" are still possible
+
+- no way to configure mixed fittings with only manifold base and no valves since "D" and "S" are only option without variable fitting_size options
+
+- P/E block is technically two part numbers, in the supply_blocking_disk submodel the part number method just returns one string, 
+f"SY{self.series}0M-26-1A , SY{self.series}0M-26-1A" that combines the two part numbers. This should ideally be changed to somehow feature two 
+parts that can be grabbed individually

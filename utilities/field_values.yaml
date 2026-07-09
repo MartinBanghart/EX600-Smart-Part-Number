@@ -4317,7 +4317,7 @@ valve_symbols:
   # ----- Blocks -----
   X:
     field: "valve_callout"
-    type: "block"
+    type: "supply_blocking_disk"
     desc: P BLOCK
     actuation: ""
     seal_type: ""
@@ -4329,7 +4329,7 @@ valve_symbols:
     x_option: False
   Y:
     field: "valve_callout"
-    type: "block"
+    type: "supply_blocking_disk"
     desc: P/E BLOCK
     actuation: ""
     seal_type: ""
@@ -4341,7 +4341,7 @@ valve_symbols:
     x_option: False
   Z:
     field: "valve_callout"
-    type: "block"
+    type: "supply_blocking_disk"
     desc: E BLOCK
     actuation: ""
     seal_type: ""
@@ -4362,7 +4362,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
   S:
     field: "valve_callout"
@@ -4374,7 +4374,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 1
     x_option: False
 
 # ------------------- ---------------------------------------------- --------------------

@@ -13,6 +13,8 @@ from utilities.general_functions import TokenMapParser, parse_valve_callout
 # submodels
 from submodels.station_components.base_mounted_valves import Base_Mounted_Valves_Model
 from submodels.station_components.blanking_plate import Blanking_Plate_Assy_Model
+from submodels.station_components.manifold_base import Manifold_Base_Model
+from submodels.station_components.supply_blocking_disk import Supply_Blocking_Disk_Model
 from submodels.mounting_and_nameplate import Mounting_And_Nameplate_Model
 from submodels.sup_exh_block_assy import Sup_Exh_Block_Assy_Model
 from submodels.si_unit import SI_Unit_Model
@@ -83,6 +85,7 @@ class SY1_EX600_MODEL(BaseModel):
     port_measurement_type: Optional[Literal['metric', 'imperial']] = None
 
     number_of_stations: int | None = None
+    number_of_solenoids: int | None = None
     
     # --- Fields determined from standard fields and related to valves
     parsed_valves: list = Field(default_factory=list)
@@ -113,7 +116,7 @@ class SY1_EX600_MODEL(BaseModel):
         self._set_porting_type_and_pe_port_entry_and_pilot_silencer_piping_type()
         self._set_lt_surge_volt_sup_and_coil_type()
         self._set_fitting_direction_and_port_measurement_type()
-        self._compute_parsed_valves_and_number_of_stations()
+        self._compute_parsed_valves_and_num_of_stations_and_num_of_solenoids()
         # --- logic check
         self.main_model_logic()
         # --- subcomponents
@@ -155,9 +158,10 @@ class SY1_EX600_MODEL(BaseModel):
         self.port_measurement_type = data_dict["measurement_system"]
 
     # --- computed values ---
-    def _compute_parsed_valves_and_number_of_stations(self):
+    def _compute_parsed_valves_and_num_of_stations_and_num_of_solenoids(self):
         self.parsed_valves = parse_valve_callout(self.valve_callout, valid_symbols=set(YAML_DATA["valve_symbols"].keys()))
         self.number_of_stations = sum(int(ele["qty"]) for ele in self.parsed_valves)
+        self.number_of_solenoids = sum(int(ele["qty"]) * int(YAML_DATA['valve_symbols'][ele["symbol"]]['solenoid_qty']) for ele in self.parsed_valves)
         return self
 
     def _build_submodels(self):
@@ -177,7 +181,8 @@ class SY1_EX600_MODEL(BaseModel):
         COMPONENT_TYPE_REGISTRY = {
             "base_mounted_valve": Base_Mounted_Valves_Model,
             "blanking_plate": Blanking_Plate_Assy_Model,
-            # "manifold_base":,
+            "manifold_base": Manifold_Base_Model,
+            "supply_blocking_disk": Supply_Blocking_Disk_Model,
             # "X323_option": X323_Valve_Model,
         }
 
@@ -292,6 +297,10 @@ class SY1_EX600_MODEL(BaseModel):
     #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
         
+        # calcualted field (initially set to none) guards
+        if self.number_of_solenoids is None:
+            raise ValueError("total number of solenoids was not loaded properly")
+        
         # ----- [Endplate Type/SI Unit Polarity] -----
         # --------------------------------------------
         
@@ -303,9 +312,9 @@ class SY1_EX600_MODEL(BaseModel):
         # --------------------------------------------------------
         
         # checking if no valves are to be selected via option "M", valve callout must not have valve/station options
-        valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)$" # matches values for (2-16)D or (2-32)S
+        valid_D_S = r"^((0|[2-9]|1[0-6])D|(0|[2-9]|[12][0-9]|3[0-2])S)+$" # matches values for (2-16)D or (2-32)S
         if self.lt_surge_volt_sup_and_coil_type == 'M' and not re.fullmatch(valid_D_S, self.valve_callout):
-            raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S'")
+            raise ValueError("If 'M' is selected for light surge voltage suppressor, valve callout must only be 'D' or 'S' combinations")
         
         # checking if the valve and si unit have the same polarity, or valve is non-polar to work with either si unit polarity
         if (self.valve_polarity != "Non-Polar") and (self.si_unit_polarity != self.valve_polarity) and (self.si_unit != '0'):
@@ -330,11 +339,15 @@ class SY1_EX600_MODEL(BaseModel):
         if len(self.valve_callout) > 19:
             raise ValueError("valve callout exceeds allowable maximum of 19 characters")
         
+        # if the total number of solenoids for valves and or manifold stations (for manifold base only) configured exceeds limit of 32
+        if self.number_of_solenoids > 32:
+            raise ValueError("Current configuration of valves (and or manifold base) exceeds allowable 32 solenoids")
+        
         # ----- [Sup/Exh Porting Direction and Cover Assembly] Tests -----
         # ----------------------------------------------------------------
         
         if (any(self.parsed_valves[i]["symbol"] in ("X", "Y", "Z") for i in range(1, (len(self.parsed_valves))))) and self.pe_port_entry not in ("B", "F", "J"):
-            raise ValueError("If a blocking disk is selected in valve callout, P/E port entry must be an option that features both sides")
+            raise ValueError("If a blocking disk is selected in valve callout, P/E port entry must use an option that features both sides")
         
         # ----- [A/B Port Size] Tests -----
         # ---------------------------------
@@ -467,15 +480,19 @@ class SY1_EX600_MODEL(BaseModel):
 
             for _ in range(int(valve["qty"])):
 
+                if valve["symbol"] in {"X", "Y", "Z"}:
+                    position = "-"
+                else:
+                    position = f"STA-{station}"
+                    station += 1
+
                 add_row(
-                    position=f"STA-{station}",
+                    position=position,
                     symbol=valve["symbol"],
                     part_number=valve["valve_pn"],
                     manifold_block=valve["manifold_block_pn"],
                     ab_port_size=valve["ab_port_size"],
                 )
-
-                station += 1
 
         # ------------------------------
         # U-Side Supply Exhaust Component

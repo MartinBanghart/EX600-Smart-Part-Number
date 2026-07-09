@@ -4,23 +4,23 @@ from typing import Optional, Literal
 from utilities.config import YAML_DATA, ab_mixed_fitting_tables
 
 # ---------------
-# -- This is a submodel.station_component that manages the valve symbols with the type 'blanking_plate'
-# ---- all components here are blanking plate assemblies (standard or with outputs)
+# -- This is a submodel.station_component that manages the valve symbols with type 'manifold_base 
+# ---- this is related to valve symbols "D" and "S" which are not actually valves but instead blank stations --> just the manifold base 
 # ---------------
 
-class Blanking_Plate_Assy_Model(BaseModel):
+class Manifold_Base_Model(BaseModel):
     # dropping any fields passed that are not declared in model
     model_config = ConfigDict(extra="ignore")
-    # --- Fields extracted from YAML entry ---
+    
     symbol: str
-    type: Literal["blanking_plate"]
+    type: Literal["manifold_base"]
     actuation: Literal[""]
     seal_type: Literal[""]
     pilot_type: Literal[""]
     back_pressure_check: Literal[""]
-    pilot_valve: Literal[""]
+    pilot_valve: Literal["", "B", "K"]
     fitting_size: Literal[0, 1, 2, 3]
-    solenoid_qty: Literal[0]
+    solenoid_qty: Literal[1, 2]
     
     # --- Fields to be inherited from main model class instance ---
     series: Literal["3", "5", "7"]
@@ -37,7 +37,8 @@ class Blanking_Plate_Assy_Model(BaseModel):
     # --- Retrieved from YAML_DATA fields
     ab_port_size_hto: Optional[str] = None
     
-    # ------------------------------- MODEL VALIDATOR 'AFTER' -------------------------------------
+    # ------------------------------------------------------------------------
+    
     @model_validator(mode="after")
     def run_all_postprocessing_and_logic(self):
         # --- computed fields
@@ -47,17 +48,14 @@ class Blanking_Plate_Assy_Model(BaseModel):
         # --- logic check
         self.model_logic()
         return self
-
+    
+    
+    # simplified wiring type --> if "S" its single, if "D" its double
     def get_manifold_block_wiring_type(self):
-        if self.solenoid_qty == 1:  # valve is single solenoid
-            self.manifold_block_wiring_type = "S"
-        elif self.solenoid_qty == 2:  # valve is double solenoid
-            self.manifold_block_wiring_type = "D"
-        elif (self.solenoid_qty == 0):  # blanking plate --> assume double wired since customer could swap for double solenoid valve
-            self.manifold_block_wiring_type = "D"
+        self.manifold_block_wiring_type = self.symbol
         return self
     
-    # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data
+        # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data
     def get_ab_port_size_hto(self):
         data_dict = YAML_DATA["ab_port_size_symbols"][self.ab_port_size]
         size = data_dict["size"]
@@ -97,24 +95,10 @@ class Blanking_Plate_Assy_Model(BaseModel):
             self.manifold_block_part_number = self.standard_manifold_block_part_number()
         
         return self
-    
+
     def part_number(self) -> str:
-        if self.symbol == 'WH':
-            return('SY30M-150-1A')
-        elif self.symbol == 'WI':
-            return('SY30M-150-1A-10')
-        elif self.symbol == 'WJ':
-            return('SY30M-150-1A-1')
-        elif self.symbol == 'WK':
-            return('SY30M-150-1A-1-10')
-        elif self.symbol == 'WL':
-            return('SY30M-150-1A-2')
-        elif self.symbol == 'WM':
-            return('SY30M-150-1A-2-10')
-        else:
-            # standard blanking plate (SY#0M-26-1A-#)
-            return f"SY{self.series}0M-26-1A"
-    
+        return f"-"
+
     # -------------- MODEL LOGIC --------------
     def model_logic(self):
         return self
