@@ -1,6 +1,9 @@
 # general dependencies
 import pandas as pd
 import re
+import os
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
 # pydantic dependencies
 from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError)
@@ -111,21 +114,20 @@ class SY1_EX600_MODEL(BaseModel):
     # ----- SUB MODELS -----
     @model_validator(mode="after")
     def run_all_postprocessing_and_logic(self):
-        # --- computed fields
+        # --- computed fields ---
         self._set_si_unit_and_valve_polarities()
         self._set_porting_type_and_pe_port_entry_and_pilot_silencer_piping_type()
         self._set_lt_surge_volt_sup_and_coil_type()
         self._set_fitting_direction_and_port_measurement_type()
         self._compute_parsed_valves_and_num_of_stations_and_num_of_solenoids()
-        # --- logic check
+        # --- logic check ---
         self.main_model_logic()
-        # --- subcomponents
+        # --- subcomponents ---
         self.valves = self.attach_valve_models()
         self.sup_exh_blocks = self.attach_sup_exh_blocks()
         self.valve_plate = self.attach_valve_plate()
         self.si_unit_pn = self.attach_si_unit()
-        # self._build_submodels()
-        # --- bill of materials
+        # --- bill of materials (bom) ---
         self.bom()
         return self
 
@@ -164,17 +166,11 @@ class SY1_EX600_MODEL(BaseModel):
         self.number_of_solenoids = sum(int(ele["qty"]) * int(YAML_DATA['valve_symbols'][ele["symbol"]]['solenoid_qty']) for ele in self.parsed_valves)
         return self
 
-    def _build_submodels(self):
-        self.mounting = Mounting_And_Nameplate_Model(
-            symbol=self.mounting_and_nameplate, parent_series=self.series
-        )
-        # self.valves = Base_Mounted_Valves_Model(
-        #     lt_surge_volt_sup_and_coil_type=self.lt_surge_volt_sup_and_coil_type,
-        #     manual_override = self.manual_override,
-        #     ab_port_size=self.ab_port_size
-        # )
-
-        return self
+    # def _build_submodels(self):
+    #     self.mounting = Mounting_And_Nameplate_Model(
+    #         symbol=self.mounting_and_nameplate, parent_series=self.series
+    #     )
+    #     return self
 
     def attach_valve_models(self):
 
@@ -232,7 +228,6 @@ class SY1_EX600_MODEL(BaseModel):
             )
 
             # 4 --> append enriched element
-            # enriched.append({**item, "model": valve_model.model_dump()})
             enriched.append({**item, 
                                 "valve_pn": component_model.part_number(), 
                                 "ab_port_size": component_model.ab_port_size_hto,
@@ -293,8 +288,179 @@ class SY1_EX600_MODEL(BaseModel):
         
         return si_unit_pn
     
+    # --- building the part number
+    def part_number(self) -> str:
+        return (
+            f"{self.prefix}{self.series}{self.EX600}"
+            f"-{self.si_unit}{self.endplate_type}{self.io_unit_1}{self.io_unit_2}{self.io_unit_3}{self.io_unit_4}"
+            f"-{self.lt_surge_volt_sup_and_coil_type}{self.manual_override}"
+            f"-{self.valve_callout}"
+            f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
+        )
+    # --- building the bill of materials
+    def bom(self) -> pd.DataFrame:
+        
+        # guards for calculated fields initialized as None
+        if self.sup_exh_blocks is None:
+            raise ValueError("sup_exh_blocks was not set before creating sup_exh_model")
+        if self.valves is None:
+            raise ValueError("valves was not set before creating main_model")
+        if self.valve_plate is None:
+            raise ValueError("valve_plate was not set properly")
+        
+        rows = []
+
+        def add_row(
+            position,
+            part_number="-",
+            symbol="-",
+            manifold_block="-",
+            ab_port_size="-",
+        ):
+            rows.append({
+                "Position": position,
+                "Symbol": symbol,
+                "Part Number": part_number,
+                "Manifold Block": manifold_block,
+                "AB Port Size": ab_port_size,
+            })
+
+        # ------------------------------
+        # Fixed Components
+        # ------------------------------
+
+        add_row(
+            "EX600 Endplate",
+            part_number=(
+                YAML_DATA["endplate_type_symbols"]
+                .get(self.endplate_type, {})
+                .get("endplate_part_number", "-")
+            ),
+            symbol=self.endplate_type or "-",
+        )
+
+        # ------------------------------
+        # IO Unit Components
+        add_row(
+            "IO Unit 1",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_1, {}) # adds condition with .get() to return none if io_unit_1 is not set
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_1 or "-",
+        )
+        add_row(
+            "IO Unit 2",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_2, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_2 or "-",
+        )
+        add_row(
+            "IO Unit 3",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_3, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_3 or "-",
+        )
+        add_row(
+            "IO Unit 4",
+            part_number=(
+                YAML_DATA["io_unit_symbols"]
+                .get(self.io_unit_4, {})
+                .get("io_unit_part_number", "-")
+            ),
+            symbol=self.io_unit_4 or "-",
+        )
+        
+        # ------------------------------
+        # SI Unit Component
+        add_row("SI Unit", part_number=self.si_unit_pn or "-", symbol=self.si_unit or "-",)
+
+        # ------------------------------
+        # Valve Plate Component
+        add_row("Valve Plate", self.valve_plate)
+        
+        # ------------------------------
+        # D-Side Supply Exhaust Component
+        add_row("D-Side Sup/Exh", part_number=self.sup_exh_blocks[0]["D-Side Sup/Exh"])
+
+        # ------------------------------
+        # Station Components
+        station = 1
+
+        for valve in self.valves:
+
+            for _ in range(int(valve["qty"])):
+
+                if valve["symbol"] in {"X", "Y", "Z"}:
+                    position = "-"
+                else:
+                    position = f"STA-{station}"
+                    station += 1
+
+                add_row(
+                    position=position,
+                    symbol=valve["symbol"],
+                    part_number=valve["valve_pn"],
+                    manifold_block=valve["manifold_block_pn"],
+                    ab_port_size=valve["ab_port_size"],
+                )
+
+        # ------------------------------
+        # U-Side Supply Exhaust Component
+        add_row("U-Side Sup/Exh", part_number=self.sup_exh_blocks[1]["U-Side Sup/Exh"])
+
+        return pd.DataFrame(rows)
     
-    #  --- Overall Logic for Main Model ---
+    def bom_output_to_pdf(self):
+        # ----- Method Description
+        # --> Inputs: DataFrame (from bom() method)
+        # --> Outputs: PDF file
+        # - Allocates directory and creates one if none exist
+        # ----------------------------
+        
+        # rel path --> update as necessary in future
+        directory = r"outputs"
+        # check if dir exists, otherwise make it
+        os.makedirs(directory, exist_ok=True)
+
+        # intialize the filename and creating filepath
+        filename=f"{self.part_number()}_BOM.pdf"
+        filepath = os.path.join(directory, filename)
+        
+        # load bom via bom method
+        df = self.bom()
+        
+        fig, ax = plt.subplots(figsize=(8, 4))
+        ax.axis('tight')
+        ax.axis('off')
+        
+        # create the table and format it
+        the_table = ax.table(
+            cellText=df.values.tolist(),
+            colLabels=df.columns.tolist(),
+            loc='center',
+            cellLoc='center'
+        )
+
+        the_table.auto_set_font_size(False)
+        the_table.set_fontsize(10)
+        
+        # save directly using PdfPages
+        with PdfPages(filepath) as pdf:
+            pdf.savefig(fig, bbox_inches='tight')
+            
+        plt.close(fig)
+        
+        return(self)
+    
+        #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
         
         # calcualted field (initially set to none) guards
@@ -346,164 +512,25 @@ class SY1_EX600_MODEL(BaseModel):
         # ----- [Sup/Exh Porting Direction and Cover Assembly] Tests -----
         # ----------------------------------------------------------------
         
+        # if a supply blocking disk is selected, a PE porting option meant for both sides must be selected
         if (any(self.parsed_valves[i]["symbol"] in ("X", "Y", "Z") for i in range(1, (len(self.parsed_valves))))) and self.pe_port_entry not in ("B", "F", "J"):
             raise ValueError("If a blocking disk is selected in valve callout, P/E port entry must use an option that features both sides")
         
         # ----- [A/B Port Size] Tests -----
         # ---------------------------------
         
+        # if a valve with a fitting_size property besides standard (1, 2, 3) and mixed fitting ab_port_size options are not selected, reject
         if (any(self.parsed_valves[i]["fitting_size"] != 0 for i in range(1, (len(self.parsed_valves))))) and self.ab_port_size not in ('71', '72', '73', '74', '75', '76'):
             raise ValueError('Valves with varied fitting sizes have been called out but AB port size does not specify mixed fittings')
         
         # ----- [Mounting and Nameplate] Tests -----
         # ------------------------------------------
         
+        # Bottom ported manifold can only have direct mounting options selected
         if self.mounting_and_nameplate not in ('', 'AA', 'BA') and self.porting_type == '11':
             raise ValueError('Only direct mounting options are available for the type 11 bottom ported manifolds')
         
         return self
-    
-    # --- building the part number
-    def part_number(self) -> str:
-        return (
-            f"{self.prefix}{self.series}{self.EX600}"
-            f"-{self.si_unit}{self.endplate_type}{self.io_unit_1}{self.io_unit_2}{self.io_unit_3}{self.io_unit_4}"
-            f"-{self.lt_surge_volt_sup_and_coil_type}{self.manual_override}"
-            f"-{self.valve_callout}"
-            f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
-        )
-    # --- building the bill of materials
-    def bom(self) -> pd.DataFrame:
-        
-        if self.sup_exh_blocks is None:
-            raise ValueError("sup_exh_blocks was not set before creating sup_exh_model")
-        if self.valves is None:
-            raise ValueError("valves was not set before creating main_model")
-        if self.valve_plate is None:
-            raise ValueError("valve_plate was not set properly")
-        
-        rows = []
-
-        def add_row(
-            position,
-            part_number="-",
-            symbol="-",
-            manifold_block="-",
-            ab_port_size="-",
-        ):
-            rows.append({
-                "Position": position,
-                "Symbol": symbol,
-                "Part Number": part_number,
-                "Manifold Block": manifold_block,
-                "AB Port Size": ab_port_size,
-            })
-
-        # ------------------------------
-        # Fixed Components
-        # ------------------------------
-
-        add_row(
-            "EX600 Endplate",
-            part_number=(
-                YAML_DATA["endplate_type_symbols"]
-                .get(self.endplate_type, {})
-                .get("endplate_part_number", "-")
-            ),
-            symbol=self.endplate_type or "-",
-        )
-        
-
-        add_row(
-            "IO Unit 1",
-            part_number=(
-                YAML_DATA["io_unit_symbols"]
-                .get(self.io_unit_1, {}) # adds condition with .get() to return none if io_unit_1 is not set
-                .get("io_unit_part_number", "-")
-            ),
-            symbol=self.io_unit_1 or "-",
-        )
-        add_row(
-            "IO Unit 2",
-            part_number=(
-                YAML_DATA["io_unit_symbols"]
-                .get(self.io_unit_2, {})
-                .get("io_unit_part_number", "-")
-            ),
-            symbol=self.io_unit_2 or "-",
-        )
-        add_row(
-            "IO Unit 3",
-            part_number=(
-                YAML_DATA["io_unit_symbols"]
-                .get(self.io_unit_3, {})
-                .get("io_unit_part_number", "-")
-            ),
-            symbol=self.io_unit_3 or "-",
-        )
-        add_row(
-            "IO Unit 4",
-            part_number=(
-                YAML_DATA["io_unit_symbols"]
-                .get(self.io_unit_4, {})
-                .get("io_unit_part_number", "-")
-            ),
-            symbol=self.io_unit_4 or "-",
-        )
-
-
-        add_row(
-            "SI Unit",
-            part_number=self.si_unit_pn or "-",
-            symbol=self.si_unit or "-",
-        )
-
-
-        add_row("Valve Plate", self.valve_plate)
-        
-        # ------------------------------
-        # D-Side Supply Exhaust Component
-        # ------------------------------
-
-        add_row(
-            "D-Side Sup/Exh",
-            self.sup_exh_blocks[0]["D-Side Sup/Exh"]
-        )
-
-        # ------------------------------
-        # Station Components
-        # ------------------------------
-
-        station = 1
-
-        for valve in self.valves:
-
-            for _ in range(int(valve["qty"])):
-
-                if valve["symbol"] in {"X", "Y", "Z"}:
-                    position = "-"
-                else:
-                    position = f"STA-{station}"
-                    station += 1
-
-                add_row(
-                    position=position,
-                    symbol=valve["symbol"],
-                    part_number=valve["valve_pn"],
-                    manifold_block=valve["manifold_block_pn"],
-                    ab_port_size=valve["ab_port_size"],
-                )
-
-        # ------------------------------
-        # U-Side Supply Exhaust Component
-        # ------------------------------
-
-        add_row(
-            "U-Side Sup/Exh",
-            self.sup_exh_blocks[1]["U-Side Sup/Exh"]
-        )
-
-        return pd.DataFrame(rows)
 
 
 # ----------------------- Function to Run Model -----------------------
@@ -554,6 +581,6 @@ def run_main_model(part_number: str):
 
 # --- To run from interactive terminal
 # python -i main_model.py
-# >>> obj, truth = run_main_model('SY36-Q2-S-5AB-A11')
+# >>> model, bool = run_main_model('SY36-Q2-S-5AB-A11')
 
-# >>> obj, truth = run_main_model('SY36-Q2-S-5DE-A71')
+# >>> model, bool = run_main_model('SY36-Q2-S-5DE-A71')
