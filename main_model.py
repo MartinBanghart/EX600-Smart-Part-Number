@@ -1,12 +1,12 @@
 # general dependencies
-import pandas as pd
 import re
 import os
+import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 # pydantic dependencies
-from pydantic import (BaseModel,field_validator,model_validator,Field,StringConstraints,ValidationError)
+from pydantic import (BaseModel, field_validator, model_validator, Field, StringConstraints,ValidationError)
 from typing import Literal, Optional
 from typing import Annotated
 
@@ -47,11 +47,9 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])","length": 2},
     {"name": "mounting_and_nameplate", "pattern": r"[ABD](?:0|[A-X])?", "length": None},
 ]
-
-# --------------------------------------------------
+# ------------------------------------------------------------------------------------------
 class SY1_EX600_MODEL(BaseModel):
-    # ----- How to Order Information -----
-    # -----------------------------------------------------
+    # ---------- How to Order Information ----------
     prefix: Literal["SY"]
     series: Literal["3", "5", "7"]
     EX600: Literal["6"]
@@ -66,7 +64,6 @@ class SY1_EX600_MODEL(BaseModel):
     lt_surge_volt_sup_and_coil_type: Literal["R", "U", "S", "Z", "T", "V", "W", "M"]  # M is for no valves
     manual_override: Literal["", "D", "E", "F"]
     # -
-    #valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[2-9]|1[0-9]|2[0-4])?(?:0[DS]|[A-W][A-W]|X|Y|Z))+")]
     valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D|S|X|Y|Z))+")]
     # -
     sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
@@ -101,7 +98,11 @@ class SY1_EX600_MODEL(BaseModel):
     # --- Submodels- not a part of How-To-Order fields ---
     mounting: Mounting_And_Nameplate_Model | None = None
 
-    # -----------------------------------------------------
+# ------------------------------------------------------------------------------------------
+# -- field_validator that funs after model is intialized and does post-processing
+# -- This creates a dictionary of each valve symbol with pertinent information from fields of the valve
+# -- from the YAML Data
+# ---> Dictionary format: parsed_valves = {"pos": -, "qty": -, "symbol": -, "fitting_size": -}
     @field_validator("valve_callout", mode="after")
     def validate_and_parse_valve_callout(cls, v):
         try:
@@ -110,7 +111,7 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError(f"Invalid valve callout: {e}")
 
         return v
-
+# ------------------------------------------------------------------------------------------
     # ----- SUB MODELS -----
     @model_validator(mode="after")
     def run_all_postprocessing_and_logic(self):
@@ -130,7 +131,7 @@ class SY1_EX600_MODEL(BaseModel):
         # --- bill of materials (bom) ---
         self.bom()
         return self
-
+# ------------------------------------------------------------------------------------------
     # -- Retrieving values from yaml_data for specific symbol values for model fields intialized as none --
     
     # breaking down sup_exh_porting_dir_and_cover_assy from HTO to get two fields: porting_type + pe_port_entry
@@ -165,13 +166,7 @@ class SY1_EX600_MODEL(BaseModel):
         self.number_of_stations = sum(int(ele["qty"]) for ele in self.parsed_valves)
         self.number_of_solenoids = sum(int(ele["qty"]) * int(YAML_DATA['valve_symbols'][ele["symbol"]]['solenoid_qty']) for ele in self.parsed_valves)
         return self
-
-    # def _build_submodels(self):
-    #     self.mounting = Mounting_And_Nameplate_Model(
-    #         symbol=self.mounting_and_nameplate, parent_series=self.series
-    #     )
-    #     return self
-
+# ------------------------------------------------------------------------------------------
     def attach_valve_models(self):
 
         COMPONENT_TYPE_REGISTRY = {
@@ -235,7 +230,7 @@ class SY1_EX600_MODEL(BaseModel):
                                 })
             
         return enriched
-    
+# ------------------------------------------------------------------------------------------    
     def attach_sup_exh_blocks(self):
         
         # guarding against the possibility calculated fields were not populated and remain none
@@ -267,28 +262,27 @@ class SY1_EX600_MODEL(BaseModel):
             ]
         
         return sup_exh_blocks
-    
+# ------------------------------------------------------------------------------------------    
+    # BOM element - simplified since there are only two options for a valve plate
     def attach_valve_plate(self):
         if self.si_unit == "0":
             return("")
         else:
             return("EX600-ZMV4")
-        
+# ------------------------------------------------------------------------------------------        
+    # BOM element - uses SI_UNIT_Model to attach the SI unit part number via a method on the main model
     def attach_si_unit(self):
         
         if self.si_unit_polarity is None:
             raise ValueError("si_unit_polarity was not set before creating si_unit_model")
         
-        si_unit_model = SI_Unit_Model(
-            symbol = self.si_unit,
-            si_unit_polarity = self.si_unit_polarity
-        )
-        
+        si_unit_model = SI_Unit_Model(symbol = self.si_unit, si_unit_polarity = self.si_unit_polarity)
+    
         si_unit_pn = si_unit_model.part_number()
         
         return si_unit_pn
-    
-    # --- building the part number
+# ------------------------------------------------------------------------------------------    
+    # Method that generates the overall part number for the manifold + valve assembly (main_model)
     def part_number(self) -> str:
         return (
             f"{self.prefix}{self.series}{self.EX600}"
@@ -297,7 +291,8 @@ class SY1_EX600_MODEL(BaseModel):
             f"-{self.valve_callout}"
             f"-{self.sup_exh_porting_dir_and_cover_assy}{self.ab_port_size}{self.mounting_and_nameplate}"
         )
-    # --- building the bill of materials
+# ------------------------------------------------------------------------------------------
+    # Method that creates a dataframe with the bill of materials for the assembly
     def bom(self) -> pd.DataFrame:
         
         # guards for calculated fields initialized as None
@@ -326,9 +321,7 @@ class SY1_EX600_MODEL(BaseModel):
             })
 
         # ------------------------------
-        # Fixed Components
-        # ------------------------------
-
+        # Endplate
         add_row(
             "EX600 Endplate",
             part_number=(
@@ -417,7 +410,7 @@ class SY1_EX600_MODEL(BaseModel):
         add_row("U-Side Sup/Exh", part_number=self.sup_exh_blocks[1]["U-Side Sup/Exh"])
 
         return pd.DataFrame(rows)
-    
+# ------------------------------------------------------------------------------------------          
     def bom_output_to_pdf(self):
         # ----- Method Description
         # --> Inputs: DataFrame (from bom() method)
@@ -434,33 +427,88 @@ class SY1_EX600_MODEL(BaseModel):
         filename=f"{self.part_number()}_BOM.pdf"
         filepath = os.path.join(directory, filename)
         
-        # load bom via bom method
-        df = self.bom()
-        
-        fig, ax = plt.subplots(figsize=(8, 4))
-        ax.axis('tight')
-        ax.axis('off')
-        
-        # create the table and format it
-        the_table = ax.table(
-            cellText=df.values.tolist(),
-            colLabels=df.columns.tolist(),
-            loc='center',
-            cellLoc='center'
+        validator_df = self.get_tokens_df(full_report=False)
+        bom_df = self.bom()
+
+        fig, (ax1, ax2) = plt.subplots(
+            2, 1,
+            figsize=(8, 10),
+            gridspec_kw={"height_ratios": [1.5, 3]}
         )
 
-        the_table.auto_set_font_size(False)
-        the_table.set_fontsize(10)
-        
-        # save directly using PdfPages
+        for ax in (ax1, ax2):
+            ax.axis("off")
+
+        # Model main Tokens table
+        validator_table = ax1.table(
+            cellText=validator_df.values,
+            colLabels=validator_df.columns,
+            cellLoc="center",
+            bbox=[0, 0, 1, 0.9] # x, y, width, height
+        )
+        validator_table.auto_set_font_size(False)
+        validator_table.set_fontsize(9)
+
+        ax1.set_title("Configuration", pad=5, y=.97, fontweight='bold')
+
+        # BOM table
+        bom_table = ax2.table(
+            cellText=bom_df.values,
+            colLabels=bom_df.columns,
+            cellLoc="center",
+            bbox=[0, 0, 1, 0.9]
+        )
+        bom_table.auto_set_font_size(False)
+        bom_table.set_fontsize(9)
+
+        ax2.set_title("Bill of Materials", pad=5, y=.97, fontweight='bold')
+
+        plt.tight_layout()
+
         with PdfPages(filepath) as pdf:
-            pdf.savefig(fig, bbox_inches='tight')
-            
+            pdf.savefig(fig, bbox_inches="tight")
+
         plt.close(fig)
+
         
         return(self)
-    
-        #  --- Overall Logic for Main Model ---
+# ------------------------------------------------------------------------------------------
+    # Method to return fields from the model in a DataFrame
+    # -- Default is full_report = True, which is all fields (base and calculated)
+    # -- full_report = False gives only the base fields from HTO
+    def get_tokens_df(self, full_report=True) -> pd.DataFrame:
+        if full_report == True:
+            return pd.DataFrame(
+                self.model_dump().items(),
+                columns=["Field", "Value"]
+            )
+        else: # full report == False
+            return pd.DataFrame(
+                self.model_dump(
+                        exclude={
+                            "si_unit_polarity",
+                            "valve_polarity",
+                            "pe_port_entry",
+                            "pilot_silencer_piping_type",
+                            "lt_surge_volt_sup",
+                            "coil_type",
+                            "fitting_direction",
+                            "port_measurement_type",
+                            "number_of_stations",
+                            "number_of_solenoids",
+                            "parsed_valves",
+                            "valves",
+                            "sup_exh_blocks",
+                            "valve_plate",
+                            "si_unit_pn",
+                            "mounting",
+                            "porting_type"
+                        }
+                    ).items(),
+                columns=["Field", "Value"]
+            )
+# ------------------------------------------------------------------------------------------    
+    #  --- Overall Logic for Main Model ---
     def main_model_logic(self):
         
         # calcualted field (initially set to none) guards
@@ -532,10 +580,7 @@ class SY1_EX600_MODEL(BaseModel):
         
         return self
 
-
 # ----------------------- Function to Run Model -----------------------
-# outputs : manifold object and validation boolean for testing
-
 def run_main_model(part_number: str):
     print("\n --------------------------------------")
 
@@ -543,11 +588,10 @@ def run_main_model(part_number: str):
         print(f"\nParsing:{part_number}\n")
         parser = TokenMapParser(SY1_EX600_TOKEN_MAP)
         tokens = parser.parse(part_number)
-        manifold_object = SY1_EX600_MODEL(**tokens)
-        validator_df = pd.DataFrame(manifold_object.model_dump().items(), columns=["Field", "Value"])
-        print(validator_df)
+        manifold_assy = SY1_EX600_MODEL(**tokens)
+        print(manifold_assy.get_tokens_df())
 
-        return manifold_object, True
+        return manifold_assy, True
 
     # PyDantic Model is Throwing Error
     except ValidationError as e:
