@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 # pydantic dependencies
-from pydantic import (BaseModel, field_validator, model_validator, Field, StringConstraints,ValidationError)
+from pydantic import (BaseModel, field_validator, model_validator, Field, StringConstraints, ValidationError, ValidationInfo)
 from typing import Literal, Optional
 from typing import Annotated
 
@@ -54,21 +54,21 @@ class SY1_EX600_MODEL(BaseModel):
     series: Literal["3", "5", "7"]
     EX600: Literal["6"]
     # -
-    si_unit: Literal["0", "Q", "N", "V", "E", "D", "F", "G", "W"]
-    endplate_type: Literal["", "2", "3", "4", "5", "6", "7", "8", "9"]
-    io_unit_1: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
-    io_unit_2: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
-    io_unit_3: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
-    io_unit_4: Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    si_unit: str = "" #Literal["0", "Q", "N", "V", "E", "D", "F", "G", "W"]
+    endplate_type: str = "" #Literal["", "2", "3", "4", "5", "6", "7", "8", "9"]
+    io_unit_1: str = "" #Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_2: str = "" #Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_3: str = "" #Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
+    io_unit_4: str = "" #Annotated[str,StringConstraints(min_length=0,max_length=1,pattern=r"[A-Z1]?")]
     # -
-    lt_surge_volt_sup_and_coil_type: Literal["R", "U", "S", "Z", "T", "V", "W", "M"]  # M is for no valves
-    manual_override: Literal["", "D", "E", "F"]
+    lt_surge_volt_sup_and_coil_type: str = "" #Literal["R", "U", "S", "Z", "T", "V", "W", "M"]  # M is for no valves
+    manual_override: str = "" #Literal["", "D", "E", "F"]
     # -
     valve_callout: Annotated[str,StringConstraints(min_length=2,max_length=19,pattern=r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D|S|X|Y|Z))+")]
     # -
-    sup_exh_porting_dir_and_cover_assy: Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
-    ab_port_size: Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])")]
-    mounting_and_nameplate: Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
+    sup_exh_porting_dir_and_cover_assy: str = "" #Annotated[str, StringConstraints(min_length=1, max_length=1, pattern=r"[A-Z]")]
+    ab_port_size: str = "" #Annotated[str,StringConstraints(min_length=2,max_length=2,pattern=r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])")]
+    mounting_and_nameplate: str = "" #Annotated[str,StringConstraints(min_length=0, max_length=2, pattern=r"(?:[ABD](?:0|[A-X]))?"),]
 
     # --- Fields determined from standard fields above  ---
     si_unit_polarity: Optional[Literal["", "NPN", "PNP"]] = None # recently took out NPN because technically can only be either PNP or NPN based on ednplate or none (if no si unit)
@@ -97,6 +97,69 @@ class SY1_EX600_MODEL(BaseModel):
 
     # --- Submodels- not a part of How-To-Order fields ---
     mounting: Mounting_And_Nameplate_Model | None = None
+    
+# ------------------------------------------------------------------------------------------
+# main YAML backed HTO fields
+# --- validating by checking existing options in YAML makes it single source of truth
+    @field_validator("si_unit")
+    @classmethod
+    def validate_si_unit(cls, v):
+        if v not in YAML_DATA["si_unit_symbols"]:
+            raise ValueError(f"Invalid SI Unit: {v}")
+        return v
+    
+    @field_validator("endplate_type")
+    @classmethod
+    def validate_endplate_type(cls, v):
+        if v not in YAML_DATA["endplate_type_symbols"]:
+            raise ValueError(f"Invalid endplate type: {v}")
+        return v
+
+
+
+    @field_validator("io_unit_1", "io_unit_2", "io_unit_3", "io_unit_4")
+    @classmethod
+    def validate_io_units(cls, v):
+        if v not in ("", *YAML_DATA["io_unit_symbols"].keys()):
+            raise ValueError(f"Invalid IO Unit: {v}")
+        return v
+
+
+    
+    @field_validator("lt_surge_volt_sup_and_coil_type")
+    @classmethod
+    def validate_lt_surge_volt_sup_and_coil_type(cls, v):
+        if v not in YAML_DATA["lt_surge_volt_sup_and_coil_type_symbols"]:
+            raise ValueError(f"Invalid light surge voltage suppressor and coil type: {v}")
+        return v
+    
+    @field_validator("manual_override")
+    @classmethod
+    def validate_man_override(cls, v):
+        if v not in YAML_DATA["man_override_symbols"]:
+            raise ValueError(f"Invalid manual override: {v}")
+        return v
+    
+    @field_validator("sup_exh_porting_dir_and_cover_assy")
+    @classmethod
+    def validate_sup_exh_porting_dir_and_cover_assy(cls, v):
+        if v not in YAML_DATA["sup_exh_porting_dir_and_cover_assy_symbols"]:
+            raise ValueError(f"Invalid supply exhaust porting direction and cover assembly: {v}")
+        return v
+
+    @field_validator("ab_port_size")
+    @classmethod
+    def validate_ab_port_size(cls, v):
+        if v not in YAML_DATA["ab_port_size_symbols"]:
+            raise ValueError(f"Invalid A/B port size: {v}")
+        return v
+
+    @field_validator("mounting_and_nameplate")
+    @classmethod
+    def validate_mounting_and_nameplate(cls, v):
+        if v not in YAML_DATA["mounting_and_nameplate_symbols"]:
+            raise ValueError(f"Invalid mounting and nameplate: {v}")
+        return v
 
 # ------------------------------------------------------------------------------------------
 # -- field_validator that funs after model is intialized and does post-processing
@@ -557,6 +620,12 @@ class SY1_EX600_MODEL(BaseModel):
         if self.number_of_solenoids > 32:
             raise ValueError("Current configuration of valves (and or manifold base) exceeds allowable 32 solenoids")
         
+        # if the total number of stations is not at least 2, reject
+        if self.number_of_stations is None:
+            raise ValueError("number_of_stations was not calculated properly")
+        if self.number_of_stations < 2:
+            raise ValueError("A minimum of 2 stations must be configured for manifold")
+        
         # ----- [Sup/Exh Porting Direction and Cover Assembly] Tests -----
         # ----------------------------------------------------------------
         
@@ -589,9 +658,9 @@ def run_main_model(part_number: str):
         parser = TokenMapParser(SY1_EX600_TOKEN_MAP)
         tokens = parser.parse(part_number)
         manifold_assy = SY1_EX600_MODEL(**tokens)
-        print(manifold_assy.get_tokens_df())
+        #print(manifold_assy.get_tokens_df())
 
-        return manifold_assy, True
+        return manifold_assy, True, False
 
     # PyDantic Model is Throwing Error
     except ValidationError as e:
@@ -605,7 +674,7 @@ def run_main_model(part_number: str):
             print("\nParsed Tokens")
             print(pd.DataFrame([tokens]))
         
-        return None, False
+        return None, False, e
 
     # Parser is Throwing Error
     except ValueError as e:
@@ -616,7 +685,7 @@ def run_main_model(part_number: str):
         else:
             print("Parsing failed before any tokens could be generated.")
         
-        return None, False
+        return None, False, e
 
 # --- To run from terminal
 # python -c "import main_model; main_model.run_main_model('SY36-Q2-S-3AB2X-A11')"
