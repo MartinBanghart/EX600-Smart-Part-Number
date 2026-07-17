@@ -16,24 +16,10 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- CSS Styling ---
-
-st.markdown("""
-<style>
-table { border-collapse: collapse !important;}
-
-table th,
-table td {border: 2px solid #444 !important;}
-
-table th {background-color: #f0f0f0;}
-</style>
-""", unsafe_allow_html=True)
-
 # ---------------------------------------------------------------------------------------- 
-
+# initializing variables in to session state
 if "valve_stations" not in st.session_state:
     st.session_state.valve_stations = [0]
-
 
 # ---------------------------------------------------------------------------------------- 
 # creates a list of all unique field options for a given category
@@ -63,57 +49,55 @@ def get_matching_symbols(data, category, **filters):
 
     return sorted(matches)
 
-
+# ---------------------------------------------------------------------------------------- 
 # resuable code for generating and removing valve station configuration blocks
 def render_valve_station(station_idx):
     with st.container(border=True):
+        
+        maincol_1, maincol_2 = st.columns([1,5])
+        with maincol_1:
+            st.write("") # used for vertically spacing the below markdown down, to center more with st.pills() in next column over
+            st.markdown(f"### Station {station_idx + 1}")
 
-        st.subheader(f"Station {station_idx + 1}")
-
-        (vsub_col1, vsub_col2, vsub_col3, vsub_col4, vsub_col5, vsub_col6, vsub_col7, vsym_col) = st.columns([1, 0.6, 0.6, 0.8, 0.6, 0.6, 0.6, 0.6])
-
-        # Type
-        with vsub_col1:
+        with maincol_2:
+            # Type
             station_type_opts = get_unique_field_values(YAML_DATA, "valve_symbols", "type",)
-            station_type = st.selectbox("Type", station_type_opts, key=f"station_type_{station_idx}")
+            station_type = st.pills("", station_type_opts, default='valve', key=f"station_type_{station_idx}")
+        
+        (vsub_col1, vsub_col2, vsub_col3, vsub_col4, vsub_col5, vsub_col6, vsub_col7, vdesc_col) = st.columns([0.5, 0.5, 0.8, 0.5, 0.5, 0.3, 0.4, 1])
 
         # Actuation
-        with vsub_col2:
+        with vsub_col1:
             actuation_opts = get_unique_field_values_by_type(YAML_DATA,"valve_symbols","actuation",station_type)
-
             st.selectbox("Actuation", actuation_opts if actuation_opts else [""], key=f"actuation_{station_idx}", disabled=not actuation_opts)
 
         # Seal Type
-        with vsub_col3:
+        with vsub_col2:
             seal_type_opts = get_unique_field_values_by_type(YAML_DATA, "valve_symbols", "seal_type", station_type)
-
             st.selectbox("Seal Type",seal_type_opts if seal_type_opts else [""], key=f"seal_type_{station_idx}", disabled=not seal_type_opts,)
 
         # Back Pressure Check
-        with vsub_col4:
+        with vsub_col3:
             back_pressure_opts = get_unique_field_values_by_type(YAML_DATA, "valve_symbols", "back_pressure_check", station_type)
-
             st.selectbox("Back Pressure Check", back_pressure_opts if back_pressure_opts else [""], key=f"back_pressure_check_{station_idx}", disabled=not back_pressure_opts)
 
         # Pilot Valve
-        with vsub_col5:
+        with vsub_col4:
             pilot_valve_opts = get_unique_field_values_by_type(YAML_DATA, "valve_symbols", "pilot_valve", station_type)
-
             st.selectbox("Pilot Valve", pilot_valve_opts if pilot_valve_opts else [""], key=f"pilot_valve_{station_idx}", disabled=not pilot_valve_opts)
 
         # Fitting Size
-        with vsub_col6:
+        with vsub_col5:
             fitting_size_opts = get_unique_field_values_by_type(YAML_DATA, "valve_symbols", "fitting_size", station_type )
-
             st.selectbox("Fitting Size", fitting_size_opts if fitting_size_opts else [""], key=f"fitting_size_{station_idx}", disabled=not fitting_size_opts)
 
         # Qty
-        with vsub_col7:
+        with vsub_col6:
             domain = [1] if station_type == "supply_blocking_disk" else list(range(1, 32))
             st.selectbox("Qty", domain, key=f"qty_{station_idx}",)
 
         # Matching Symbol
-        with vsym_col:
+        with vsub_col7:
 
             matching_symbols = get_matching_symbols(
                 YAML_DATA,
@@ -141,6 +125,19 @@ def render_valve_station(station_idx):
                 key=f"valve_symbol_{station_idx}",
                 disabled=not matching_symbols,
             )
+        
+        with vdesc_col:
+            symbol = st.session_state.get(f"valve_symbol_{station_idx}", "")
+            if symbol:
+                desc = YAML_DATA["valve_symbols"].get(symbol, {}).get("desc", "")
+                st.text_input(
+                        "Description",
+                        value=desc,
+                        disabled=True,
+                        key=f"desc_{station_idx}"
+                    )
+
+
 
         # Remove button
         if len(st.session_state.valve_stations) > 1:
@@ -151,11 +148,7 @@ def render_valve_station(station_idx):
                 st.session_state.valve_stations.remove(station_idx)
                 st.rerun()
 
-
-
-# ---------------------------------------------------------------------------------------- 
-
-manifold_model = SY1_EX600_MODEL
+# ----------------------------------------------------------------------------------------
 
 col1, col2, col3 = st.columns([1, 4, 1])
 

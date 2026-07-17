@@ -52,7 +52,7 @@ class Manifold_Base_Model(BaseModel):
     
     # simplified wiring type --> if "S" its single, if "D" its double
     def get_manifold_block_wiring_type(self):
-        self.manifold_block_wiring_type = self.symbol
+        self.manifold_block_wiring_type = self.symbol[0]
         return self
     
         # grabbing fitting_direction and port_measurement_type for the specific ab_port_size_symbol in yaml_data

@@ -23,3 +23,6 @@ combinations of "D" and "S" are still possible
 - P/E block is technically two part numbers, in the supply_blocking_disk submodel the part number method just returns one string, 
 f"SY{self.series}0M-26-1A , SY{self.series}0M-26-1A" that combines the two part numbers. This should ideally be changed to somehow feature two 
 parts that can be grabbed individually
+
+- Need to change valve_symbol for "D" and "S". Found issue where there is an ambigious valve callout term combination of single and 
+double wiring such as "5DS" due to there also being a "DS" valve option; proposed change is "D" -> "D0" and "S" -> "S0" 

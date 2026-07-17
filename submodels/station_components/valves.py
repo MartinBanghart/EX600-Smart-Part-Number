@@ -1,6 +1,6 @@
 # to run model for testing in terminal
 # --- run from root folder directory
-# --- use command "python -m submodels.station_components.base_mounted_valves"
+# --- use command "python -m submodels.station_components.valves"
 # --- don't add '.py' to end of model file or else won't work
 
 from pydantic import BaseModel, field_validator, model_validator
@@ -8,13 +8,13 @@ from typing import Optional, Literal
 
 from utilities.config import YAML_DATA, ab_mixed_fitting_tables
 
-class Base_Mounted_Valves_Model(BaseModel):
+class Valves_Model(BaseModel):
     # dropping any fields passed that are not declared in model
     model_config = {"extra": "ignore"}
 
     # --- Fields extracted from YAML entry ---
     symbol: str
-    type: Literal["base_mounted_valve"]
+    type: Literal["valve"]
     actuation: Literal["1", "2", "3", "4", "5", "A", "B", "C"]
     seal_type: Literal["", "0", "1"]
     pilot_type: Literal["", "R"]

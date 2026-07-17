@@ -14,7 +14,7 @@ from typing import Annotated
 from utilities.general_functions import TokenMapParser, parse_valve_callout
 
 # submodels
-from submodels.station_components.base_mounted_valves import Base_Mounted_Valves_Model
+from submodels.station_components.valves import Valves_Model
 from submodels.station_components.blanking_plate import Blanking_Plate_Assy_Model
 from submodels.station_components.manifold_base import Manifold_Base_Model
 from submodels.station_components.supply_blocking_disk import Supply_Blocking_Disk_Model
@@ -41,7 +41,7 @@ SY1_EX600_TOKEN_MAP = [
     {"name": "lt_surge_volt_sup_and_coil_type","pattern": r"(R|U|S|Z|T|V|W|M)","length": 1,},
     {"name": "manual_override", "pattern": r"(D|E|F)?", "length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
-    {"name": "valve_callout","pattern": r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D|S|X|Y|Z))+","length": None},
+    {"name": "valve_callout","pattern": r"(?:(?:[1-9]|[12][0-9]|3[0-2])?(?:[A-W][A-W]|D0|S0|X|Y|Z))+","length": None},
     {"name": "separator", "pattern": r"-", "length": 1},
     {"name": "sup_exh_porting_dir_and_cover_assy", "pattern": r"[A-Z]", "length": 1},
     {"name": "ab_port_size","pattern": r"(1[1-7]|2[1-5]|3[1-5]|4[1-5]|5[1-4]|6[1-4]|7[1-6])","length": 2},
@@ -116,14 +116,12 @@ class SY1_EX600_MODEL(BaseModel):
         return v
 
 
-
     @field_validator("io_unit_1", "io_unit_2", "io_unit_3", "io_unit_4")
     @classmethod
     def validate_io_units(cls, v):
         if v not in ("", *YAML_DATA["io_unit_symbols"].keys()):
             raise ValueError(f"Invalid IO Unit: {v}")
         return v
-
 
     
     @field_validator("lt_surge_volt_sup_and_coil_type")
@@ -233,7 +231,7 @@ class SY1_EX600_MODEL(BaseModel):
     def attach_valve_models(self):
 
         COMPONENT_TYPE_REGISTRY = {
-            "base_mounted_valve": Base_Mounted_Valves_Model,
+            "valve": Valves_Model,
             "blanking_plate": Blanking_Plate_Assy_Model,
             "manifold_base": Manifold_Base_Model,
             "supply_blocking_disk": Supply_Blocking_Disk_Model,
@@ -582,8 +580,13 @@ class SY1_EX600_MODEL(BaseModel):
         # --------------------------------------------
         
         # if no si unit is selected and endplate type is not Nil, raise error
-        if self.si_unit == "0" and (self.endplate_type != "" or (self.io_unit_1 != "" or self.io_unit_2 != "" or self.io_unit_3 != "" or self.io_unit_4 != "" )):
+        if self.si_unit == "0" and (self.endplate_type != "" or any([self.io_unit_1, self.io_unit_2, self.io_unit_3, self.io_unit_4])):
             raise ValueError("No SI Unit was selected, endplate type must be nil")
+        
+        
+        # SI unit selected --> endplate required
+        if self.si_unit != "0" and self.endplate_type == "":
+            raise ValueError("An endplate type must be selected when an SI Unit is selected")
         
         # ----- [Light Surge Voltage Suppressor & Coil Type] -----
         # --------------------------------------------------------
