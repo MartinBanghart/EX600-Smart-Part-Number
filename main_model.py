@@ -1,12 +1,12 @@
 # general dependencies
 import re
-import os
+from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
 # pydantic dependencies
-from pydantic import (BaseModel, field_validator, model_validator, Field, StringConstraints, ValidationError, ValidationInfo)
+from pydantic import (BaseModel, field_validator, model_validator, Field, StringConstraints, ValidationError)
 from typing import Literal, Optional
 from typing import Annotated
 
@@ -115,7 +115,6 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError(f"Invalid endplate type: {v}")
         return v
 
-
     @field_validator("io_unit_1", "io_unit_2", "io_unit_3", "io_unit_4")
     @classmethod
     def validate_io_units(cls, v):
@@ -123,7 +122,6 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError(f"Invalid IO Unit: {v}")
         return v
 
-    
     @field_validator("lt_surge_volt_sup_and_coil_type")
     @classmethod
     def validate_lt_surge_volt_sup_and_coil_type(cls, v):
@@ -479,14 +477,11 @@ class SY1_EX600_MODEL(BaseModel):
         # - Allocates directory and creates one if none exist
         # ----------------------------
         
-        # rel path --> update as necessary in future
-        directory = r"outputs"
-        # check if dir exists, otherwise make it
-        os.makedirs(directory, exist_ok=True)
-
-        # intialize the filename and creating filepath
-        filename=f"{self.part_number()}_BOM.pdf"
-        filepath = os.path.join(directory, filename)
+        # sets location to output as downloads folder for current user    
+        downloads_dir = Path.home() / "Downloads"    
+        downloads_dir.mkdir(exist_ok=True)    
+        filename = f"{self.part_number()}_BOM.pdf"    
+        filepath = downloads_dir / filename
         
         validator_df = self.get_tokens_df(full_report=False)
         bom_df = self.bom()
@@ -500,7 +495,7 @@ class SY1_EX600_MODEL(BaseModel):
         for ax in (ax1, ax2):
             ax.axis("off")
 
-        # Model main Tokens table
+        # model main tokens table
         validator_table = ax1.table(
             cellText=validator_df.values,
             colLabels=validator_df.columns,
@@ -583,7 +578,6 @@ class SY1_EX600_MODEL(BaseModel):
         if self.si_unit == "0" and (self.endplate_type != "" or any([self.io_unit_1, self.io_unit_2, self.io_unit_3, self.io_unit_4])):
             raise ValueError("No SI Unit was selected, endplate type must be nil")
         
-        
         # SI unit selected --> endplate required
         if self.si_unit != "0" and self.endplate_type == "":
             raise ValueError("An endplate type must be selected when an SI Unit is selected")
@@ -628,6 +622,12 @@ class SY1_EX600_MODEL(BaseModel):
             raise ValueError("number_of_stations was not calculated properly")
         if self.number_of_stations < 2:
             raise ValueError("A minimum of 2 stations must be configured for manifold")
+        
+        # Empty stations (manifold base only) and stations with valves cannot be mixed
+        val_syms = [v["symbol"] for v in self.parsed_valves]
+        special_syms = {"D0", "S0"}
+        if any(sym in special_syms for sym in val_syms) and any(sym not in special_syms for sym in val_syms):
+            raise ValueError("D0 and S0 may only be combined with each other, not with other symbols.")
         
         # ----- [Sup/Exh Porting Direction and Cover Assembly] Tests -----
         # ----------------------------------------------------------------

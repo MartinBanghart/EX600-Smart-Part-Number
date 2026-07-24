@@ -117,6 +117,8 @@ class Valves_Model(BaseModel):
             raise ValueError("Rubber seal type must be selected for 4 position dual 3 port actuation type")
         if self.back_pressure_check == "H" and self.seal_type != "0":
             raise ValueError("Rubber seal type must be selected for built-in back pressure check valve")
+        if self.back_pressure_check == "H" and self.series == "7":
+            raise ValueError("Back pressure check valve is not available for SY7000 series")
         if self.pilot_valve == "K" and self.seal_type != "1":
             raise ValueError("Metal seal type must be selected for high pressure pilot valve type")
         if self.lt_surge_volt_sup not in ('Z', 'NZ') and self.coil_type == "T":

@@ -31,17 +31,6 @@ st.set_page_config(
     layout="wide"
 )
 # ---------------------------------------------------------------------------------------- 
-pages = {
-    "Basic": [
-        st.Page("pages/test.py", title="Test Page"),
-    ],
-    
-}
-
-pg = st.navigation(pages, position="top")
-pg.run()
-
-# ---------------------------------------------------------------------------------------- 
 # initializing variables in to session state
 if "valve_stations" not in st.session_state:
     st.session_state.valve_stations = [0]

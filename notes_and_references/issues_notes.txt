@@ -1,22 +1,22 @@
 General Notes for Issues observed
 ----------------------------------
 - in field_values.yaml for valve_symbols 'D' and 'S' which relate to a manifold base without valve_symbols
-the type field is "manifold_base" a submodel or some other class has to be created to handle this other wise it isn't caught correctly
+the type field is "manifold_base" a submodel or some other class has to be created to handle this other wise it isn't caught correctly [IMPLEMENTED, DOUBLE CHECK]
 
 - solenoid_qty is determined from a specific valve_symbols field 'solenoid_qty'. For blanking plates, this is currently set to 0.
 However, within component models for valves/blanking plates/ etc a manifold block is generated as double wired when a valve symbol with 
 a solenoid_qty of 0 is selected --> blanking_plates. This could lead to an overload of max 32 pins (solenoids) in the case of say 31
 single solenoid valves and 1 blanking plate (considered 2 solenoid) = 33.
-----> potential fix would be re-allocating valve symbols to blanking plates such that they specify manifold block wiring 
+----> potential fix would be re-allocating valve symbols to blanking plates such that they specify manifold block wiring
 
-- need to add submodels for EX600 endplates to get part numbers
+- need to add submodels for EX600 endplates to get part numbers [IMPLEMENTED, CREATED METHOD WITHIN MAIN MODEL INSTEAD OF SUBMODEL]
 
-- need to add submodels for IO units to get part numbers
+- need to add submodels for IO units to get part numbers [IMPLEMENTED, CREATED METHOD WITHIN MAIN MODEL INSTEAD OF SUBMODEL]
 
-- need to add supply blocking disk submodel
+- need to add supply blocking disk submodel [IMPLEMENTED, CREATED SUBMODEL]
 
 - add logical condition to main_model to disallow any combinations of valves and empty manifold stations ("D" and "S" options), however make sure 
-combinations of "D" and "S" are still possible
+combinations of "D" and "S" are still possible [UPDATED HTO, DOUBLE CHECK IF MAIN MODEL HAD LOGICAL CONDITION ADDED TO VALIDATE THIS]
 
 - no way to configure mixed fittings with only manifold base and no valves since "D" and "S" are only option without variable fitting_size options
 
@@ -25,4 +25,4 @@ f"SY{self.series}0M-26-1A , SY{self.series}0M-26-1A" that combines the two part 
 parts that can be grabbed individually
 
 - Need to change valve_symbol for "D" and "S". Found issue where there is an ambigious valve callout term combination of single and 
-double wiring such as "5DS" due to there also being a "DS" valve option; proposed change is "D" -> "D0" and "S" -> "S0" 
+double wiring such as "5DS" due to there also being a "DS" valve option; proposed change is "D" -> "D0" and "S" -> "S0" [IMPLEMENTED CHANGE IN HTO AND MAIN MODEL, NEED TO UPDATE VALVE SYMBOL LIST]
