@@ -259,16 +259,16 @@ lt_surge_volt_sup_and_coil_type_symbols:
 man_override_symbols:
   "":
     field: man_override
-    desc:
+    desc: Non-locking push type
   "D":
     field: man_override
-    desc:
+    desc: Push-turn locking slotted type
   "E":
     field: man_override
-    desc:
+    desc: Push-turn locking lever type
   "F":
     field: man_override
-    desc:
+    desc: Slide locking type
 
 # ---------------------------------- < VALVE SYMBOLS > ----------------------------------
 valve_symbols:
@@ -4116,7 +4116,33 @@ valve_symbols:
     solenoid_qty: 2
     x_option: True
 
-  # ----- Blanking Plates with Output -----
+  # ----- Blanking Plates with and without Output -----
+  WA:
+    field: "valve_callout"
+    type: "blanking_plate"
+    desc: "Standard Blanking Plate, Double Wired"
+    actuation: ""
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 2
+    x_option: False
+
+  WB:
+    field: "valve_callout"
+    type: "blanking_plate"
+    desc: "Standard Blanking Plate, Single Wired"
+    actuation: ""
+    seal_type: ""
+    pilot_type: ""
+    back_pressure_check: ""
+    pilot_valve: ""
+    fitting_size: 0
+    solenoid_qty: 1
+    x_option: False
+
   WH:
     field: "valve_callout"
     type: "blanking_plate"
@@ -4127,7 +4153,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
 
   WI:
@@ -4140,7 +4166,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
 
   WJ:
@@ -4153,7 +4179,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
 
   WK:
@@ -4166,7 +4192,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
 
   WL:
@@ -4179,7 +4205,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
 
   WM:
@@ -4192,9 +4218,8 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 2
     x_option: False
-
   # ----- Individual Supply Block -----
   WN:
     field: "valve_callout"
@@ -4206,7 +4231,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 0
-    solenoid_qty: 0
+    solenoid_qty: 1
     x_option: False
 
   WP:
@@ -4219,7 +4244,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 1
-    solenoid_qty: 0
+    solenoid_qty: 1
     x_option: False
 
   WQ:
@@ -4232,7 +4257,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 2
-    solenoid_qty: 0
+    solenoid_qty: 1
     x_option: False
 
   WR:
@@ -4245,7 +4270,7 @@ valve_symbols:
     back_pressure_check: ""
     pilot_valve: ""
     fitting_size: 3
-    solenoid_qty: 0
+    solenoid_qty: 1
     x_option: False
 
   # ----- Individual Exhaust Block -----
@@ -4301,19 +4326,6 @@ valve_symbols:
     solenoid_qty: 0
     x_option: False
 
-  # ----- Blanking Plates -----
-  WW:
-    field: "valve_callout"
-    type: "blanking_plate"
-    desc: "Standard Blanking Plate"
-    actuation: ""
-    seal_type: ""
-    pilot_type: ""
-    back_pressure_check: ""
-    pilot_valve: ""
-    fitting_size: 0
-    solenoid_qty: 0
-    x_option: False
   # ----- Blocks -----
   X:
     field: "valve_callout"

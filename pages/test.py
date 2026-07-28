@@ -1,11 +1,9 @@
 # general dependencies
 import streamlit as st
-from typing import get_origin, get_args, Annotated, Literal
 from pydantic import StringConstraints, ValidationError
-import base64
 
 # model imports
-from main_model import run_main_model, SY1_EX600_MODEL
+from main_model import run_main_model
 
 # Loading data
 from utilities.config import YAML_DATA
@@ -76,7 +74,7 @@ def render_valve_station(station_idx):
         with maincol_2:
             # Type
             station_type_opts = get_unique_field_values(YAML_DATA, "valve_symbols", "type",)
-            station_type = st.pills("", station_type_opts, default='valve', key=f"station_type_{station_idx}")
+            station_type = st.pills("Station Type", station_type_opts, default='valve', key=f"station_type_{station_idx}", label_visibility="collapsed")
         
         (vsub_col1, vsub_col2, vsub_col3, vsub_col4, vsub_col5, vsub_col6, vsub_col7, vdesc_col) = st.columns([0.3, 0.3, 0.5, 0.4, 0.4, 0.3, 0.4, 1])
 

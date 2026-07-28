@@ -6,9 +6,13 @@ st.markdown("""
 <style>
     /* Navigation links */
     [data-testid="stTopNavLinkContainer"] a {
-        font-size: 1.2rem !important;
-        padding: 0.3rem 4rem !important;
-        min-height: 50px !important;
+        font-size: 1.3rem !important;
+        padding: 0.3rem 3rem !important;
+        min-height: 30px !important;
+    }
+    
+    /* Reduce space between nav and page content */
+    .block-container {padding-top: 3rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -21,8 +25,8 @@ st.set_page_config(
 )
 # ---------------------------------------------------------------------------------------- 
 pages = [
-        st.Page("pages/home.py", title="Home"),
-        st.Page("pages/test.py", title="Test"),
+        st.Page("pages/home.py", title="Info"),
+        st.Page("pages/test.py", title="Configure"),
 ]
 pg = st.navigation(pages, position="top")
 pg.run()
