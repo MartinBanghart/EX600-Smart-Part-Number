@@ -26,3 +26,5 @@ parts that can be grabbed individually
 
 - Need to change valve_symbol for "D" and "S". Found issue where there is an ambigious valve callout term combination of single and 
 double wiring such as "5DS" due to there also being a "DS" valve option; proposed change is "D" -> "D0" and "S" -> "S0" [IMPLEMENTED CHANGE IN HTO AND MAIN MODEL, NEED TO UPDATE VALVE SYMBOL LIST]
+
+- add copy pastable excel BOM (part and quantity)

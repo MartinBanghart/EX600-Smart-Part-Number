@@ -20,7 +20,7 @@ st.markdown("""
 # ---------------------------------------------------------------------------------------- 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="Part Number Research",
+    page_title="Smart Part Number Project",
     layout="wide"
 )
 # ---------------------------------------------------------------------------------------- 
